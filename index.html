@@ -1,7 +1,3 @@
-# กำลังสร้างให้เลย! 🚀
-
-ขอโทษที่ค้างไว้ นี่คือเวอร์ชันสมบูรณ์ครบทุกฟีเจอร์:
-
 ```html
 <!DOCTYPE html>
 <html lang="th">
@@ -31,8 +27,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans Thai',sa
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--b2);border-radius:3px}
-
-/* HEADER */
 .hdr{background:linear-gradient(135deg,#1E3A8A 0%,#1D4ED8 55%,#7C3AED 100%);position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(29,78,216,.28)}
 .hdr-in{max-width:1440px;margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:11px}
@@ -40,84 +34,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans Thai',sa
 .brand-name{color:#fff;font-size:16px;font-weight:800;letter-spacing:-.3px;line-height:1.2}
 .brand-sub{color:rgba(255,255,255,.65);font-size:9.5px;text-transform:uppercase;letter-spacing:.8px}
 .hstats{display:flex;gap:24px}
-.hs{text-align:center;color:#fff}
-.hs-v{font-size:15px;font-weight:800;line-height:1.2}
-.hs-k{font-size:9px;opacity:.65;text-transform:uppercase;letter-spacing:.7px}
-
-/* NAV */
+.hs{text-align:center;color:#fff}.hs-v{font-size:15px;font-weight:800;line-height:1.2}.hs-k{font-size:9px;opacity:.65;text-transform:uppercase;letter-spacing:.7px}
 .nav{background:#fff;border-bottom:1px solid var(--b1);position:sticky;top:62px;z-index:199;box-shadow:var(--s1)}
 .nav-in{max-width:1440px;margin:0 auto;padding:0 24px;display:flex;overflow-x:auto;scrollbar-width:none}
 .nav-in::-webkit-scrollbar{display:none}
-.nb{padding:0 18px;height:50px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--t3);display:flex;align-items:center;gap:7px;white-space:nowrap;border-bottom:2.5px solid transparent;transition:all .18s;font-family:inherit}
-.nb:hover{color:var(--p);background:var(--pl)}
-.nb.on{color:var(--p);border-bottom-color:var(--p);font-weight:700}
+.nb{padding:0 16px;height:50px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--t3);display:flex;align-items:center;gap:7px;white-space:nowrap;border-bottom:2.5px solid transparent;transition:all .18s;font-family:inherit}
+.nb:hover{color:var(--p);background:var(--pl)}.nb.on{color:var(--p);border-bottom-color:var(--p);font-weight:700}
 .nc{min-width:17px;height:17px;padding:0 5px;background:var(--p);color:#fff;font-size:10px;font-weight:800;border-radius:100px;display:inline-flex;align-items:center;justify-content:center}
-
-/* MAIN */
 .main{max-width:1440px;margin:0 auto;padding:26px 24px}
 .sec{display:none}.sec.on{display:block;animation:fu .22s ease}
 @keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-/* PAGE HEAD */
-.ph{margin-bottom:26px}
-.ph-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.pt{font-size:22px;font-weight:800;color:var(--t1);letter-spacing:-.4px;margin-bottom:5px}
-.pd{font-size:13px;color:var(--t3)}
-
-/* CARD */
+.ph{margin-bottom:26px}.ph-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.pt{font-size:22px;font-weight:800;color:var(--t1);letter-spacing:-.4px;margin-bottom:5px}.pd{font-size:13px;color:var(--t3)}
 .card{background:#fff;border:1px solid var(--b1);border-radius:var(--rl);box-shadow:var(--s1);overflow:hidden}
-.cb{padding:22px}
-.ch{padding:18px 22px 15px;border-bottom:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between}
-.ct{font-size:14px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:8px}
-.cs{font-size:12px;color:var(--t3);margin-top:2px}
-
-/* GRID */
+.cb{padding:22px}.ch{padding:18px 22px 15px;border-bottom:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between}
+.ct{font-size:14px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:8px}.cs{font-size:12px;color:var(--t3);margin-top:2px}
 .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
 .g5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .g6{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-
-/* FORM */
 .fg{margin-bottom:14px}.fg:last-child{margin-bottom:0}
 .fl{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
 .fl .req{color:var(--bad)}
 .fi{width:100%;padding:9px 12px;border:1.5px solid var(--b1);border-radius:var(--r);font-size:14px;color:var(--t1);background:#fff;transition:all .18s;font-family:inherit;outline:none}
-.fi:hover{border-color:var(--b2)}
-.fi:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(29,78,216,.08)}
-.fi::placeholder{color:var(--b2)}
+.fi:hover{border-color:var(--b2)}.fi:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(29,78,216,.08)}.fi::placeholder{color:var(--b2)}
 .iw{position:relative}
 .iw .ipre{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--t3);font-weight:500;pointer-events:none}
 .iw .isuf{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--t3);font-weight:500;pointer-events:none}
-.iw.p .fi{padding-left:27px}
-.iw.s .fi{padding-right:27px}
+.iw.p .fi{padding-left:27px}.iw.s .fi{padding-right:27px}
 .fh{font-size:11px;color:var(--t3);margin-top:4px}
-
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 17px;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .18s;font-family:inherit;white-space:nowrap;line-height:1}
 .btn:active{transform:translateY(1px)!important}
-.btn-p{background:var(--p);color:#fff}
-.btn-p:hover{background:var(--ph);box-shadow:0 4px 14px rgba(29,78,216,.28);transform:translateY(-1px)}
-.btn-ok{background:var(--ok);color:#fff}
-.btn-ok:hover{background:#047857;box-shadow:0 4px 14px rgba(5,150,105,.24);transform:translateY(-1px)}
-.btn-bad{background:var(--bad);color:#fff}
-.btn-bad:hover{background:#B91C1C}
-.btn-g{background:transparent;color:var(--t2);border:1.5px solid var(--b1)}
-.btn-g:hover{background:var(--bg2);border-color:var(--b2)}
-.btn-ol{background:transparent;color:var(--p);border:1.5px solid var(--p)}
-.btn-ol:hover{background:var(--pl)}
-.btn-sm{padding:6px 12px;font-size:12px;border-radius:var(--rs)}
-.btn-lg{padding:11px 24px;font-size:14px}
+.btn-p{background:var(--p);color:#fff}.btn-p:hover{background:var(--ph);box-shadow:0 4px 14px rgba(29,78,216,.28);transform:translateY(-1px)}
+.btn-ok{background:var(--ok);color:#fff}.btn-ok:hover{background:#047857;transform:translateY(-1px)}
+.btn-bad{background:var(--bad);color:#fff}.btn-bad:hover{background:#B91C1C}
+.btn-g{background:transparent;color:var(--t2);border:1.5px solid var(--b1)}.btn-g:hover{background:var(--bg2);border-color:var(--b2)}
+.btn-ol{background:transparent;color:var(--p);border:1.5px solid var(--p)}.btn-ol:hover{background:var(--pl)}
+.btn-sm{padding:6px 12px;font-size:12px;border-radius:var(--rs)}.btn-lg{padding:11px 24px;font-size:14px}
 .brow{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-
-/* METRIC CARD */
 .mc{background:#fff;border:1px solid var(--b1);border-radius:var(--rl);padding:16px 18px;transition:all .2s;position:relative;overflow:hidden}
 .mc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--p);border-radius:var(--rl) var(--rl) 0 0}
 .mc.g::before{background:var(--ok)}.mc.a::before{background:var(--warn)}.mc.v::before{background:var(--sec)}.mc.r::before{background:var(--bad)}.mc.t::before{background:#0D9488}.mc.i::before{background:#4F46E5}
 .mc:hover{box-shadow:var(--s3);transform:translateY(-2px)}
 .mc-lbl{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;display:flex;align-items:center;gap:5px}
 .mc-v{font-size:24px;font-weight:800;line-height:1.15;color:var(--t1);margin-bottom:4px;font-variant-numeric:tabular-nums}
-.mc-v.b{color:var(--p)}.mc-v.g{color:var(--ok)}.mc-v.a{color:var(--warn)}.mc-v.v{color:var(--sec)}.mc-v.r{color:var(--bad)}.mc-v.t{color:#0D9488}
+.mc-v.b{color:var(--p)}.mc-v.g{color:var(--ok)}.mc-v.a{color:var(--warn)}.mc-v.v{color:var(--sec)}.mc-v.r{color:var(--bad)}.mc-v.t{color:#0D9488}.mc-v.sky{color:#0369A1}.mc-v.lime{color:#15803D}.mc-v.rose{color:#BE123C}
 .mc-sub{font-size:11px;color:var(--t3)}
 .mc-bg-b{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#BFDBFE}
 .mc-bg-g{background:linear-gradient(135deg,#F0FDF4,#D1FAE5);border-color:#A7F3D0}
@@ -125,36 +87,27 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans Thai',sa
 .mc-bg-v{background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#DDD6FE}
 .mc-bg-t{background:linear-gradient(135deg,#F0FDFA,#CCFBF1);border-color:#99F6E4}
 .mc-bg-r{background:linear-gradient(135deg,#FFF1F2,#FFE4E6);border-color:#FECDD3}
-
-/* RESULT BOX */
+.mc-bg-sky{background:linear-gradient(135deg,#F0F9FF,#E0F2FE);border-color:#BAE6FD}
+.mc-bg-lime{background:linear-gradient(135deg,#F7FEE7,#ECFCCB);border-color:#BEF264}
+.mc-bg-rose{background:linear-gradient(135deg,#FFF1F2,#FFE4E6);border-color:#FECDD3}
 .rbox{background:linear-gradient(135deg,#F0F7FF,#F5F0FF);border:1px solid #C7D2FE;border-radius:var(--rl);padding:22px}
 .rtitle{font-size:11px;font-weight:800;color:var(--p);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px;display:flex;align-items:center;gap:7px}
-
-/* FORMULA */
 .frmbox{background:var(--bg2);border:1px solid var(--b1);border-radius:var(--r);padding:13px 15px;font-size:12px;color:var(--t2);line-height:2.1}
 .frmbox code{background:#fff;color:var(--p);font-family:'Consolas','Monaco',monospace;font-size:11px;padding:2px 6px;border-radius:4px;border:1px solid var(--b1)}
-
-/* BADGE */
 .bdg{display:inline-flex;align-items:center;padding:2px 8px;border-radius:100px;font-size:11px;font-weight:700}
 .bdg-b{background:#DBEAFE;color:#1E40AF}.bdg-g{background:#D1FAE5;color:#065F46}
 .bdg-a{background:#FEF3C7;color:#92400E}.bdg-v{background:#EDE9FE;color:#5B21B6}
 .bdg-r{background:#FFE4E6;color:#9F1239}.bdg-t{background:#CCFBF1;color:#134E4A}
-.bdg-gr{background:var(--bg2);color:var(--t3)}
-
-/* PROGRESS */
-.prw{margin-bottom:2px}
-.pri{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-.prl{font-size:12px;font-weight:600;color:var(--t2)}
-.prp{font-size:12px;font-weight:700}
+.bdg-gr{background:var(--bg2);color:var(--t3)}.bdg-sky{background:#E0F2FE;color:#075985}
+.bdg-lime{background:#DCFCE7;color:#166534}.bdg-rose{background:#FFE4E6;color:#9F1239}
+.bdg-dark{background:#1E293B;color:#94A3B8}.bdg-green{background:#BBF7D0;color:#14532D}
+.prw{margin-bottom:2px}.pri{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.prl{font-size:12px;font-weight:600;color:var(--t2)}.prp{font-size:12px;font-weight:700}
 .prt{height:7px;background:var(--bg2);border-radius:100px;overflow:hidden}
 .prf{height:100%;border-radius:100px;transition:width .55s cubic-bezier(.4,0,.2,1)}
-.prf.b{background:linear-gradient(90deg,var(--p),#60A5FA)}
-.prf.g{background:linear-gradient(90deg,var(--ok),#34D399)}
-.prf.a{background:linear-gradient(90deg,var(--warn),#FBBF24)}
-.prf.r{background:linear-gradient(90deg,var(--bad),#F87171)}
+.prf.b{background:linear-gradient(90deg,var(--p),#60A5FA)}.prf.g{background:linear-gradient(90deg,var(--ok),#34D399)}
+.prf.a{background:linear-gradient(90deg,var(--warn),#FBBF24)}.prf.r{background:linear-gradient(90deg,var(--bad),#F87171)}
 .prs{font-size:10px;color:var(--t3);margin-top:3px;display:flex;align-items:center;gap:4px}
-
-/* TABLE */
 .tw{overflow-x:auto;border-radius:var(--rl);border:1px solid var(--b1)}
 table{width:100%;border-collapse:collapse}
 thead th{padding:11px 15px;text-align:left;font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;background:var(--bg2);border-bottom:1px solid var(--b1);white-space:nowrap}
@@ -163,77 +116,46 @@ tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:var(--pl)}
 .tn{font-weight:700;font-size:13px}.tnm{font-size:11px;color:var(--t3);margin-top:2px}
 .tv{font-weight:600;color:var(--p);font-variant-numeric:tabular-nums;font-size:13px}
-
-/* SUB TABS */
 .str{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
 .st{padding:7px 15px;border-radius:100px;border:1.5px solid var(--b1);background:#fff;font-size:12px;font-weight:600;color:var(--t3);cursor:pointer;transition:all .18s;font-family:inherit}
-.st:hover{border-color:var(--p);color:var(--p);background:var(--pl)}
-.st.on{background:var(--p);color:#fff;border-color:var(--p)}
-
-/* DIV */
+.st:hover{border-color:var(--p);color:var(--p);background:var(--pl)}.st.on{background:var(--p);color:#fff;border-color:var(--p)}
 .dv{height:1px;background:var(--b1);margin:18px 0}
-
-/* EMPTY */
 .emp{text-align:center;padding:60px 20px;display:flex;flex-direction:column;align-items:center;gap:11px}
-.emp-i{font-size:48px;line-height:1}
-.emp-t{font-size:16px;font-weight:700;color:var(--t2)}
-.emp-d{font-size:13px;color:var(--t3);max-width:350px;line-height:1.7}
-
-/* TOOLTIP */
+.emp-i{font-size:48px;line-height:1}.emp-t{font-size:16px;font-weight:700;color:var(--t2)}.emp-d{font-size:13px;color:var(--t3);max-width:350px;line-height:1.7}
 .tip{position:relative;display:inline-flex;align-items:center}
 .tip-i{width:14px;height:14px;background:var(--b1);border-radius:50%;font-size:9px;color:var(--t3);cursor:help;display:inline-flex;align-items:center;justify-content:center;margin-left:4px;flex-shrink:0;font-style:italic;font-weight:700}
-.tip-t{display:none;position:absolute;bottom:130%;left:50%;transform:translateX(-50%);background:#0F172A;color:#fff;font-size:11px;padding:7px 11px;border-radius:7px;min-width:170px;max-width:220px;text-align:center;z-index:500;line-height:1.5;pointer-events:none;font-weight:400;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.tip-t{display:none;position:absolute;bottom:130%;left:50%;transform:translateX(-50%);background:#0F172A;color:#fff;font-size:11px;padding:7px 11px;border-radius:7px;min-width:170px;max-width:230px;text-align:center;z-index:500;line-height:1.5;pointer-events:none;font-weight:400;box-shadow:0 4px 12px rgba(0,0,0,.2)}
 .tip-t::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#0F172A}
 .tip:hover .tip-t{display:block}
-
-/* KPI CARD */
 .kpic{background:#fff;border:1px solid var(--b1);border-radius:var(--rl);margin-bottom:18px;box-shadow:var(--s1);overflow:hidden}
 .kpih{background:linear-gradient(135deg,#1E3A8A,#1D4ED8 55%,#7C3AED);padding:17px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.kpin{font-size:15px;font-weight:800;color:#fff}
-.kpim{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
+.kpin{font-size:15px;font-weight:800;color:#fff}.kpim{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
 .kpib{padding:18px 22px}
-
-/* KPI metric item */
 .kmi{background:var(--bg);border:1px solid var(--b1);border-radius:var(--r);padding:14px}
 .kmit{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
 .kmi-g{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px}
-.kmi-g .fg{margin:0}
-.kmi-g .fl{font-size:9px;letter-spacing:.3px}
-.kmi-g .fi{padding:6px 10px;font-size:12px}
-
-/* Overall KPI */
+.kmi-g .fg{margin:0}.kmi-g .fl{font-size:9px;letter-spacing:.3px}.kmi-g .fi{padding:6px 10px;font-size:12px}
 .kpiovr{border-radius:var(--r);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px;border:1px solid}
-.kpiovr.ok{background:var(--okl);border-color:#A7F3D0}
-.kpiovr.warn{background:var(--warnl);border-color:#FDE68A}
-.kpiovr.bad{background:var(--badl);border-color:#FECACA}
+.kpiovr.ok{background:var(--okl);border-color:#A7F3D0}.kpiovr.warn{background:var(--warnl);border-color:#FDE68A}.kpiovr.bad{background:var(--badl);border-color:#FECACA}
 .kpotr{font-size:13px;font-weight:700}
 .kpiovr.ok .kpotr{color:var(--ok)}.kpiovr.warn .kpotr{color:var(--warn)}.kpiovr.bad .kpotr{color:var(--bad)}
-
-/* CHART CARD */
 .chc{background:#fff;border:1px solid var(--b1);border-radius:var(--rl);padding:20px;box-shadow:var(--s1)}
-.cht{font-size:14px;font-weight:700;color:var(--t1);margin-bottom:3px}
-.chs{font-size:11px;color:var(--t3);margin-bottom:16px}
+.cht{font-size:14px;font-weight:700;color:var(--t1);margin-bottom:3px}.chs{font-size:11px;color:var(--t3);margin-bottom:16px}
 .chw{position:relative;height:230px}
-
-/* SUMMARY STRIP */
 .sstrip{background:linear-gradient(135deg,var(--pd),var(--p) 50%,var(--sec));border-radius:var(--rl);padding:18px 26px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:22px}
-.ssi{color:#fff;flex:1;min-width:90px}
-.ssv{font-size:21px;font-weight:800;line-height:1.2}
-.ssk{font-size:9px;opacity:.7;text-transform:uppercase;letter-spacing:.7px}
+.ssi{color:#fff;flex:1;min-width:90px}.ssv{font-size:21px;font-weight:800;line-height:1.2}.ssk{font-size:9px;opacity:.7;text-transform:uppercase;letter-spacing:.7px}
 .ssdv{width:1px;height:36px;background:rgba(255,255,255,.2)}
-
-/* TOAST */
+/* Platform header styles */
+.ph-gg{background:linear-gradient(135deg,#1A73E8,#34A853)}
+.ph-tt{background:linear-gradient(135deg,#010101,#FE2C55)}
+.ph-ln{background:linear-gradient(135deg,#00B900,#00C300)}
 #toasts{position:fixed;bottom:22px;right:22px;z-index:9999;display:flex;flex-direction:column-reverse;gap:8px;pointer-events:none}
 .tst{padding:10px 15px;border-radius:10px;font-size:13px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.12);max-width:300px;animation:si .22s ease;pointer-events:auto;display:flex;align-items:center;gap:8px}
 .tst.ok{background:#F0FDF4;border:1px solid #BBF7D0;color:#065F46}
 .tst.warn{background:var(--warnl);border:1px solid #FDE68A;color:#92400E}
 .tst.bad{background:var(--badl);border:1px solid #FECACA;color:#991B1B}
 @keyframes si{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
-
-/* SPACING */
 .mb3{margin-bottom:12px}.mb4{margin-bottom:16px}.mb6{margin-bottom:24px}.mt4{margin-top:16px}.mt6{margin-top:24px}
-
-/* RESPONSIVE */
 @media(max-width:1100px){.g5{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr)}.g6{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){
@@ -255,7 +177,7 @@ tbody tr:hover td{background:var(--pl)}
   <div class="hdr-in">
     <div class="brand">
       <div class="brand-ico">📊</div>
-      <div><div class="brand-name">AdMetrics Pro</div><div class="brand-sub">Media Buying & Performance Calculator</div></div>
+      <div><div class="brand-name">AdMetrics Pro</div><div class="brand-sub">Multi-Platform Performance Calculator</div></div>
     </div>
     <div class="hstats">
       <div class="hs"><div class="hs-v" id="hs1">0</div><div class="hs-k">Campaigns</div></div>
@@ -270,7 +192,10 @@ tbody tr:hover td{background:var(--pl)}
 <nav class="nav">
   <div class="nav-in">
     <button class="nb on" onclick="goTab('calc')">🧮 Media Buying</button>
-    <button class="nb" onclick="goTab('fb')">📘 Facebook Ads</button>
+    <button class="nb" onclick="goTab('fb')">📘 Facebook</button>
+    <button class="nb" onclick="goTab('gg')">🔍 Google</button>
+    <button class="nb" onclick="goTab('tt')">🎵 TikTok</button>
+    <button class="nb" onclick="goTab('ln')">💚 LINE</button>
     <button class="nb" onclick="goTab('camps')">📋 Campaigns <span class="nc" id="nc">0</span></button>
     <button class="nb" onclick="goTab('kpi')">🎯 KPI Tracking</button>
     <button class="nb" onclick="goTab('dash')">📈 Dashboard</button>
@@ -279,63 +204,35 @@ tbody tr:hover td{background:var(--pl)}
 
 <main class="main">
 
-<!-- =================== TAB: MEDIA BUYING =================== -->
+<!-- ===== MEDIA BUYING ===== -->
 <section id="t-calc" class="sec on">
-  <div class="ph">
-    <div class="pt">Media Buying Calculator</div>
-    <div class="pd">คำนวณ Impressions, Clicks, Conversions, CPA และ ROAS จากงบประมาณแคมเปญ</div>
-  </div>
+  <div class="ph"><div class="pt">Media Buying Calculator</div><div class="pd">คำนวณ Impressions, Clicks, Conversions, CPA และ ROAS จากงบประมาณแคมเปญ</div></div>
   <div class="g2">
-    <!-- INPUTS -->
     <div>
       <div class="card">
         <div class="ch"><div><div class="ct">⚙️ Campaign Setup</div><div class="cs">กรอกข้อมูลแคมเปญเพื่อคำนวณและบันทึก</div></div></div>
         <div class="cb">
-          <div class="fg">
-            <label class="fl">Campaign Name <span class="req">*</span></label>
-            <input class="fi" id="cn" type="text" placeholder="e.g. Q2 Brand Campaign 2025">
-          </div>
+          <div class="fg"><label class="fl">Campaign Name <span class="req">*</span></label><input class="fi" id="cn" type="text" placeholder="e.g. Q2 Brand Campaign 2025"></div>
           <div class="g2">
-            <div class="fg">
-              <label class="fl">Budget <span class="tip"><span class="tip-i">i</span><span class="tip-t">งบประมาณรวมทั้งแคมเปญ (บาท)</span></span></label>
-              <div class="iw p"><span class="ipre">฿</span><input class="fi" id="cb2" type="number" min="0" placeholder="50,000" oninput="calcM()"></div>
-            </div>
-            <div class="fg">
-              <label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per Mille — ต้นทุนต่อการแสดงผล 1,000 ครั้ง</span></span></label>
-              <div class="iw p"><span class="ipre">฿</span><input class="fi" id="ccpm" type="number" min="0" step=".1" placeholder="80" oninput="calcM()"></div>
-            </div>
-            <div class="fg">
-              <label class="fl">CPC <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per Click — ต้นทุนต่อ 1 คลิก</span></span></label>
-              <div class="iw p"><span class="ipre">฿</span><input class="fi" id="ccpc" type="number" min="0" step=".01" placeholder="5.00" oninput="calcM()"></div>
-            </div>
-            <div class="fg">
-              <label class="fl">CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">Conversion Rate — % ของคนที่คลิกแล้วซื้อสินค้า</span></span></label>
-              <div class="iw s"><input class="fi" id="ccvr" type="number" min="0" max="100" step=".01" placeholder="2.50" oninput="calcM()"><span class="isuf">%</span></div>
-            </div>
+            <div class="fg"><label class="fl">Budget <span class="tip"><span class="tip-i">i</span><span class="tip-t">งบประมาณรวมทั้งแคมเปญ</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="cb2" type="number" min="0" placeholder="50,000" oninput="calcM()"></div></div>
+            <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per 1,000 Impressions</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="ccpm" type="number" min="0" placeholder="80" oninput="calcM()"></div></div>
+            <div class="fg"><label class="fl">CPC <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per Click</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="ccpc" type="number" min="0" step=".01" placeholder="5.00" oninput="calcM()"></div></div>
+            <div class="fg"><label class="fl">CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">Conversion Rate — % คนที่คลิกแล้วซื้อ</span></span></label><div class="iw s"><input class="fi" id="ccvr" type="number" min="0" max="100" step=".01" placeholder="2.50" oninput="calcM()"><span class="isuf">%</span></div></div>
           </div>
-          <div class="fg">
-            <label class="fl">Product Price / Unit <span class="tip"><span class="tip-i">i</span><span class="tip-t">ราคาขายเฉลี่ยต่อ 1 ชิ้น ใช้คำนวณ Revenue และ ROAS</span></span></label>
-            <div class="iw p"><span class="ipre">฿</span><input class="fi" id="cprc" type="number" min="0" placeholder="990" oninput="calcM()"></div>
+          <div class="fg"><label class="fl">Product Price / Unit <span class="tip"><span class="tip-i">i</span><span class="tip-t">ราคาขายเฉลี่ยต่อ 1 ชิ้น</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="cprc" type="number" min="0" placeholder="990" oninput="calcM()"></div></div>
+          <div class="frmbox mt4">📐 <strong style="color:var(--p)">Formulas:</strong><br>
+            <code>Impr = (Budget÷CPM)×1000</code> | <code>Clicks = Budget÷CPC</code><br>
+            <code>Conv = Clicks×CVR%</code> | <code>CPA = Budget÷Conv</code> | <code>ROAS = Revenue÷Budget</code>
           </div>
-          <div class="frmbox mt4">
-            📐 <strong style="color:var(--p)">Formulas:</strong><br>
-            <code>Impressions = (Budget ÷ CPM) × 1,000</code> | <code>Clicks = Budget ÷ CPC</code><br>
-            <code>Conversions = Clicks × CVR%</code> | <code>CPA = Budget ÷ Conversions</code><br>
-            <code>Revenue = Conversions × Price</code> | <code>ROAS = Revenue ÷ Budget</code>
-          </div>
-          <div class="brow mt4">
-            <button class="btn btn-p btn-lg" onclick="saveM()">💾 Save Campaign</button>
-            <button class="btn btn-g" onclick="clearM()">🔄 Reset</button>
-          </div>
+          <div class="brow mt4"><button class="btn btn-p btn-lg" onclick="saveM()">💾 Save Campaign</button><button class="btn btn-g" onclick="clearM()">🔄 Reset</button></div>
         </div>
       </div>
     </div>
-    <!-- RESULTS -->
     <div>
       <div class="rbox">
         <div class="rtitle">✨ Calculated Results</div>
         <div class="g2 mb4">
-          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="ri">—</div><div class="mc-sub">การแสดงผลทั้งหมด</div></div>
+          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="ri">—</div><div class="mc-sub">การแสดงผล</div></div>
           <div class="mc mc-bg-g"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v g" id="rc">—</div><div class="mc-sub">จำนวนคลิก</div></div>
           <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v" id="rv">—</div><div class="mc-sub">จำนวน Conversion</div></div>
           <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPA</div><div class="mc-v a" id="rpa">—</div><div class="mc-sub">Cost per Acquisition</div></div>
@@ -346,177 +243,422 @@ tbody tr:hover td{background:var(--pl)}
           <div class="mc" id="rpc2"><div class="mc-lbl">💵 Gross Profit</div><div class="mc-v" id="rpro">—</div><div class="mc-sub">Revenue − Budget</div></div>
         </div>
         <div class="g3">
-          <div style="background:#fff;border:1px solid var(--b1);border-radius:var(--r);padding:12px;text-align:center">
-            <div class="mc-lbl" style="justify-content:center;margin-bottom:5px">CTR</div>
-            <div style="font-size:19px;font-weight:800;color:var(--p)" id="rctr">—</div>
-            <div class="mc-sub">Click-Through Rate</div>
-          </div>
-          <div style="background:#fff;border:1px solid var(--b1);border-radius:var(--r);padding:12px;text-align:center">
-            <div class="mc-lbl" style="justify-content:center;margin-bottom:5px">eCPM</div>
-            <div style="font-size:19px;font-weight:800;color:var(--sec)" id="recpm">—</div>
-            <div class="mc-sub">Effective CPM</div>
-          </div>
-          <div style="background:#fff;border:1px solid var(--b1);border-radius:var(--r);padding:12px;text-align:center">
-            <div class="mc-lbl" style="justify-content:center;margin-bottom:5px">Rev/Conv</div>
-            <div style="font-size:19px;font-weight:800;color:var(--ok)" id="rrpc">—</div>
-            <div class="mc-sub">Revenue per Conv.</div>
-          </div>
+          <div style="background:#fff;border:1px solid var(--b1);border-radius:var(--r);padding:12px;text-align:center"><div class="mc-lbl" style="justify-content:center;margin-bottom:5px">CTR</div><div style="font-size:19px;font-weight:800;color:var(--p)" id="rctr">—</div><div class="mc-sub">Click-Through Rate</div></div>
+          <div style="background:#fff;border:1px solid var(--b1);border-radius:var(--r);padding:12px;text-align:center"><div class="mc-lbl" style="justify-content:center;margin-bottom:5px">eCPM</div><div style="font-size:19px;font-weight:800;color:var(--sec)" id="recpm">—</div><div class="mc-sub">Effective CPM</div></div>
+          <div style="background:#fff;border:1px solid var(--b1);border-radius:var(--r);padding:12px;text-align:center"><div class="mc-lbl" style="justify-content:center;margin-bottom:5px">Rev/Conv</div><div style="font-size:19px;font-weight:800;color:var(--ok)" id="rrpc">—</div><div class="mc-sub">Revenue per Conv.</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- =================== TAB: FACEBOOK ADS =================== -->
+<!-- ===== FACEBOOK ===== -->
 <section id="t-fb" class="sec">
-  <div class="ph">
-    <div class="pt">Facebook Ads Calculator</div>
-    <div class="pd">คำนวณประสิทธิภาพแคมเปญ Facebook แยกตาม Objective</div>
-  </div>
+  <div class="ph"><div class="pt">Facebook Ads Calculator</div><div class="pd">คำนวณประสิทธิภาพแคมเปญ Facebook แยกตาม Objective</div></div>
   <div class="str">
     <button class="st on" onclick="fbTab('like')">👍 Page Like</button>
     <button class="st" onclick="fbTab('eng')">💬 Engagement</button>
     <button class="st" onclick="fbTab('lead')">📋 Lead Ads</button>
     <button class="st" onclick="fbTab('vid')">🎬 Video View</button>
   </div>
-
-  <!-- PAGE LIKE -->
-  <div id="fb-like" class="fb-p">
-    <div class="g2">
-      <div class="card">
-        <div class="ch"><div><div class="ct">👍 Page Like Ads</div><div class="cs">เพิ่ม Page Followers</div></div></div>
-        <div class="cb">
-          <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fln" type="text" placeholder="Page Like Campaign Q2"></div>
-          <div class="g2">
-            <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="flb" type="number" min="0" placeholder="10,000" oninput="calcLike()"></div></div>
-            <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. ฿40–80</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="flcpm" type="number" min="0" placeholder="50" oninput="calcLike()"></div></div>
-            <div class="fg"><label class="fl">Cost per Like (Target) <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. ฿1–5 ต่อ Like</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="flcpl" type="number" min="0" step=".1" placeholder="2.50" oninput="calcLike()"></div></div>
-            <div class="fg"><label class="fl">Like Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่เห็นโฆษณาแล้ว Like Page</span></span></label><div class="iw s"><input class="fi" id="flr" type="number" min="0" max="100" step=".1" placeholder="1.5" oninput="calcLike()"><span class="isuf">%</span></div></div>
-          </div>
-          <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_page_like','fln')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['flb','flcpm','flcpl','flr'])">🔄 Clear</button></div>
-        </div>
+  <!-- Page Like -->
+  <div id="fb-like" class="fb-p"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">👍 Page Like Ads</div><div class="cs">เพิ่ม Page Followers</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fln" type="text" placeholder="Page Like Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="flb" type="number" min="0" placeholder="10,000" oninput="calcLike()"></div></div>
+        <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. ฿40–80</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="flcpm" type="number" min="0" placeholder="50" oninput="calcLike()"></div></div>
+        <div class="fg"><label class="fl">Cost per Like <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. ฿1–5</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="flcpl" type="number" min="0" step=".1" placeholder="2.50" oninput="calcLike()"></div></div>
+        <div class="fg"><label class="fl">Like Rate %</label><div class="iw s"><input class="fi" id="flr" type="number" min="0" max="100" step=".1" placeholder="1.5" oninput="calcLike()"><span class="isuf">%</span></div></div>
       </div>
-      <div class="rbox">
-        <div class="rtitle">📊 Page Like Results</div>
-        <div class="g2">
-          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="flri">—</div></div>
-          <div class="mc mc-bg-t"><div class="mc-lbl">👥 Est. Reach</div><div class="mc-v t" id="flrr">—</div></div>
-          <div class="mc mc-bg-g"><div class="mc-lbl">👍 Page Likes</div><div class="mc-v g" id="flrl">—</div></div>
-          <div class="mc mc-bg-a"><div class="mc-lbl">💰 Actual CPL</div><div class="mc-v a" id="flrc">—</div></div>
-        </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_page_like','fln')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['flb','flcpm','flcpl','flr'])">🔄</button></div>
+    </div></div>
+    <div class="rbox"><div class="rtitle">📊 Page Like Results</div><div class="g2">
+      <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="flri">—</div></div>
+      <div class="mc mc-bg-t"><div class="mc-lbl">👥 Est. Reach</div><div class="mc-v t" id="flrr">—</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">👍 Page Likes</div><div class="mc-v g" id="flrl">—</div></div>
+      <div class="mc mc-bg-a"><div class="mc-lbl">💰 Actual CPL</div><div class="mc-v a" id="flrc">—</div></div>
+    </div></div>
+  </div></div>
+  <!-- Engagement -->
+  <div id="fb-eng" class="fb-p" style="display:none"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">💬 Engagement Ads</div><div class="cs">Post Likes, Comments, Shares</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fen" type="text" placeholder="Engagement Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="feb" type="number" min="0" placeholder="20,000" oninput="calcEng()"></div></div>
+        <div class="fg"><label class="fl">CPM</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fecpm" type="number" min="0" placeholder="60" oninput="calcEng()"></div></div>
+        <div class="fg"><label class="fl">CPE <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. ฿0.5–3</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fecpe" type="number" min="0" step=".1" placeholder="1.50" oninput="calcEng()"></div></div>
+        <div class="fg"><label class="fl">Engagement Rate</label><div class="iw s"><input class="fi" id="fer" type="number" min="0" max="100" step=".1" placeholder="3.0" oninput="calcEng()"><span class="isuf">%</span></div></div>
       </div>
-    </div>
-  </div>
-
-  <!-- ENGAGEMENT -->
-  <div id="fb-eng" class="fb-p" style="display:none">
-    <div class="g2">
-      <div class="card">
-        <div class="ch"><div><div class="ct">💬 Engagement Ads</div><div class="cs">Post Likes, Comments, Shares</div></div></div>
-        <div class="cb">
-          <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fen" type="text" placeholder="Engagement Campaign Q2"></div>
-          <div class="g2">
-            <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="feb" type="number" min="0" placeholder="20,000" oninput="calcEng()"></div></div>
-            <div class="fg"><label class="fl">CPM</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fecpm" type="number" min="0" placeholder="60" oninput="calcEng()"></div></div>
-            <div class="fg"><label class="fl">CPE <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per Engagement avg. ฿0.5–3</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fecpe" type="number" min="0" step=".1" placeholder="1.50" oninput="calcEng()"></div></div>
-            <div class="fg"><label class="fl">Engagement Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่เห็นโฆษณาแล้ว Interact</span></span></label><div class="iw s"><input class="fi" id="fer" type="number" min="0" max="100" step=".1" placeholder="3.0" oninput="calcEng()"><span class="isuf">%</span></div></div>
-          </div>
-          <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_engagement','fen')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['feb','fecpm','fecpe','fer'])">🔄 Clear</button></div>
-        </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_engagement','fen')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['feb','fecpm','fecpe','fer'])">🔄</button></div>
+    </div></div>
+    <div class="rbox"><div class="rtitle">📊 Engagement Results</div><div class="g2">
+      <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="feri">—</div></div>
+      <div class="mc mc-bg-t"><div class="mc-lbl">👥 Reach</div><div class="mc-v t" id="ferr">—</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">💬 Engagements</div><div class="mc-v g" id="fere">—</div></div>
+      <div class="mc mc-bg-a"><div class="mc-lbl">💰 Actual CPE</div><div class="mc-v a" id="ferc">—</div></div>
+    </div></div>
+  </div></div>
+  <!-- Lead -->
+  <div id="fb-lead" class="fb-p" style="display:none"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">📋 Lead Ads</div><div class="cs">Facebook Instant Lead Form</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fldn" type="text" placeholder="Lead Gen Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fldb" type="number" min="0" placeholder="30,000" oninput="calcLead()"></div></div>
+        <div class="fg"><label class="fl">CPM</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fldcpm" type="number" min="0" placeholder="80" oninput="calcLead()"></div></div>
+        <div class="fg"><label class="fl">CTR <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 0.5–2.5%</span></span></label><div class="iw s"><input class="fi" id="fldctr" type="number" min="0" step=".1" placeholder="1.5" oninput="calcLead()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Form Fill Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 10–30%</span></span></label><div class="iw s"><input class="fi" id="fldf" type="number" min="0" step="1" placeholder="20" oninput="calcLead()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fldp" type="number" min="0" placeholder="2,500" oninput="calcLead()"></div></div>
+        <div class="fg"><label class="fl">Lead → Sale CVR</label><div class="iw s"><input class="fi" id="fldcvr" type="number" min="0" step="1" placeholder="15" oninput="calcLead()"><span class="isuf">%</span></div></div>
       </div>
-      <div class="rbox">
-        <div class="rtitle">📊 Engagement Results</div>
-        <div class="g2">
-          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="feri">—</div></div>
-          <div class="mc mc-bg-t"><div class="mc-lbl">👥 Reach</div><div class="mc-v t" id="ferr">—</div></div>
-          <div class="mc mc-bg-g"><div class="mc-lbl">💬 Engagements</div><div class="mc-v g" id="fere">—</div></div>
-          <div class="mc mc-bg-a"><div class="mc-lbl">💰 Actual CPE</div><div class="mc-v a" id="ferc">—</div></div>
-        </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_lead','fldn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['fldb','fldcpm','fldctr','fldf','fldp','fldcvr'])">🔄</button></div>
+    </div></div>
+    <div class="rbox"><div class="rtitle">📊 Lead Gen Results</div><div class="g2">
+      <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="fldri">—</div></div>
+      <div class="mc mc-bg-t"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v t" id="fldrc">—</div></div>
+      <div class="mc mc-bg-v"><div class="mc-lbl">📋 Leads</div><div class="mc-v v" id="fldrl">—</div></div>
+      <div class="mc mc-bg-a"><div class="mc-lbl">💰 Cost/Lead</div><div class="mc-v a" id="fldra">—</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">🎯 Sales</div><div class="mc-v g" id="fldrs">—</div></div>
+      <div class="mc mc-bg-t"><div class="mc-lbl">📈 ROAS</div><div class="mc-v t" id="fldrr">—</div></div>
+    </div></div>
+  </div></div>
+  <!-- Video -->
+  <div id="fb-vid" class="fb-p" style="display:none"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">🎬 Video View Ads</div><div class="cs">ThruPlay / 2-Second Video</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fvn" type="text" placeholder="Video Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fvb" type="number" min="0" placeholder="15,000" oninput="calcVid()"></div></div>
+        <div class="fg"><label class="fl">CPM</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fvcpm" type="number" min="0" placeholder="55" oninput="calcVid()"></div></div>
+        <div class="fg"><label class="fl">2-Sec View Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 20–50%</span></span></label><div class="iw s"><input class="fi" id="fv2" type="number" min="0" step="1" placeholder="35" oninput="calcVid()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">ThruPlay Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 5–15%</span></span></label><div class="iw s"><input class="fi" id="fvt" type="number" min="0" step="1" placeholder="10" oninput="calcVid()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CPV Target</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fvcpv" type="number" min="0" step=".1" placeholder="1.00" oninput="calcVid()"></div></div>
       </div>
-    </div>
-  </div>
-
-  <!-- LEAD ADS -->
-  <div id="fb-lead" class="fb-p" style="display:none">
-    <div class="g2">
-      <div class="card">
-        <div class="ch"><div><div class="ct">📋 Lead Ads</div><div class="cs">Facebook Instant Lead Form</div></div></div>
-        <div class="cb">
-          <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fldn" type="text" placeholder="Lead Gen Campaign Q2"></div>
-          <div class="g2">
-            <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fldb" type="number" min="0" placeholder="30,000" oninput="calcLead()"></div></div>
-            <div class="fg"><label class="fl">CPM</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fldcpm" type="number" min="0" placeholder="80" oninput="calcLead()"></div></div>
-            <div class="fg"><label class="fl">CTR <span class="tip"><span class="tip-i">i</span><span class="tip-t">% คนที่คลิกโฆษณา avg. 0.5–2.5%</span></span></label><div class="iw s"><input class="fi" id="fldctr" type="number" min="0" max="100" step=".1" placeholder="1.5" oninput="calcLead()"><span class="isuf">%</span></div></div>
-            <div class="fg"><label class="fl">Form Fill Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่กรอก Lead Form avg. 10–30%</span></span></label><div class="iw s"><input class="fi" id="fldf" type="number" min="0" max="100" step="1" placeholder="20" oninput="calcLead()"><span class="isuf">%</span></div></div>
-            <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fldp" type="number" min="0" placeholder="2,500" oninput="calcLead()"></div></div>
-            <div class="fg"><label class="fl">Lead → Sale CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ของ Lead ที่ปิดการขายได้</span></span></label><div class="iw s"><input class="fi" id="fldcvr" type="number" min="0" max="100" step="1" placeholder="15" oninput="calcLead()"><span class="isuf">%</span></div></div>
-          </div>
-          <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_lead','fldn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['fldb','fldcpm','fldctr','fldf','fldp','fldcvr'])">🔄 Clear</button></div>
-        </div>
-      </div>
-      <div class="rbox">
-        <div class="rtitle">📊 Lead Gen Results</div>
-        <div class="g2">
-          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="fldri">—</div></div>
-          <div class="mc mc-bg-t"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v t" id="fldrc">—</div></div>
-          <div class="mc mc-bg-v"><div class="mc-lbl">📋 Leads</div><div class="mc-v v" id="fldrl">—</div></div>
-          <div class="mc mc-bg-a"><div class="mc-lbl">💰 Cost per Lead</div><div class="mc-v a" id="fldra">—</div></div>
-          <div class="mc mc-bg-g"><div class="mc-lbl">🎯 Sales</div><div class="mc-v g" id="fldrs">—</div></div>
-          <div class="mc mc-bg-t"><div class="mc-lbl">📈 ROAS</div><div class="mc-v t" id="fldrr">—</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- VIDEO -->
-  <div id="fb-vid" class="fb-p" style="display:none">
-    <div class="g2">
-      <div class="card">
-        <div class="ch"><div><div class="ct">🎬 Video View Ads</div><div class="cs">ThruPlay / 2-Second Video Views</div></div></div>
-        <div class="cb">
-          <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fvn" type="text" placeholder="Video Campaign Q2"></div>
-          <div class="g2">
-            <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fvb" type="number" min="0" placeholder="15,000" oninput="calcVid()"></div></div>
-            <div class="fg"><label class="fl">CPM</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fvcpm" type="number" min="0" placeholder="55" oninput="calcVid()"></div></div>
-            <div class="fg"><label class="fl">2-Sec View Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ดู VDO ≥ 2 วินาที avg. 20–50%</span></span></label><div class="iw s"><input class="fi" id="fv2" type="number" min="0" max="100" step="1" placeholder="35" oninput="calcVid()"><span class="isuf">%</span></div></div>
-            <div class="fg"><label class="fl">ThruPlay Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ดูจนจบหรือ ≥ 15 วิ avg. 5–15%</span></span></label><div class="iw s"><input class="fi" id="fvt" type="number" min="0" max="100" step="1" placeholder="10" oninput="calcVid()"><span class="isuf">%</span></div></div>
-            <div class="fg"><label class="fl">CPV Target <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per ThruPlay เป้าหมาย avg. ฿0.5–2</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fvcpv" type="number" min="0" step=".1" placeholder="1.00" oninput="calcVid()"></div></div>
-          </div>
-          <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_video','fvn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['fvb','fvcpm','fv2','fvt','fvcpv'])">🔄 Clear</button></div>
-        </div>
-      </div>
-      <div class="rbox">
-        <div class="rtitle">📊 Video View Results</div>
-        <div class="g2">
-          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="fvri">—</div></div>
-          <div class="mc mc-bg-g"><div class="mc-lbl">▶️ 2-Sec Views</div><div class="mc-v g" id="fvr2">—</div></div>
-          <div class="mc mc-bg-v"><div class="mc-lbl">📺 ThruPlays</div><div class="mc-v v" id="fvrt">—</div></div>
-          <div class="mc mc-bg-a"><div class="mc-lbl">💰 Cost/ThruPlay</div><div class="mc-v a" id="fvrc">—</div></div>
-          <div class="mc mc-bg-t"><div class="mc-lbl">📊 ThruPlay Rate</div><div class="mc-v t" id="fvrr">—</div></div>
-          <div class="mc mc-bg-r"><div class="mc-lbl">💵 eCPM</div><div class="mc-v r" id="fvre">—</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_video','fvn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['fvb','fvcpm','fv2','fvt','fvcpv'])">🔄</button></div>
+    </div></div>
+    <div class="rbox"><div class="rtitle">📊 Video Results</div><div class="g2">
+      <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="fvri">—</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">▶️ 2-Sec Views</div><div class="mc-v g" id="fvr2">—</div></div>
+      <div class="mc mc-bg-v"><div class="mc-lbl">📺 ThruPlays</div><div class="mc-v v" id="fvrt">—</div></div>
+      <div class="mc mc-bg-a"><div class="mc-lbl">💰 Cost/ThruPlay</div><div class="mc-v a" id="fvrc">—</div></div>
+      <div class="mc mc-bg-t"><div class="mc-lbl">📊 View Rate</div><div class="mc-v t" id="fvrr">—</div></div>
+      <div class="mc mc-bg-r"><div class="mc-lbl">💵 eCPM</div><div class="mc-v r" id="fvre">—</div></div>
+    </div></div>
+  </div></div>
 </section>
 
-<!-- =================== TAB: CAMPAIGNS =================== -->
-<section id="t-camps" class="sec">
-  <div class="ph-row mb6">
-    <div><div class="pt">Campaign Manager</div><div class="pd">เปรียบเทียบ แก้ไข และ Export ข้อมูลแคมเปญทั้งหมด</div></div>
-    <div class="brow">
-      <button class="btn btn-ok" onclick="exportCSV()">📥 Export CSV</button>
-      <button class="btn btn-g btn-sm" onclick="clearAll()">🗑️ Clear All</button>
+<!-- ===== GOOGLE ADS ===== -->
+<section id="t-gg" class="sec">
+  <div class="ph">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <div style="width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,#4285F4,#34A853);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🔍</div>
+      <div><div class="pt" style="margin:0">Google Ads Calculator</div><div class="pd">Search, Display/GDN และ YouTube Ads</div></div>
     </div>
   </div>
-  <div id="ce" class="card"><div class="emp"><div class="emp-i">📭</div><div class="emp-t">ยังไม่มีแคมเปญ</div><div class="emp-d">กรอกข้อมูลใน Media Buying หรือ Facebook Ads แล้วกด Save</div></div></div>
+  <div class="str">
+    <button class="st on" onclick="ggTab('search')">🔍 Search</button>
+    <button class="st" onclick="ggTab('display')">🖥️ Display / GDN</button>
+    <button class="st" onclick="ggTab('youtube')">▶️ YouTube</button>
+  </div>
+
+  <!-- Search -->
+  <div id="gg-search" class="gg-p"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">🔍 Search Campaign</div><div class="cs">Keyword-based CPC bidding</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="gsn" type="text" placeholder="Brand Search Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="gsb" type="number" min="0" placeholder="30,000" oninput="calcGS()"></div></div>
+        <div class="fg"><label class="fl">Max CPC <span class="tip"><span class="tip-i">i</span><span class="tip-t">ราคาประมูลสูงสุดต่อคลิก avg. ฿5–50</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="gscpc" type="number" min="0" step=".1" placeholder="15" oninput="calcGS()"></div></div>
+        <div class="fg"><label class="fl">Expected CTR <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. Search CTR 2–8%</span></span></label><div class="iw s"><input class="fi" id="gsctr" type="number" min="0" max="100" step=".1" placeholder="4.0" oninput="calcGS()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. Search CVR 3–5%</span></span></label><div class="iw s"><input class="fi" id="gscvr" type="number" min="0" max="100" step=".1" placeholder="3.5" oninput="calcGS()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Quality Score <span class="tip"><span class="tip-i">i</span><span class="tip-t">1–10: ส่งผลต่อ Ad Rank และ CPC จริง</span></span></label><input class="fi" id="gsqs" type="number" min="1" max="10" step="1" placeholder="7" oninput="calcGS()"></div>
+        <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="gsprc" type="number" min="0" placeholder="1,500" oninput="calcGS()"></div></div>
+      </div>
+      <div class="frmbox mt4">
+        📐 <strong style="color:var(--p)">Search Formula:</strong><br>
+        <code>Clicks = Budget ÷ Avg.CPC</code> | <code>Impressions = Clicks ÷ CTR%</code><br>
+        <code>Adj.CPC = Max.CPC × (10÷QS)</code> | <code>Conversions = Clicks × CVR%</code>
+      </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveGG('gg_search','gsn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['gsb','gscpc','gsctr','gscvr','gsqs','gsprc'])">🔄</button></div>
+    </div></div>
+    <div class="rbox"><div class="rtitle" style="color:#1A73E8">🔍 Search Results</div><div class="g2">
+      <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="gsr-imp">—</div><div class="mc-sub">Estimated reach</div></div>
+      <div class="mc mc-bg-sky"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v sky" id="gsr-clk">—</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v g" id="gsr-con">—</div></div>
+      <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPA</div><div class="mc-v a" id="gsr-cpa">—</div></div>
+      <div class="mc mc-bg-t"><div class="mc-lbl">📦 Revenue</div><div class="mc-v t" id="gsr-rev">—</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">📈 ROAS</div><div class="mc-v g" id="gsr-roas">—</div></div>
+      <div class="mc mc-bg-sky"><div class="mc-lbl">💵 Adj. CPC</div><div class="mc-v sky" id="gsr-acpc">—</div><div class="mc-sub">After Quality Score</div></div>
+      <div class="mc mc-bg-b"><div class="mc-lbl">📊 CTR</div><div class="mc-v b" id="gsr-ctr">—</div></div>
+    </div></div>
+  </div></div>
+
+  <!-- Display -->
+  <div id="gg-display" class="gg-p" style="display:none"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">🖥️ Display / GDN</div><div class="cs">Google Display Network — Banner Ads</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="gdn" type="text" placeholder="Display Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="gdb" type="number" min="0" placeholder="20,000" oninput="calcGD()"></div></div>
+        <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">GDN avg. ฿15–50</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="gdcpm" type="number" min="0" placeholder="30" oninput="calcGD()"></div></div>
+        <div class="fg"><label class="fl">CTR <span class="tip"><span class="tip-i">i</span><span class="tip-t">Display avg. 0.1–0.5%</span></span></label><div class="iw s"><input class="fi" id="gdctr" type="number" min="0" step=".01" placeholder="0.3" oninput="calcGD()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 0.5–2%</span></span></label><div class="iw s"><input class="fi" id="gdcvr" type="number" min="0" step=".1" placeholder="1.5" oninput="calcGD()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Frequency Cap <span class="tip"><span class="tip-i">i</span><span class="tip-t">จำนวนครั้งสูงสุดที่แสดงต่อคน/วัน</span></span></label><input class="fi" id="gdfreq" type="number" min="1" step="1" placeholder="3" oninput="calcGD()"></div>
+        <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="gdprc" type="number" min="0" placeholder="990" oninput="calcGD()"></div></div>
+      </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveGG('gg_display','gdn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['gdb','gdcpm','gdctr','gdcvr','gdfreq','gdprc'])">🔄</button></div>
+    </div></div>
+    <div class="rbox"><div class="rtitle" style="color:#1A73E8">🖥️ Display Results</div><div class="g2">
+      <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="gdr-imp">—</div></div>
+      <div class="mc mc-bg-sky"><div class="mc-lbl">👥 Est. Unique Reach</div><div class="mc-v sky" id="gdr-reach">—</div><div class="mc-sub">Impressions ÷ Frequency</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v g" id="gdr-clk">—</div></div>
+      <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v" id="gdr-con">—</div></div>
+      <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPA</div><div class="mc-v a" id="gdr-cpa">—</div></div>
+      <div class="mc mc-bg-t"><div class="mc-lbl">📦 Revenue</div><div class="mc-v t" id="gdr-rev">—</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">📈 ROAS</div><div class="mc-v g" id="gdr-roas">—</div></div>
+      <div class="mc mc-bg-b"><div class="mc-lbl">💵 eCPC</div><div class="mc-v b" id="gdr-ecpc">—</div></div>
+    </div></div>
+  </div></div>
+
+  <!-- YouTube -->
+  <div id="gg-youtube" class="gg-p" style="display:none"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">▶️ YouTube Ads</div><div class="cs">TrueView In-Stream / In-Feed</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="gyn" type="text" placeholder="YouTube Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="gyb" type="number" min="0" placeholder="25,000" oninput="calcGY()"></div></div>
+        <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">YouTube avg. ฿40–120</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="gycpm" type="number" min="0" placeholder="70" oninput="calcGY()"></div></div>
+        <div class="fg"><label class="fl">View Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ดูจนจบหรือ ≥30 วิ avg. 15–40%</span></span></label><div class="iw s"><input class="fi" id="gyvr" type="number" min="0" max="100" step="1" placeholder="25" oninput="calcGY()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Click Rate (from views) <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ดูแล้วคลิก avg. 0.5–2%</span></span></label><div class="iw s"><input class="fi" id="gyctr" type="number" min="0" max="100" step=".1" placeholder="1.0" oninput="calcGY()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CVR</label><div class="iw s"><input class="fi" id="gycvr" type="number" min="0" max="100" step=".1" placeholder="2.5" oninput="calcGY()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="gyprc" type="number" min="0" placeholder="1,500" oninput="calcGY()"></div></div>
+      </div>
+      <div class="frmbox mt4">
+        📐 <code>Impressions=(Budget÷CPM)×1000</code> | <code>Views=Impr×ViewRate%</code><br>
+        <code>CPV=Budget÷Views</code> | <code>Clicks=Views×CTR%</code> | <code>Conv=Clicks×CVR%</code>
+      </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveGG('gg_youtube','gyn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['gyb','gycpm','gyvr','gyctr','gycvr','gyprc'])">🔄</button></div>
+    </div></div>
+    <div class="rbox"><div class="rtitle" style="color:#FF0000">▶️ YouTube Results</div><div class="g2">
+      <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="gyr-imp">—</div></div>
+      <div class="mc mc-bg-r"><div class="mc-lbl">▶️ Views (TrueView)</div><div class="mc-v r" id="gyr-view">—</div></div>
+      <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPV (Actual)</div><div class="mc-v a" id="gyr-cpv">—</div></div>
+      <div class="mc mc-bg-sky"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v sky" id="gyr-clk">—</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v g" id="gyr-con">—</div></div>
+      <div class="mc mc-bg-t"><div class="mc-lbl">📦 Revenue</div><div class="mc-v t" id="gyr-rev">—</div></div>
+      <div class="mc mc-bg-g"><div class="mc-lbl">📈 ROAS</div><div class="mc-v g" id="gyr-roas">—</div></div>
+      <div class="mc mc-bg-v"><div class="mc-lbl">📊 View Rate</div><div class="mc-v v" id="gyr-vr">—</div></div>
+    </div></div>
+  </div></div>
+</section>
+
+<!-- ===== TIKTOK ADS ===== -->
+<section id="t-tt" class="sec">
+  <div class="ph">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <div style="width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,#010101,#FE2C55);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🎵</div>
+      <div><div class="pt" style="margin:0">TikTok Ads Calculator</div><div class="pd">In-Feed, TopView และ Spark Ads</div></div>
+    </div>
+  </div>
+  <div class="str">
+    <button class="st on" onclick="ttTab('infeed')">📱 In-Feed Ads</button>
+    <button class="st" onclick="ttTab('topview')">👁️ TopView</button>
+    <button class="st" onclick="ttTab('spark')">✨ Spark Ads</button>
+  </div>
+
+  <!-- In-Feed -->
+  <div id="tt-infeed" class="tt-p"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">📱 In-Feed Ads</div><div class="cs">โฆษณาในหน้า For You Page</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="tin" type="text" placeholder="TikTok In-Feed Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="tib" type="number" min="0" placeholder="20,000" oninput="calcTTI()"></div></div>
+        <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">TikTok TH avg. ฿60–150</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="ticpm" type="number" min="0" placeholder="90" oninput="calcTTI()"></div></div>
+        <div class="fg"><label class="fl">CTR <span class="tip"><span class="tip-i">i</span><span class="tip-t">TikTok In-Feed avg. 1–3%</span></span></label><div class="iw s"><input class="fi" id="titr" type="number" min="0" step=".1" placeholder="1.8" oninput="calcTTI()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 1–4%</span></span></label><div class="iw s"><input class="fi" id="ticvr" type="number" min="0" step=".1" placeholder="2.0" oninput="calcTTI()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Video View Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ดู VDO ≥ 6 วิ avg. 20–45%</span></span></label><div class="iw s"><input class="fi" id="tivr" type="number" min="0" step="1" placeholder="30" oninput="calcTTI()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="tiprc" type="number" min="0" placeholder="590" oninput="calcTTI()"></div></div>
+      </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveTT('tt_infeed','tin')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['tib','ticpm','titr','ticvr','tivr','tiprc'])">🔄</button></div>
+    </div></div>
+    <div class="rbox" style="background:linear-gradient(135deg,#0D0D0D08,#FE2C5508);border-color:#FE2C5530">
+      <div class="rtitle" style="color:#FE2C55">📱 In-Feed Results</div><div class="g2">
+        <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="tir-imp">—</div></div>
+        <div class="mc mc-bg-r"><div class="mc-lbl">▶️ Video Views</div><div class="mc-v r" id="tir-vv">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v g" id="tir-clk">—</div></div>
+        <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v" id="tir-con">—</div></div>
+        <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPA</div><div class="mc-v a" id="tir-cpa">—</div></div>
+        <div class="mc mc-bg-t"><div class="mc-lbl">📦 Revenue</div><div class="mc-v t" id="tir-rev">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">📈 ROAS</div><div class="mc-v g" id="tir-roas">—</div></div>
+        <div class="mc mc-bg-r"><div class="mc-lbl">💵 eCPM</div><div class="mc-v r" id="tir-ecpm">—</div></div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- TopView -->
+  <div id="tt-topview" class="tt-p" style="display:none"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">👁️ TopView Ads</div><div class="cs">โฆษณาแรกที่เห็นเมื่อเปิด TikTok</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="tvn" type="text" placeholder="TopView Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="tvb" type="number" min="0" placeholder="100,000" oninput="calcTTV()"></div></div>
+        <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">TopView premium avg. ฿300–600</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="tvcpm" type="number" min="0" placeholder="400" oninput="calcTTV()"></div></div>
+        <div class="fg"><label class="fl">Full View Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ดูครบทั้ง VDO avg. 50–80%</span></span></label><div class="iw s"><input class="fi" id="tvfvr" type="number" min="0" step="1" placeholder="65" oninput="calcTTV()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CTR <span class="tip"><span class="tip-i">i</span><span class="tip-t">TopView avg. 1.5–5%</span></span></label><div class="iw s"><input class="fi" id="tvctr" type="number" min="0" step=".1" placeholder="3.0" oninput="calcTTV()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CVR</label><div class="iw s"><input class="fi" id="tvcvr" type="number" min="0" step=".1" placeholder="2.5" oninput="calcTTV()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="tvprc" type="number" min="0" placeholder="990" oninput="calcTTV()"></div></div>
+      </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveTT('tt_topview','tvn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['tvb','tvcpm','tvfvr','tvctr','tvcvr','tvprc'])">🔄</button></div>
+    </div></div>
+    <div class="rbox" style="background:linear-gradient(135deg,#0D0D0D08,#FE2C5508);border-color:#FE2C5530">
+      <div class="rtitle" style="color:#FE2C55">👁️ TopView Results</div><div class="g2">
+        <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="tvr-imp">—</div></div>
+        <div class="mc mc-bg-r"><div class="mc-lbl">🎬 Full Views</div><div class="mc-v r" id="tvr-fv">—</div></div>
+        <div class="mc mc-bg-sky"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v sky" id="tvr-clk">—</div></div>
+        <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v" id="tvr-con">—</div></div>
+        <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPA</div><div class="mc-v a" id="tvr-cpa">—</div></div>
+        <div class="mc mc-bg-t"><div class="mc-lbl">📦 Revenue</div><div class="mc-v t" id="tvr-rev">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">📈 ROAS</div><div class="mc-v g" id="tvr-roas">—</div></div>
+        <div class="mc mc-bg-b"><div class="mc-lbl">📊 Avg.CPV</div><div class="mc-v b" id="tvr-cpv">—</div></div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- Spark Ads -->
+  <div id="tt-spark" class="tt-p" style="display:none"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">✨ Spark Ads</div><div class="cs">Boost Organic Content</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="tsn" type="text" placeholder="Spark Ads Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="tsb" type="number" min="0" placeholder="15,000" oninput="calcTTS()"></div></div>
+        <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. ฿60–120</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="tscpm" type="number" min="0" placeholder="75" oninput="calcTTS()"></div></div>
+        <div class="fg"><label class="fl">CPE <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per Engagement avg. ฿0.3–2</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="tscpe" type="number" min="0" step=".1" placeholder="1.0" oninput="calcTTS()"></div></div>
+        <div class="fg"><label class="fl">Engagement Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 3–8% (Like/Comment/Share/Save)</span></span></label><div class="iw s"><input class="fi" id="tser" type="number" min="0" step=".1" placeholder="5.0" oninput="calcTTS()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Profile Visit Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่คลิกดู Profile จาก Engagement avg. 8–15%</span></span></label><div class="iw s"><input class="fi" id="tspvr" type="number" min="0" step=".1" placeholder="10" oninput="calcTTS()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Follow Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ Follow หลังเข้า Profile avg. 5–15%</span></span></label><div class="iw s"><input class="fi" id="tsfr" type="number" min="0" step=".1" placeholder="8.0" oninput="calcTTS()"><span class="isuf">%</span></div></div>
+      </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveTT('tt_spark','tsn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['tsb','tscpm','tscpe','tser','tspvr','tsfr'])">🔄</button></div>
+    </div></div>
+    <div class="rbox" style="background:linear-gradient(135deg,#0D0D0D08,#FE2C5508);border-color:#FE2C5530">
+      <div class="rtitle" style="color:#FE2C55">✨ Spark Ads Results</div><div class="g2">
+        <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="tsr-imp">—</div></div>
+        <div class="mc mc-bg-r"><div class="mc-lbl">💬 Engagements</div><div class="mc-v r" id="tsr-eng">—</div></div>
+        <div class="mc mc-bg-a"><div class="mc-lbl">💰 Actual CPE</div><div class="mc-v a" id="tsr-cpe">—</div></div>
+        <div class="mc mc-bg-sky"><div class="mc-lbl">👤 Profile Visits</div><div class="mc-v sky" id="tsr-pv">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">➕ New Followers</div><div class="mc-v g" id="tsr-fol">—</div></div>
+        <div class="mc mc-bg-v"><div class="mc-lbl">💵 Cost/Follower</div><div class="mc-v v" id="tsr-cpf">—</div></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ===== LINE ADS ===== -->
+<section id="t-ln" class="sec">
+  <div class="ph">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <div style="width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,#00B900,#00D900);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">💚</div>
+      <div><div class="pt" style="margin:0">LINE Ads Calculator</div><div class="pd">LINE Ads Platform, OA Broadcast และ Shopping</div></div>
+    </div>
+  </div>
+  <div class="str">
+    <button class="st on" onclick="lnTab('ads')">💚 LINE Ads</button>
+    <button class="st" onclick="lnTab('broadcast')">📢 OA Broadcast</button>
+    <button class="st" onclick="lnTab('shop')">🛒 LINE Shopping</button>
+  </div>
+
+  <!-- LINE Ads Platform -->
+  <div id="ln-ads" class="ln-p"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">💚 LINE Ads Platform</div><div class="cs">Display Ads ใน LINE App</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="lan" type="text" placeholder="LINE Ads Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="lab" type="number" min="0" placeholder="25,000" oninput="calcLA()"></div></div>
+        <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">LINE Ads avg. ฿150–350</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="lacpm" type="number" min="0" placeholder="200" oninput="calcLA()"></div></div>
+        <div class="fg"><label class="fl">CTR <span class="tip"><span class="tip-i">i</span><span class="tip-t">LINE avg. 0.3–1.5%</span></span></label><div class="iw s"><input class="fi" id="lactr" type="number" min="0" step=".1" placeholder="0.8" oninput="calcLA()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 1–3%</span></span></label><div class="iw s"><input class="fi" id="lacvr" type="number" min="0" step=".1" placeholder="2.0" oninput="calcLA()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Add Friend Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ Add OA จากโฆษณา avg. 3–10%</span></span></label><div class="iw s"><input class="fi" id="laafr" type="number" min="0" step=".1" placeholder="5.0" oninput="calcLA()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="laprc" type="number" min="0" placeholder="890" oninput="calcLA()"></div></div>
+      </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveLN('ln_ads','lan')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['lab','lacpm','lactr','lacvr','laafr','laprc'])">🔄</button></div>
+    </div></div>
+    <div class="rbox" style="background:linear-gradient(135deg,#F0FDF4,#E7FAE7);border-color:#86EFAC">
+      <div class="rtitle" style="color:#00B900">💚 LINE Ads Results</div><div class="g2">
+        <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="lar-imp">—</div></div>
+        <div class="mc mc-bg-t"><div class="mc-lbl">👥 Est. Reach</div><div class="mc-v t" id="lar-reach">—</div></div>
+        <div class="mc mc-bg-lime"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v lime" id="lar-clk">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">➕ Add Friends</div><div class="mc-v g" id="lar-af">—</div></div>
+        <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v" id="lar-con">—</div></div>
+        <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPA</div><div class="mc-v a" id="lar-cpa">—</div></div>
+        <div class="mc mc-bg-t"><div class="mc-lbl">📦 Revenue</div><div class="mc-v t" id="lar-rev">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">📈 ROAS</div><div class="mc-v g" id="lar-roas">—</div></div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- OA Broadcast -->
+  <div id="ln-broadcast" class="ln-p" style="display:none"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">📢 LINE OA Broadcast</div><div class="cs">ส่ง Message หา Friends ทั้งหมด</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="lbn" type="text" placeholder="Broadcast Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Friends Count <span class="tip"><span class="tip-i">i</span><span class="tip-t">จำนวน Friends ใน LINE OA ทั้งหมด</span></span></label><input class="fi" id="lbf" type="number" min="0" placeholder="50,000" oninput="calcLB()"></div>
+        <div class="fg"><label class="fl">Broadcast Cost / 1K <span class="tip"><span class="tip-i">i</span><span class="tip-t">ค่าส่งต่อ 1,000 ข้อความ avg. ฿50–150</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="lbcpm" type="number" min="0" placeholder="80" oninput="calcLB()"></div></div>
+        <div class="fg"><label class="fl">Open Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่เปิดอ่าน avg. 40–60%</span></span></label><div class="iw s"><input class="fi" id="lbor" type="number" min="0" step="1" placeholder="50" oninput="calcLB()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CTR (from opens) <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 10–30%</span></span></label><div class="iw s"><input class="fi" id="lbctr" type="number" min="0" step="1" placeholder="20" oninput="calcLB()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">CVR</label><div class="iw s"><input class="fi" id="lbcvr" type="number" min="0" step=".1" placeholder="5.0" oninput="calcLB()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="lbprc" type="number" min="0" placeholder="690" oninput="calcLB()"></div></div>
+      </div>
+      <div class="frmbox mt4">
+        📐 <code>Total Cost=(Friends÷1000)×Cost/1K</code><br>
+        <code>Opens=Friends×OR%</code> | <code>Clicks=Opens×CTR%</code> | <code>Conv=Clicks×CVR%</code>
+      </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveLN('ln_broadcast','lbn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['lbf','lbcpm','lbor','lbctr','lbcvr','lbprc'])">🔄</button></div>
+    </div></div>
+    <div class="rbox" style="background:linear-gradient(135deg,#F0FDF4,#E7FAE7);border-color:#86EFAC">
+      <div class="rtitle" style="color:#00B900">📢 Broadcast Results</div><div class="g2">
+        <div class="mc mc-bg-lime"><div class="mc-lbl">💰 Total Cost</div><div class="mc-v lime" id="lbr-cost">—</div><div class="mc-sub">ค่าใช้จ่ายรวม</div></div>
+        <div class="mc mc-bg-b"><div class="mc-lbl">📨 Messages Sent</div><div class="mc-v b" id="lbr-sent">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">📖 Opens</div><div class="mc-v g" id="lbr-open">—</div></div>
+        <div class="mc mc-bg-t"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v t" id="lbr-clk">—</div></div>
+        <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v" id="lbr-con">—</div></div>
+        <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPA</div><div class="mc-v a" id="lbr-cpa">—</div></div>
+        <div class="mc mc-bg-t"><div class="mc-lbl">📦 Revenue</div><div class="mc-v t" id="lbr-rev">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">📈 ROAS</div><div class="mc-v g" id="lbr-roas">—</div></div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- LINE Shopping -->
+  <div id="ln-shop" class="ln-p" style="display:none"><div class="g2">
+    <div class="card"><div class="ch"><div><div class="ct">🛒 LINE Shopping</div><div class="cs">CPC Ads สำหรับสินค้า E-Commerce</div></div></div><div class="cb">
+      <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="lsn" type="text" placeholder="LINE Shopping Campaign"></div>
+      <div class="g2">
+        <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="lsb" type="number" min="0" placeholder="15,000" oninput="calcLS()"></div></div>
+        <div class="fg"><label class="fl">CPC <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. ฿3–15 ต่อคลิก</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="lscpc" type="number" min="0" step=".5" placeholder="8" oninput="calcLS()"></div></div>
+        <div class="fg"><label class="fl">CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. 2–5%</span></span></label><div class="iw s"><input class="fi" id="lscvr" type="number" min="0" step=".1" placeholder="3.0" oninput="calcLS()"><span class="isuf">%</span></div></div>
+        <div class="fg"><label class="fl">Avg. Order Value <span class="tip"><span class="tip-i">i</span><span class="tip-t">มูลค่าเฉลี่ยต่อคำสั่งซื้อ</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="lsprc" type="number" min="0" placeholder="590" oninput="calcLS()"></div></div>
+        <div class="fg"><label class="fl">Add to Cart Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่เข้าชมแล้วเพิ่มลงตะกร้า</span></span></label><div class="iw s"><input class="fi" id="lsatc" type="number" min="0" step=".1" placeholder="15" oninput="calcLS()"><span class="isuf">%</span></div></div>
+      </div>
+      <div class="brow mt4"><button class="btn btn-p" onclick="saveLN('ln_shopping','lsn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['lsb','lscpc','lscvr','lsprc','lsatc'])">🔄</button></div>
+    </div></div>
+    <div class="rbox" style="background:linear-gradient(135deg,#F0FDF4,#E7FAE7);border-color:#86EFAC">
+      <div class="rtitle" style="color:#00B900">🛒 Shopping Results</div><div class="g2">
+        <div class="mc mc-bg-lime"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v lime" id="lsr-clk">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">🛒 Add to Cart</div><div class="mc-v g" id="lsr-atc">—</div></div>
+        <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Orders</div><div class="mc-v v" id="lsr-con">—</div></div>
+        <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPA</div><div class="mc-v a" id="lsr-cpa">—</div></div>
+        <div class="mc mc-bg-t"><div class="mc-lbl">📦 Revenue</div><div class="mc-v t" id="lsr-rev">—</div></div>
+        <div class="mc mc-bg-g"><div class="mc-lbl">📈 ROAS</div><div class="mc-v g" id="lsr-roas">—</div></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ===== CAMPAIGNS ===== -->
+<section id="t-camps" class="sec">
+  <div class="ph-row mb6">
+    <div><div class="pt">Campaign Manager</div><div class="pd">เปรียบเทียบ แก้ไข และ Export ข้อมูลแคมเปญทุก Platform</div></div>
+    <div class="brow"><button class="btn btn-ok" onclick="exportCSV()">📥 Export CSV</button><button class="btn btn-g btn-sm" onclick="clearAll()">🗑️ Clear All</button></div>
+  </div>
+  <div id="ce" class="card"><div class="emp"><div class="emp-i">📭</div><div class="emp-t">ยังไม่มีแคมเปญ</div><div class="emp-d">บันทึกแคมเปญจาก Platform ใดก็ได้แล้วกด Save</div></div></div>
   <div id="cc" style="display:none">
     <div class="g4 mb6" id="cs2"></div>
     <div class="card">
       <div class="ch"><div class="ct">📋 All Campaigns</div><div style="font-size:12px;color:var(--t3)" id="ccount">0</div></div>
       <div class="tw">
         <table>
-          <thead><tr><th>Campaign</th><th>Type</th><th>Budget</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Conversions</th><th>CVR</th><th>CPA</th><th>Revenue</th><th>ROAS</th><th>Actions</th></tr></thead>
+          <thead><tr><th>Campaign</th><th>Platform</th><th>Type</th><th>Budget</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Conversions</th><th>CPA</th><th>Revenue</th><th>ROAS</th><th>Actions</th></tr></thead>
           <tbody id="ctbl"></tbody>
         </table>
       </div>
@@ -524,31 +666,27 @@ tbody tr:hover td{background:var(--pl)}
   </div>
 </section>
 
-<!-- =================== TAB: KPI =================== -->
+<!-- ===== KPI ===== -->
 <section id="t-kpi" class="sec">
-  <div class="ph"><div class="pt">🎯 KPI Tracking — Actual vs Target</div><div class="pd">ตั้งเป้าหมาย KPI และติดตามผลการดำเนินงานจริงของแต่ละแคมเปญ</div></div>
-  <div id="ke" class="card"><div class="emp"><div class="emp-i">🎯</div><div class="emp-t">ไม่มีแคมเปญสำหรับ KPI</div><div class="emp-d">บันทึกแคมเปญก่อน แล้วกลับมาตั้ง Target และกรอก Actual ที่นี่</div></div></div>
+  <div class="ph"><div class="pt">🎯 KPI Tracking — Actual vs Target</div><div class="pd">ตั้งเป้าหมาย KPI และติดตามผลจริงของแต่ละแคมเปญ</div></div>
+  <div id="ke" class="card"><div class="emp"><div class="emp-i">🎯</div><div class="emp-t">ไม่มีแคมเปญ</div><div class="emp-d">บันทึกแคมเปญก่อน แล้วกลับมาตั้ง KPI Target ที่นี่</div></div></div>
   <div id="kc"></div>
 </section>
 
-<!-- =================== TAB: DASHBOARD =================== -->
+<!-- ===== DASHBOARD ===== -->
 <section id="t-dash" class="sec">
-  <div class="ph"><div class="pt">📈 Performance Dashboard</div><div class="pd">ภาพรวมและการวิเคราะห์ประสิทธิภาพแคมเปญทั้งหมด</div></div>
-  <div id="de" class="card"><div class="emp"><div class="emp-i">📊</div><div class="emp-t">ไม่มีข้อมูล Dashboard</div><div class="emp-d">บันทึกแคมเปญอย่างน้อย 1 แคมเปญ</div></div></div>
+  <div class="ph"><div class="pt">📈 Performance Dashboard</div><div class="pd">ภาพรวมประสิทธิภาพแคมเปญทุก Platform</div></div>
+  <div id="de" class="card"><div class="emp"><div class="emp-i">📊</div><div class="emp-t">ไม่มีข้อมูล</div><div class="emp-d">บันทึกแคมเปญอย่างน้อย 1 รายการ</div></div></div>
   <div id="dc" style="display:none">
     <div class="sstrip" id="dstrip"></div>
     <div class="g2 mb6">
-      <div class="chc"><div class="cht">Budget Allocation</div><div class="chs">งบประมาณแต่ละแคมเปญ (฿)</div><div class="chw"><canvas id="ch1"></canvas></div></div>
-      <div class="chc"><div class="cht">ROAS Comparison</div><div class="chs">Return on Ad Spend — เส้นแดง = Target 3x</div><div class="chw"><canvas id="ch2"></canvas></div></div>
+      <div class="chc"><div class="cht">Budget by Campaign</div><div class="chs">งบประมาณแต่ละแคมเปญ</div><div class="chw"><canvas id="ch1"></canvas></div></div>
+      <div class="chc"><div class="cht">ROAS Comparison</div><div class="chs">เส้นแดง = Target 3x</div><div class="chw"><canvas id="ch2"></canvas></div></div>
     </div>
     <div class="g3 mb6">
-      <div class="chc"><div class="cht">Impressions vs Clicks</div><div class="chs">การแสดงผล & คลิกเปรียบเทียบ</div><div class="chw"><canvas id="ch3"></canvas></div></div>
-      <div class="chc"><div class="cht">CPA vs Product Price</div><div class="chs">ต้นทุนต่อ Conversion vs ราคาสินค้า</div><div class="chw"><canvas id="ch4"></canvas></div></div>
-      <div class="chc"><div class="cht">Campaign Type Mix</div><div class="chs">สัดส่วนประเภทแคมเปญ</div><div class="chw"><canvas id="ch5"></canvas></div></div>
-    </div>
-    <div class="card" id="kdash" style="display:none">
-      <div class="ch"><div class="ct">🎯 KPI Achievement Summary</div></div>
-      <div class="cb" id="kdashb"></div>
+      <div class="chc"><div class="cht">Impressions vs Clicks</div><div class="chs">การแสดงผล & คลิก</div><div class="chw"><canvas id="ch3"></canvas></div></div>
+      <div class="chc"><div class="cht">CPA vs Product Price</div><div class="chs">ต้นทุนต่อ Conversion</div><div class="chw"><canvas id="ch4"></canvas></div></div>
+      <div class="chc"><div class="cht">Platform Mix</div><div class="chs">สัดส่วนแต่ละ Platform</div><div class="chw"><canvas id="ch5"></canvas></div></div>
     </div>
   </div>
 </section>
@@ -559,12 +697,34 @@ tbody tr:hover td{background:var(--pl)}
 // ============================================================
 // DATA
 // ============================================================
-let DB = JSON.parse(localStorage.getItem('adm3') || '[]');
+let DB = JSON.parse(localStorage.getItem('adm4') || '[]');
 let CHARTS = {};
 
-const TMAP = {media_buying:'Media Buying',fb_page_like:'FB Page Like',fb_engagement:'FB Engagement',fb_lead:'FB Lead Ads',fb_video:'FB Video'};
-const TBDG = {media_buying:'bdg-b',fb_page_like:'bdg-g',fb_engagement:'bdg-a',fb_lead:'bdg-v',fb_video:'bdg-r'};
-const COLORS = ['#3B82F6','#8B5CF6','#10B981','#F59E0B','#EF4444','#06B6D4','#EC4899','#F97316','#14B8A6','#6366F1'];
+const TMAP = {
+  media_buying:'Media Buying',
+  fb_page_like:'FB Page Like', fb_engagement:'FB Engagement', fb_lead:'FB Lead', fb_video:'FB Video',
+  gg_search:'Google Search', gg_display:'Google Display', gg_youtube:'YouTube',
+  tt_infeed:'TikTok In-Feed', tt_topview:'TikTok TopView', tt_spark:'TikTok Spark',
+  ln_ads:'LINE Ads', ln_broadcast:'LINE Broadcast', ln_shopping:'LINE Shopping'
+};
+
+const TPLATFORM = {
+  media_buying:'📊 Media',
+  fb_page_like:'📘 Facebook', fb_engagement:'📘 Facebook', fb_lead:'📘 Facebook', fb_video:'📘 Facebook',
+  gg_search:'🔍 Google', gg_display:'🔍 Google', gg_youtube:'🔍 Google',
+  tt_infeed:'🎵 TikTok', tt_topview:'🎵 TikTok', tt_spark:'🎵 TikTok',
+  ln_ads:'💚 LINE', ln_broadcast:'💚 LINE', ln_shopping:'💚 LINE'
+};
+
+const TBDG = {
+  media_buying:'bdg-b',
+  fb_page_like:'bdg-b', fb_engagement:'bdg-a', fb_lead:'bdg-v', fb_video:'bdg-r',
+  gg_search:'bdg-sky', gg_display:'bdg-sky', gg_youtube:'bdg-r',
+  tt_infeed:'bdg-dark', tt_topview:'bdg-dark', tt_spark:'bdg-rose',
+  ln_ads:'bdg-green', ln_broadcast:'bdg-green', ln_shopping:'bdg-lime'
+};
+
+const COLORS = ['#3B82F6','#8B5CF6','#10B981','#F59E0B','#EF4444','#06B6D4','#1A73E8','#34A853','#FE2C55','#00B900','#FF6384','#36A2EB','#FFCE56','#4BC0C0'];
 
 // ============================================================
 // UTILS
@@ -575,7 +735,7 @@ const $ = id => document.getElementById(id);
 const SET = (id,v) => { const e=$(id); if(e) e.textContent=v; };
 
 function f(n,d=0){ if(!isFinite(n)||isNaN(n)) return '—'; return Number(n).toLocaleString('th-TH',{minimumFractionDigits:d,maximumFractionDigits:d}); }
-function fc(n,d=0){ return isFinite(n)&&!isNaN(n)&&n>0 ? '฿'+f(n,d) : n===0?'฿0':'—'; }
+function fc(n,d=0){ return isFinite(n)&&!isNaN(n)&&n>=0 ? '฿'+f(n,d) : '—'; }
 function fp(n,d=2){ return isFinite(n)&&!isNaN(n) ? f(n,d)+'%' : '—'; }
 function fr(n){ return isFinite(n)&&!isNaN(n)&&n>0 ? f(n,2)+'x' : '—'; }
 function fm(n){ if(!isFinite(n)||isNaN(n)) return '—'; if(n>=1e6) return f(n/1e6,2)+'M'; if(n>=1000) return f(n/1000,1)+'K'; return f(n,0); }
@@ -583,19 +743,20 @@ function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 function save(){
-  localStorage.setItem('adm3',JSON.stringify(DB));
+  localStorage.setItem('adm4',JSON.stringify(DB));
   refreshHeader(); refreshBadge();
 }
 
 // ============================================================
-// NAVIGATION
+// NAV
 // ============================================================
+const TABS = ['calc','fb','gg','tt','ln','camps','kpi','dash'];
+
 function goTab(tab){
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
   document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
   $('t-'+tab)?.classList.add('on');
-  const tabs=['calc','fb','camps','kpi','dash'];
-  document.querySelectorAll('.nb')[tabs.indexOf(tab)]?.classList.add('on');
+  document.querySelectorAll('.nb')[TABS.indexOf(tab)]?.classList.add('on');
   if(tab==='camps') renderCamps();
   if(tab==='kpi') renderKPI();
   if(tab==='dash') renderDash();
@@ -603,143 +764,277 @@ function goTab(tab){
 
 function fbTab(tab){
   document.querySelectorAll('.fb-p').forEach(p=>p.style.display='none');
-  document.querySelectorAll('.st').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('#t-fb .st').forEach(b=>b.classList.remove('on'));
   $('fb-'+tab).style.display='block';
-  ['like','eng','lead','vid'].forEach((t,i)=>{ if(t===tab) document.querySelectorAll('.st')[i]?.classList.add('on'); });
+  const idx=['like','eng','lead','vid'].indexOf(tab);
+  document.querySelectorAll('#t-fb .st')[idx]?.classList.add('on');
+}
+
+function ggTab(tab){
+  document.querySelectorAll('.gg-p').forEach(p=>p.style.display='none');
+  document.querySelectorAll('#t-gg .st').forEach(b=>b.classList.remove('on'));
+  $('gg-'+tab).style.display='block';
+  const idx=['search','display','youtube'].indexOf(tab);
+  document.querySelectorAll('#t-gg .st')[idx]?.classList.add('on');
+}
+
+function ttTab(tab){
+  document.querySelectorAll('.tt-p').forEach(p=>p.style.display='none');
+  document.querySelectorAll('#t-tt .st').forEach(b=>b.classList.remove('on'));
+  $('tt-'+tab).style.display='block';
+  const idx=['infeed','topview','spark'].indexOf(tab);
+  document.querySelectorAll('#t-tt .st')[idx]?.classList.add('on');
+}
+
+function lnTab(tab){
+  document.querySelectorAll('.ln-p').forEach(p=>p.style.display='none');
+  document.querySelectorAll('#t-ln .st').forEach(b=>b.classList.remove('on'));
+  $('ln-'+tab).style.display='block';
+  const idx=['ads','broadcast','shop'].indexOf(tab);
+  document.querySelectorAll('#t-ln .st')[idx]?.classList.add('on');
 }
 
 // ============================================================
-// MEDIA BUYING CALC
+// MEDIA BUYING
 // ============================================================
 function calcM(){
   const b=G('cb2'),cpm=G('ccpm'),cpc=G('ccpc'),cvr=G('ccvr')/100,prc=G('cprc');
   if(!b){ ['ri','rc','rv','rpa','rrev','rroas','rpro','rctr','recpm','rrpc'].forEach(id=>SET(id,'—')); return; }
-  const imp = cpm>0 ? (b/cpm)*1000 : 0;
-  const clk = cpc>0 ? b/cpc : 0;
-  const con = clk*cvr;
-  const cpa = con>0 ? b/con : 0;
-  const rev = con*prc;
-  const roas = b>0&&rev>0 ? rev/b : 0;
-  const ctr = imp>0 ? (clk/imp)*100 : 0;
-  const ecpm = imp>0 ? (b/imp)*1000 : 0;
-  const profit = rev-b;
+  const imp=cpm>0?(b/cpm)*1000:0, clk=cpc>0?b/cpc:0, con=clk*cvr;
+  const cpa=con>0?b/con:0, rev=con*prc, roas=b>0&&rev>0?rev/b:0;
+  const ctr=imp>0?(clk/imp)*100:0, ecpm=imp>0?(b/imp)*1000:0, profit=rev-b;
   SET('ri',fm(imp)); SET('rc',fm(clk)); SET('rv',f(con,1));
   SET('rpa',cpa>0?fc(cpa,2):'—'); SET('rrev',rev>0?fc(rev):'—');
-  SET('rroas',roas>0?fr(roas):'—');
-  SET('rctr',imp>0?fp(ctr,3):'—'); SET('recpm',ecpm>0?fc(ecpm,2):'—');
-  SET('rrpc',prc>0?fc(prc):'—');
-  const pe=$('rpro');
-  if(pe){ pe.textContent=rev>0?fc(Math.abs(profit))+(profit<0?' (ขาดทุน)':''):'—'; pe.style.color=profit>=0?'var(--ok)':'var(--bad)'; }
-  const pc=$('rpc2');
-  if(pc&&rev>0){ pc.className='mc '+(profit>=0?'mc-bg-g g':'mc-bg-r r'); }
+  SET('rroas',roas>0?fr(roas):'—'); SET('rctr',imp>0?fp(ctr,3):'—');
+  SET('recpm',ecpm>0?fc(ecpm,2):'—'); SET('rrpc',prc>0?fc(prc):'—');
+  const pe=$('rpro'); if(pe){ pe.textContent=rev>0?fc(Math.abs(profit))+(profit<0?' (ขาดทุน)':''):'—'; pe.style.color=profit>=0?'var(--ok)':'var(--bad)'; }
+  const pc=$('rpc2'); if(pc&&rev>0) pc.className='mc '+(profit>=0?'mc-bg-g g':'mc-bg-r r');
 }
-
-function clearM(){
-  ['cn','cb2','ccpm','ccpc','ccvr','cprc'].forEach(id=>{ const e=$(id);if(e)e.value=''; });
-  calcM();
-}
-
+function clearM(){ ['cn','cb2','ccpm','ccpc','ccvr','cprc'].forEach(id=>{ const e=$(id);if(e)e.value=''; }); calcM(); }
 function saveM(){
-  const name=GS('cn')||'Campaign '+(DB.length+1);
-  const b=G('cb2'); if(!b){ toast('⚠️ กรุณากรอก Budget','warn'); return; }
-  const cpm=G('ccpm'),cpc=G('ccpc'),cvr=G('ccvr'),prc=G('cprc');
-  const cvrD=cvr/100;
-  const imp=cpm>0?(b/cpm)*1000:0;
-  const clk=cpc>0?b/cpc:0;
-  const con=clk*cvrD;
-  const cpa=con>0?b/con:0;
-  const rev=con*prc;
-  const roas=b>0&&rev>0?rev/b:0;
-  const ctr=imp>0?(clk/imp)*100:0;
-  DB.push({
-    id:uid(),name,type:'media_buying',
-    inputs:{budget:b,cpm,cpc,cvr,productPrice:prc},
-    results:{imp,clk,con,cpa,rev,roas,ctr},
-    kpi:{tBudget:b,tImp:0,tClk:0,tCon:0,tROAS:0,tCPA:0},
-    actual:{budget:0,imp:0,clk:0,con:0,rev:0},
-    at:new Date().toISOString()
-  });
-  save(); toast('✅ บันทึก "'+name+'" สำเร็จ','ok');
+  const name=GS('cn')||'Campaign '+(DB.length+1), b=G('cb2');
+  if(!b){ toast('⚠️ กรุณากรอก Budget','warn'); return; }
+  const cpm=G('ccpm'),cpc=G('ccpc'),cvr=G('ccvr'),prc=G('cprc'),cvrD=cvr/100;
+  const imp=cpm>0?(b/cpm)*1000:0, clk=cpc>0?b/cpc:0, con=clk*cvrD;
+  const cpa=con>0?b/con:0, rev=con*prc, roas=b>0&&rev>0?rev/b:0, ctr=imp>0?(clk/imp)*100:0;
+  pushDB(name,'media_buying',{budget:b,cpm,cpc,cvr,productPrice:prc},{imp,clk,con,cpa,rev,roas,ctr},b);
 }
 
 // ============================================================
-// FB CALCULATORS
+// FACEBOOK
 // ============================================================
 function calcLike(){
   const b=G('flb'),cpm=G('flcpm'),cpl=G('flcpl'),rt=G('flr')/100;
-  const imp=cpm>0?(b/cpm)*1000:0;
-  const reach=imp*0.92;
-  const likes=cpl>0?b/cpl:imp*rt;
-  const acpl=likes>0?b/likes:0;
+  const imp=cpm>0?(b/cpm)*1000:0, reach=imp*0.92;
+  const likes=cpl>0?b/cpl:imp*rt, acpl=likes>0?b/likes:0;
   SET('flri',fm(imp));SET('flrr',fm(reach));SET('flrl',fm(likes));SET('flrc',acpl>0?fc(acpl,2):'—');
 }
-
 function calcEng(){
   const b=G('feb'),cpm=G('fecpm'),cpe=G('fecpe'),rt=G('fer')/100;
-  const imp=cpm>0?(b/cpm)*1000:0;
-  const reach=imp*0.9;
-  const eng=cpe>0?b/cpe:imp*rt;
-  const acpe=eng>0?b/eng:0;
+  const imp=cpm>0?(b/cpm)*1000:0, reach=imp*0.9;
+  const eng=cpe>0?b/cpe:imp*rt, acpe=eng>0?b/eng:0;
   SET('feri',fm(imp));SET('ferr',fm(reach));SET('fere',fm(eng));SET('ferc',acpe>0?fc(acpe,2):'—');
 }
-
 function calcLead(){
   const b=G('fldb'),cpm=G('fldcpm'),ctr=G('fldctr')/100,ffr=G('fldf')/100,prc=G('fldp'),cvr=G('fldcvr')/100;
-  const imp=cpm>0?(b/cpm)*1000:0;
-  const clk=imp*ctr;
-  const leads=clk*ffr;
-  const cpl=leads>0?b/leads:0;
-  const sales=leads*cvr;
-  const rev=sales*prc;
-  const roas=b>0&&rev>0?rev/b:0;
-  SET('fldri',fm(imp));SET('fldrc',fm(clk));SET('fldrl',f(leads,1));
-  SET('fldra',cpl>0?fc(cpl,2):'—');SET('fldrs',f(sales,1));SET('fldrr',roas>0?fr(roas):'—');
+  const imp=cpm>0?(b/cpm)*1000:0, clk=imp*ctr, leads=clk*ffr;
+  const cpl=leads>0?b/leads:0, sales=leads*cvr, rev=sales*prc, roas=b>0&&rev>0?rev/b:0;
+  SET('fldri',fm(imp));SET('fldrc',fm(clk));SET('fldrl',f(leads,1));SET('fldra',cpl>0?fc(cpl,2):'—');SET('fldrs',f(sales,1));SET('fldrr',roas>0?fr(roas):'—');
 }
-
 function calcVid(){
   const b=G('fvb'),cpm=G('fvcpm'),r2=G('fv2')/100,rt=G('fvt')/100,cpv=G('fvcpv');
-  const imp=cpm>0?(b/cpm)*1000:0;
-  const v2=imp*r2;
-  const thru=cpv>0?b/cpv:imp*rt;
-  const acpv=thru>0?b/thru:0;
-  const vr=imp>0?(thru/imp)*100:0;
-  const ecpm=imp>0?(b/imp)*1000:0;
-  SET('fvri',fm(imp));SET('fvr2',fm(v2));SET('fvrt',fm(thru));
-  SET('fvrc',acpv>0?fc(acpv,2):'—');SET('fvrr',fp(vr,1));SET('fvre',ecpm>0?fc(ecpm,2):'—');
+  const imp=cpm>0?(b/cpm)*1000:0, v2=imp*r2;
+  const thru=cpv>0?b/cpv:imp*rt, acpv=thru>0?b/thru:0;
+  const vr=imp>0?(thru/imp)*100:0, ecpm=imp>0?(b/imp)*1000:0;
+  SET('fvri',fm(imp));SET('fvr2',fm(v2));SET('fvrt',fm(thru));SET('fvrc',acpv>0?fc(acpv,2):'—');SET('fvrr',fp(vr,1));SET('fvre',ecpm>0?fc(ecpm,2):'—');
 }
-
 function clearFb(ids){ ids.forEach(id=>{ const e=$(id);if(e)e.value=''; }); }
-
 function saveFb(type,nid){
   const name=GS(nid)||TMAP[type]+' '+(DB.length+1);
-  let b=0,inputs={},imp=0,clk=0,con=0,cpa=0,rev=0,roas=0,ctr=0;
+  let b=0,inp={},imp=0,clk=0,con=0,cpa=0,rev=0,roas=0,ctr=0;
   if(type==='fb_page_like'){
     b=G('flb');const cpm=G('flcpm'),cpl=G('flcpl'),rt=G('flr')/100;
     imp=cpm>0?(b/cpm)*1000:0;clk=cpl>0?b/cpl:imp*rt;con=clk;cpa=clk>0?b/clk:0;ctr=imp>0?(clk/imp)*100:0;
-    inputs={budget:b,cpm,cpl,likeRate:rt*100};
+    inp={budget:b,cpm,cpl,likeRate:rt*100};
   } else if(type==='fb_engagement'){
     b=G('feb');const cpm=G('fecpm'),cpe=G('fecpe'),rt=G('fer')/100;
     imp=cpm>0?(b/cpm)*1000:0;clk=cpe>0?b/cpe:imp*rt;con=clk;cpa=clk>0?b/clk:0;ctr=imp>0?(clk/imp)*100:0;
-    inputs={budget:b,cpm,cpe,engRate:rt*100};
+    inp={budget:b,cpm,cpe,engRate:rt*100};
   } else if(type==='fb_lead'){
     b=G('fldb');const cpm=G('fldcpm'),ctrR=G('fldctr')/100,ffr=G('fldf')/100,prc=G('fldp'),cvr=G('fldcvr')/100;
     imp=cpm>0?(b/cpm)*1000:0;clk=imp*ctrR;con=clk*ffr;cpa=con>0?b/con:0;
     const sales=con*cvr;rev=sales*prc;roas=b>0&&rev>0?rev/b:0;ctr=imp>0?(clk/imp)*100:0;
-    inputs={budget:b,cpm,ctr:ctrR*100,formFillRate:ffr*100,productPrice:prc,cvr:cvr*100};
+    inp={budget:b,cpm,ctr:ctrR*100,formFillRate:ffr*100,productPrice:prc,cvr:cvr*100};
   } else if(type==='fb_video'){
     b=G('fvb');const cpm=G('fvcpm'),r2=G('fv2')/100,rt=G('fvt')/100,cpv=G('fvcpv');
     imp=cpm>0?(b/cpm)*1000:0;clk=cpv>0?b/cpv:imp*rt;con=clk;cpa=clk>0?b/clk:0;ctr=imp>0?(clk/imp)*100:0;
-    inputs={budget:b,cpm,cpv,view2s:r2*100,thruRate:rt*100};
+    inp={budget:b,cpm,cpv,view2s:r2*100,thruRate:rt*100};
   }
   if(!b){ toast('⚠️ กรุณากรอก Budget','warn'); return; }
+  pushDB(name,type,inp,{imp,clk,con,cpa,rev,roas,ctr},b);
+}
+
+// ============================================================
+// GOOGLE
+// ============================================================
+function calcGS(){
+  const b=G('gsb'),cpc=G('gscpc'),ctr=G('gsctr')/100,cvr=G('gscvr')/100,qs=G('gsqs')||7,prc=G('gsprc');
+  const adjCPC=cpc>0?cpc*(10/qs):0;
+  const clk=adjCPC>0?b/adjCPC:cpc>0?b/cpc:0;
+  const imp=ctr>0?clk/ctr:0, con=clk*cvr;
+  const cpa=con>0?b/con:0, rev=con*prc, roas=b>0&&rev>0?rev/b:0;
+  SET('gsr-imp',fm(imp)); SET('gsr-clk',fm(clk)); SET('gsr-con',f(con,1));
+  SET('gsr-cpa',cpa>0?fc(cpa,2):'—'); SET('gsr-rev',rev>0?fc(rev):'—');
+  SET('gsr-roas',roas>0?fr(roas):'—'); SET('gsr-acpc',adjCPC>0?fc(adjCPC,2):'—');
+  SET('gsr-ctr',fp(ctr*100,2));
+}
+function calcGD(){
+  const b=G('gdb'),cpm=G('gdcpm'),ctr=G('gdctr')/100,cvr=G('gdcvr')/100,freq=G('gdfreq')||1,prc=G('gdprc');
+  const imp=cpm>0?(b/cpm)*1000:0, reach=freq>0?imp/freq:imp;
+  const clk=imp*ctr, con=clk*cvr;
+  const cpa=con>0?b/con:0, rev=con*prc, roas=b>0&&rev>0?rev/b:0;
+  const ecpc=clk>0?b/clk:0;
+  SET('gdr-imp',fm(imp));SET('gdr-reach',fm(reach));SET('gdr-clk',fm(clk));SET('gdr-con',f(con,1));
+  SET('gdr-cpa',cpa>0?fc(cpa,2):'—');SET('gdr-rev',rev>0?fc(rev):'—');SET('gdr-roas',roas>0?fr(roas):'—');SET('gdr-ecpc',ecpc>0?fc(ecpc,2):'—');
+}
+function calcGY(){
+  const b=G('gyb'),cpm=G('gycpm'),vr=G('gyvr')/100,ctr=G('gyctr')/100,cvr=G('gycvr')/100,prc=G('gyprc');
+  const imp=cpm>0?(b/cpm)*1000:0, views=imp*vr;
+  const cpv=views>0?b/views:0, clk=views*ctr, con=clk*cvr;
+  const cpa=con>0?b/con:0, rev=con*prc, roas=b>0&&rev>0?rev/b:0;
+  SET('gyr-imp',fm(imp));SET('gyr-view',fm(views));SET('gyr-cpv',cpv>0?fc(cpv,2):'—');
+  SET('gyr-clk',fm(clk));SET('gyr-con',f(con,1));SET('gyr-rev',rev>0?fc(rev):'—');
+  SET('gyr-roas',roas>0?fr(roas):'—');SET('gyr-vr',fp(vr*100,1));
+}
+function saveGG(type,nid){
+  const name=GS(nid)||TMAP[type]+' '+(DB.length+1);
+  let b=0,inp={},imp=0,clk=0,con=0,cpa=0,rev=0,roas=0,ctr=0;
+  if(type==='gg_search'){
+    b=G('gsb');const cpc=G('gscpc'),ctrR=G('gsctr')/100,cvr=G('gscvr')/100,qs=G('gsqs')||7,prc=G('gsprc');
+    const adjCPC=cpc>0?cpc*(10/qs):cpc;
+    clk=adjCPC>0?b/adjCPC:0;imp=ctrR>0?clk/ctrR:0;con=clk*cvr;
+    cpa=con>0?b/con:0;rev=con*prc;roas=b>0&&rev>0?rev/b:0;ctr=ctrR*100;
+    inp={budget:b,cpc,ctr:ctrR*100,cvr:cvr*100,qualityScore:qs,productPrice:prc};
+  } else if(type==='gg_display'){
+    b=G('gdb');const cpm=G('gdcpm'),ctrR=G('gdctr')/100,cvr=G('gdcvr')/100,freq=G('gdfreq')||1,prc=G('gdprc');
+    imp=cpm>0?(b/cpm)*1000:0;clk=imp*ctrR;con=clk*cvr;
+    cpa=con>0?b/con:0;rev=con*prc;roas=b>0&&rev>0?rev/b:0;ctr=ctrR*100;
+    inp={budget:b,cpm,ctr:ctrR*100,cvr:cvr*100,frequency:freq,productPrice:prc};
+  } else if(type==='gg_youtube'){
+    b=G('gyb');const cpm=G('gycpm'),vr=G('gyvr')/100,ctrR=G('gyctr')/100,cvr=G('gycvr')/100,prc=G('gyprc');
+    imp=cpm>0?(b/cpm)*1000:0;const views=imp*vr;clk=views*ctrR;con=clk*cvr;
+    cpa=con>0?b/con:0;rev=con*prc;roas=b>0&&rev>0?rev/b:0;ctr=ctrR*100;
+    inp={budget:b,cpm,viewRate:vr*100,ctr:ctrR*100,cvr:cvr*100,productPrice:prc};
+  }
+  if(!b){ toast('⚠️ กรุณากรอก Budget','warn'); return; }
+  pushDB(name,type,inp,{imp,clk,con,cpa,rev,roas,ctr},b);
+}
+
+// ============================================================
+// TIKTOK
+// ============================================================
+function calcTTI(){
+  const b=G('tib'),cpm=G('ticpm'),ctr=G('titr')/100,cvr=G('ticvr')/100,vr=G('tivr')/100,prc=G('tiprc');
+  const imp=cpm>0?(b/cpm)*1000:0, vv=imp*vr, clk=imp*ctr, con=clk*cvr;
+  const cpa=con>0?b/con:0, rev=con*prc, roas=b>0&&rev>0?rev/b:0;
+  const ecpm=imp>0?(b/imp)*1000:0;
+  SET('tir-imp',fm(imp));SET('tir-vv',fm(vv));SET('tir-clk',fm(clk));SET('tir-con',f(con,1));
+  SET('tir-cpa',cpa>0?fc(cpa,2):'—');SET('tir-rev',rev>0?fc(rev):'—');SET('tir-roas',roas>0?fr(roas):'—');SET('tir-ecpm',ecpm>0?fc(ecpm,2):'—');
+}
+function calcTTV(){
+  const b=G('tvb'),cpm=G('tvcpm'),fvr=G('tvfvr')/100,ctr=G('tvctr')/100,cvr=G('tvcvr')/100,prc=G('tvprc');
+  const imp=cpm>0?(b/cpm)*1000:0, fv=imp*fvr, clk=imp*ctr, con=clk*cvr;
+  const cpa=con>0?b/con:0, rev=con*prc, roas=b>0&&rev>0?rev/b:0, cpv=fv>0?b/fv:0;
+  SET('tvr-imp',fm(imp));SET('tvr-fv',fm(fv));SET('tvr-clk',fm(clk));SET('tvr-con',f(con,1));
+  SET('tvr-cpa',cpa>0?fc(cpa,2):'—');SET('tvr-rev',rev>0?fc(rev):'—');SET('tvr-roas',roas>0?fr(roas):'—');SET('tvr-cpv',cpv>0?fc(cpv,2):'—');
+}
+function calcTTS(){
+  const b=G('tsb'),cpm=G('tscpm'),cpe=G('tscpe'),er=G('tser')/100,pvr=G('tspvr')/100,fr2=G('tsfr')/100;
+  const imp=cpm>0?(b/cpm)*1000:0;
+  const eng=cpe>0?b/cpe:imp*er, acpe=eng>0?b/eng:0;
+  const pv=eng*pvr, fol=pv*fr2, cpf=fol>0?b/fol:0;
+  SET('tsr-imp',fm(imp));SET('tsr-eng',fm(eng));SET('tsr-cpe',acpe>0?fc(acpe,2):'—');
+  SET('tsr-pv',fm(pv));SET('tsr-fol',fm(fol));SET('tsr-cpf',cpf>0?fc(cpf,2):'—');
+}
+function saveTT(type,nid){
+  const name=GS(nid)||TMAP[type]+' '+(DB.length+1);
+  let b=0,inp={},imp=0,clk=0,con=0,cpa=0,rev=0,roas=0,ctr=0;
+  if(type==='tt_infeed'){
+    b=G('tib');const cpm=G('ticpm'),ctrR=G('titr')/100,cvr=G('ticvr')/100,vr=G('tivr')/100,prc=G('tiprc');
+    imp=cpm>0?(b/cpm)*1000:0;clk=imp*ctrR;con=clk*cvr;cpa=con>0?b/con:0;rev=con*prc;roas=b>0&&rev>0?rev/b:0;ctr=ctrR*100;
+    inp={budget:b,cpm,ctr:ctrR*100,cvr:cvr*100,videoViewRate:vr*100,productPrice:prc};
+  } else if(type==='tt_topview'){
+    b=G('tvb');const cpm=G('tvcpm'),fvr=G('tvfvr')/100,ctrR=G('tvctr')/100,cvr=G('tvcvr')/100,prc=G('tvprc');
+    imp=cpm>0?(b/cpm)*1000:0;clk=imp*ctrR;con=clk*cvr;cpa=con>0?b/con:0;rev=con*prc;roas=b>0&&rev>0?rev/b:0;ctr=ctrR*100;
+    inp={budget:b,cpm,fullViewRate:fvr*100,ctr:ctrR*100,cvr:cvr*100,productPrice:prc};
+  } else if(type==='tt_spark'){
+    b=G('tsb');const cpm=G('tscpm'),cpe=G('tscpe'),er=G('tser')/100;
+    imp=cpm>0?(b/cpm)*1000:0;clk=cpe>0?b/cpe:imp*er;con=clk;cpa=clk>0?b/clk:0;ctr=imp>0?(clk/imp)*100:0;
+    inp={budget:b,cpm,cpe};
+  }
+  if(!b){ toast('⚠️ กรุณากรอก Budget','warn'); return; }
+  pushDB(name,type,inp,{imp,clk,con,cpa,rev,roas,ctr},b);
+}
+
+// ============================================================
+// LINE
+// ============================================================
+function calcLA(){
+  const b=G('lab'),cpm=G('lacpm'),ctr=G('lactr')/100,cvr=G('lacvr')/100,afr=G('laafr')/100,prc=G('laprc');
+  const imp=cpm>0?(b/cpm)*1000:0, reach=imp*0.9, clk=imp*ctr;
+  const af=reach*afr, con=clk*cvr, cpa=con>0?b/con:0, rev=con*prc, roas=b>0&&rev>0?rev/b:0;
+  SET('lar-imp',fm(imp));SET('lar-reach',fm(reach));SET('lar-clk',fm(clk));SET('lar-af',fm(af));
+  SET('lar-con',f(con,1));SET('lar-cpa',cpa>0?fc(cpa,2):'—');SET('lar-rev',rev>0?fc(rev):'—');SET('lar-roas',roas>0?fr(roas):'—');
+}
+function calcLB(){
+  const fn=G('lbf'),cpm1k=G('lbcpm'),or=G('lbor')/100,ctr=G('lbctr')/100,cvr=G('lbcvr')/100,prc=G('lbprc');
+  const cost=(fn/1000)*cpm1k, opens=fn*or, clk=opens*ctr, con=clk*cvr;
+  const cpa=con>0?cost/con:0, rev=con*prc, roas=cost>0&&rev>0?rev/cost:0;
+  SET('lbr-cost',fc(cost));SET('lbr-sent',fm(fn));SET('lbr-open',fm(opens));SET('lbr-clk',fm(clk));
+  SET('lbr-con',f(con,1));SET('lbr-cpa',cpa>0?fc(cpa,2):'—');SET('lbr-rev',rev>0?fc(rev):'—');SET('lbr-roas',roas>0?fr(roas):'—');
+}
+function calcLS(){
+  const b=G('lsb'),cpc=G('lscpc'),cvr=G('lscvr')/100,prc=G('lsprc'),atcr=G('lsatc')/100;
+  const clk=cpc>0?b/cpc:0, atc=clk*atcr, con=clk*cvr;
+  const cpa=con>0?b/con:0, rev=con*prc, roas=b>0&&rev>0?rev/b:0;
+  SET('lsr-clk',fm(clk));SET('lsr-atc',fm(atc));SET('lsr-con',f(con,1));
+  SET('lsr-cpa',cpa>0?fc(cpa,2):'—');SET('lsr-rev',rev>0?fc(rev):'—');SET('lsr-roas',roas>0?fr(roas):'—');
+}
+function saveLN(type,nid){
+  const name=GS(nid)||TMAP[type]+' '+(DB.length+1);
+  let b=0,inp={},imp=0,clk=0,con=0,cpa=0,rev=0,roas=0,ctr=0;
+  if(type==='ln_ads'){
+    b=G('lab');const cpm=G('lacpm'),ctrR=G('lactr')/100,cvr=G('lacvr')/100,afr=G('laafr')/100,prc=G('laprc');
+    imp=cpm>0?(b/cpm)*1000:0;clk=imp*ctrR;con=clk*cvr;cpa=con>0?b/con:0;rev=con*prc;roas=b>0&&rev>0?rev/b:0;ctr=ctrR*100;
+    inp={budget:b,cpm,ctr:ctrR*100,cvr:cvr*100,addFriendRate:afr*100,productPrice:prc};
+  } else if(type==='ln_broadcast'){
+    const fn=G('lbf'),cpm1k=G('lbcpm');
+    b=(fn/1000)*cpm1k;
+    const or=G('lbor')/100,ctrR=G('lbctr')/100,cvr=G('lbcvr')/100,prc=G('lbprc');
+    imp=fn; clk=fn*or*ctrR; con=clk*cvr; cpa=con>0?b/con:0; rev=con*prc; roas=b>0&&rev>0?rev/b:0;
+    ctr=(or*ctrR)*100;
+    inp={budget:b,friends:fn,costPer1k:cpm1k,openRate:or*100,ctr:ctrR*100,cvr:cvr*100,productPrice:prc};
+  } else if(type==='ln_shopping'){
+    b=G('lsb');const cpc=G('lscpc'),cvr=G('lscvr')/100,prc=G('lsprc');
+    clk=cpc>0?b/cpc:0;con=clk*cvr;cpa=con>0?b/con:0;rev=con*prc;roas=b>0&&rev>0?rev/b:0;
+    inp={budget:b,cpc,cvr:cvr*100,productPrice:prc};
+  }
+  if(!b){ toast('⚠️ กรุณากรอก Budget/ข้อมูลให้ครบ','warn'); return; }
+  pushDB(name,type,inp,{imp,clk,con,cpa,rev,roas,ctr},b);
+}
+
+// ============================================================
+// GENERIC PUSH
+// ============================================================
+function pushDB(name,type,inputs,results,budget){
   DB.push({
-    id:uid(),name,type,inputs,
-    results:{imp,clk,con,cpa,rev,roas,ctr},
-    kpi:{tBudget:b,tImp:0,tClk:0,tCon:0,tROAS:0,tCPA:0},
+    id:uid(),name,type,inputs,results,
+    kpi:{tBudget:budget,tImp:0,tClk:0,tCon:0,tROAS:0,tCPA:0},
     actual:{budget:0,imp:0,clk:0,con:0,rev:0},
     at:new Date().toISOString()
   });
-  save(); toast('✅ บันทึก "'+name+'"','ok');
+  save();
+  toast('✅ บันทึก "'+name+'"','ok');
 }
 
 // ============================================================
@@ -749,28 +1044,26 @@ function agg(){ return DB.reduce((a,c)=>({budget:a.budget+(c.inputs.budget||0),r
 
 function renderCamps(){
   const empty=$('ce'),cont=$('cc');
-  if(DB.length===0){ empty.style.display='block';cont.style.display='none'; return; }
+  if(!DB.length){ empty.style.display='block';cont.style.display='none'; return; }
   empty.style.display='none';cont.style.display='block';
   const tot=agg();
-  const cs=$('cs2');
-  if(cs) cs.innerHTML=`
+  $('cs2').innerHTML=`
     <div class="mc mc-bg-b"><div class="mc-lbl">💼 Total Budget</div><div class="mc-v b">${fc(tot.budget)}</div><div class="mc-sub">${DB.length} campaigns</div></div>
-    <div class="mc mc-bg-g"><div class="mc-lbl">📦 Total Revenue</div><div class="mc-v g">${tot.rev>0?fc(tot.rev):'—'}</div><div class="mc-sub">Expected</div></div>
-    <div class="mc mc-bg-a"><div class="mc-lbl">📈 Blended ROAS</div><div class="mc-v a">${tot.rev>0?fr(tot.rev/tot.budget):'—'}</div><div class="mc-sub">All campaigns</div></div>
-    <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v">${f(tot.con,1)}</div><div class="mc-sub">Estimated total</div></div>
+    <div class="mc mc-bg-g"><div class="mc-lbl">📦 Total Revenue</div><div class="mc-v g">${tot.rev>0?fc(tot.rev):'—'}</div></div>
+    <div class="mc mc-bg-a"><div class="mc-lbl">📈 Blended ROAS</div><div class="mc-v a">${tot.rev>0?fr(tot.rev/tot.budget):'—'}</div></div>
+    <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v">${f(tot.con,1)}</div></div>
   `;
-  $('ccount').textContent=DB.length+' campaign'+(DB.length>1?'s':'');
-  const tb=$('ctbl');
-  if(tb) tb.innerHTML=DB.map(c=>`
+  $('ccount').textContent=DB.length+' campaigns';
+  $('ctbl').innerHTML=DB.map(c=>`
     <tr>
       <td><div class="tn">${esc(c.name)}</div><div class="tnm">${new Date(c.at).toLocaleDateString('th-TH')}</div></td>
+      <td style="font-size:12px;white-space:nowrap">${TPLATFORM[c.type]||''}</td>
       <td><span class="bdg ${TBDG[c.type]}">${TMAP[c.type]}</span></td>
       <td class="tv">${fc(c.inputs.budget)}</td>
       <td class="tv">${fm(c.results.imp)}</td>
       <td class="tv">${fm(c.results.clk)}</td>
       <td class="tv">${c.results.ctr>0?fp(c.results.ctr,2):'—'}</td>
       <td class="tv">${f(c.results.con,1)}</td>
-      <td class="tv">${c.inputs.cvr>0?fp(c.inputs.cvr,1):c.inputs.formFillRate>0?fp(c.inputs.formFillRate,1):'—'}</td>
       <td class="tv">${c.results.cpa>0?fc(c.results.cpa,2):'—'}</td>
       <td class="tv">${c.results.rev>0?fc(c.results.rev):'—'}</td>
       <td class="tv">${c.results.roas>0?fr(c.results.roas):'—'}</td>
@@ -789,34 +1082,20 @@ function loadCamp(id){
   $('ccpc').value=c.inputs.cpc||'';$('ccvr').value=c.inputs.cvr||'';$('cprc').value=c.inputs.productPrice||'';
   calcM(); goTab('calc'); toast('📝 โหลด "'+c.name+'"','ok');
 }
-
-function delCamp(id){
-  if(!confirm('ลบแคมเปญนี้?')) return;
-  DB=DB.filter(c=>c.id!==id); save(); renderCamps(); toast('🗑️ ลบแล้ว','warn');
-}
-
-function clearAll(){
-  if(DB.length===0){ toast('ไม่มีข้อมูล','warn'); return; }
-  if(!confirm('ลบแคมเปญทั้งหมด '+DB.length+' รายการ?')) return;
-  DB=[]; save(); renderCamps(); toast('🗑️ ลบทั้งหมดแล้ว','warn');
-}
+function delCamp(id){ if(!confirm('ลบ?')) return; DB=DB.filter(c=>c.id!==id); save(); renderCamps(); toast('🗑️ ลบแล้ว','warn'); }
+function clearAll(){ if(!DB.length||!confirm('ลบทั้งหมด '+DB.length+' แคมเปญ?')) return; DB=[]; save(); renderCamps(); toast('🗑️ ลบทั้งหมด','warn'); }
 
 // ============================================================
-// CSV EXPORT
+// CSV
 // ============================================================
 function exportCSV(){
   if(!DB.length){ toast('⚠️ ไม่มีข้อมูล','warn'); return; }
-  const H=['Campaign Name','Type','Date','Budget (THB)','CPM','CPC','CVR (%)','Product Price (THB)',
-    'Impressions','Clicks','CTR (%)','Conversions','CPA (THB)','Revenue (THB)','ROAS',
-    'KPI Target Budget','KPI Target Impressions','KPI Target Clicks','KPI Target Conversions','KPI Target ROAS','KPI Target CPA',
-    'Actual Budget Spent','Actual Impressions','Actual Clicks','Actual Conversions','Actual Revenue',
-    'Actual ROAS (calc)','Actual CPA (calc)'];
+  const H=['Campaign Name','Platform','Type','Date','Budget (THB)','Impressions','Clicks','CTR (%)','Conversions','CPA (THB)','Revenue (THB)','ROAS','KPI Target Budget','KPI Target Imp','KPI Target Clicks','KPI Target Conv','KPI Target ROAS','KPI Target CPA','Actual Budget Spent','Actual Impressions','Actual Clicks','Actual Conversions','Actual Revenue','Actual ROAS','Actual CPA'];
   const rows=DB.map(c=>{
     const aROAS=c.actual.budget>0&&c.actual.rev>0?c.actual.rev/c.actual.budget:0;
     const aCPA=c.actual.budget>0&&c.actual.con>0?c.actual.budget/c.actual.con:0;
-    return ['"'+c.name.replace(/"/g,'""')+'"',TMAP[c.type],new Date(c.at).toLocaleDateString('th-TH'),
-      c.inputs.budget||0,c.inputs.cpm||0,c.inputs.cpc||0,c.inputs.cvr||0,c.inputs.productPrice||0,
-      Math.round(c.results.imp||0),Math.round(c.results.clk||0),(c.results.ctr||0).toFixed(3),
+    return ['"'+c.name.replace(/"/g,'""')+'"',TPLATFORM[c.type]||'',TMAP[c.type],new Date(c.at).toLocaleDateString('th-TH'),
+      c.inputs.budget||0,Math.round(c.results.imp||0),Math.round(c.results.clk||0),(c.results.ctr||0).toFixed(3),
       (c.results.con||0).toFixed(2),(c.results.cpa||0).toFixed(2),(c.results.rev||0).toFixed(2),(c.results.roas||0).toFixed(2),
       c.kpi.tBudget||0,c.kpi.tImp||0,c.kpi.tClk||0,c.kpi.tCon||0,c.kpi.tROAS||0,c.kpi.tCPA||0,
       c.actual.budget||0,c.actual.imp||0,c.actual.clk||0,c.actual.con||0,c.actual.rev||0,
@@ -825,13 +1104,12 @@ function exportCSV(){
   const csv=[H,...rows].map(r=>r.join(',')).join('\n');
   const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
   const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download='admetrics_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
-  URL.revokeObjectURL(url); toast('📥 Export CSV สำเร็จ!','ok');
+  const a=document.createElement('a');a.href=url;a.download='admetrics_'+new Date().toISOString().slice(0,10)+'.csv';a.click();URL.revokeObjectURL(url);
+  toast('📥 Export CSV สำเร็จ','ok');
 }
 
 // ============================================================
-// KPI TRACKING
+// KPI
 // ============================================================
 function renderKPI(){
   const em=$('ke'),ct=$('kc');
@@ -842,57 +1120,37 @@ function renderKPI(){
 }
 
 function buildKPICard(c){
-  const mi=(metric,label,icon,proj)=>`
+  const mi=(m,lbl,icon,proj)=>`
     <div class="kmi">
-      <div class="kmit">${icon} ${label}</div>
+      <div class="kmit">${icon} ${lbl}</div>
       <div class="kmi-g">
         <div class="fg"><label class="fl">Target</label>
-          <input class="fi" id="kt-${c.id}-${metric}" type="number" min="0"
-            value="${c.kpi['t'+cap(metric)]||''}" placeholder="${f(proj,metric==='roas'?2:0)}"
-            oninput="refreshKPI('${c.id}')">
+          <input class="fi" id="kt-${c.id}-${m}" type="number" min="0" value="${c.kpi['t'+cap(m)]||''}" placeholder="${f(proj,m==='roas'?2:0)}" oninput="refreshKPI('${c.id}')">
         </div>
         <div class="fg"><label class="fl">Actual</label>
-          <input class="fi" id="ka-${c.id}-${metric}" type="number" min="0"
-            value="${c.actual[metric]||''}" placeholder="0"
-            oninput="refreshKPI('${c.id}')">
+          <input class="fi" id="ka-${c.id}-${m}" type="number" min="0" value="${c.actual[m]||''}" placeholder="0" oninput="refreshKPI('${c.id}')">
         </div>
       </div>
-      <div id="kp-${c.id}-${metric}"></div>
-    </div>
-  `;
+      <div id="kp-${c.id}-${m}"></div>
+    </div>`;
   return `
     <div class="kpic" id="kpic-${c.id}">
       <div class="kpih">
         <div>
           <div class="kpin">${esc(c.name)}</div>
-          <div class="kpim">
-            <span class="bdg bdg-gr" style="background:rgba(255,255,255,.15);color:#fff">${TMAP[c.type]}</span>
-            &nbsp; Budget: ${fc(c.inputs.budget)} &nbsp;|&nbsp; ${new Date(c.at).toLocaleDateString('th-TH')}
-          </div>
+          <div class="kpim"><span style="background:rgba(255,255,255,.15);color:#fff;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700">${TPLATFORM[c.type]} · ${TMAP[c.type]}</span> &nbsp; ${fc(c.inputs.budget)} &nbsp;|&nbsp; ${new Date(c.at).toLocaleDateString('th-TH')}</div>
         </div>
         <button class="btn btn-sm" style="background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.25)" onclick="saveKPI('${c.id}')">💾 Save KPI</button>
       </div>
       <div class="kpib">
-        <!-- Budget -->
         <div style="background:var(--bg);border:1px solid var(--b1);border-radius:var(--r);padding:15px;margin-bottom:15px">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:11px">💰 Budget Tracking</div>
           <div class="g2" style="gap:10px;margin-bottom:10px">
-            <div class="fg" style="margin:0"><label class="fl">Target Budget</label>
-              <div class="iw p"><span class="ipre">฿</span>
-              <input class="fi" id="kt-${c.id}-budget" type="number" min="0"
-                value="${c.kpi.tBudget||''}" placeholder="${c.inputs.budget}" oninput="refreshKPI('${c.id}')">
-              </div>
-            </div>
-            <div class="fg" style="margin:0"><label class="fl">Actual Spent</label>
-              <div class="iw p"><span class="ipre">฿</span>
-              <input class="fi" id="ka-${c.id}-budget" type="number" min="0"
-                value="${c.actual.budget||''}" placeholder="0" oninput="refreshKPI('${c.id}')">
-              </div>
-            </div>
+            <div class="fg" style="margin:0"><label class="fl">Target Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="kt-${c.id}-budget" type="number" min="0" value="${c.kpi.tBudget||''}" placeholder="${c.inputs.budget}" oninput="refreshKPI('${c.id}')"></div></div>
+            <div class="fg" style="margin:0"><label class="fl">Actual Spent</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="ka-${c.id}-budget" type="number" min="0" value="${c.actual.budget||''}" placeholder="0" oninput="refreshKPI('${c.id}')"></div></div>
           </div>
           <div id="kp-${c.id}-budget"></div>
         </div>
-        <!-- Metrics -->
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:11px">🎯 Performance KPIs</div>
         <div class="g3" style="gap:11px">
           ${mi('imp','Impressions','👁️',c.results.imp)}
@@ -902,34 +1160,26 @@ function buildKPICard(c){
           ${mi('cpa','CPA (↓ better)','💰',c.results.cpa)}
           <div class="kmi">
             <div class="kmit">📦 Actual Revenue</div>
-            <div class="fg" style="margin:0"><label class="fl">Revenue (฿)</label>
-              <div class="iw p"><span class="ipre">฿</span>
-              <input class="fi" id="ka-${c.id}-rev" type="number" min="0"
-                value="${c.actual.rev||''}" placeholder="0" oninput="refreshKPI('${c.id}')">
-              </div>
-            </div>
+            <div class="fg" style="margin:0"><label class="fl">Revenue (฿)</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="ka-${c.id}-rev" type="number" min="0" value="${c.actual.rev||''}" placeholder="0" oninput="refreshKPI('${c.id}')"></div></div>
             <div style="font-size:11px;color:var(--t3);margin-top:7px">Expected: <strong style="color:var(--ok)">${c.results.rev>0?fc(c.results.rev):'—'}</strong></div>
           </div>
         </div>
-        <!-- Auto-Calc -->
         <div style="background:var(--bg);border:1px solid var(--b1);border-radius:var(--r);padding:13px;margin-top:14px">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:9px">📐 Auto Calculated from Actuals</div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:9px">📐 Auto-Calc from Actuals</div>
           <div class="g3" style="gap:8px">
             <div style="text-align:center"><div style="font-size:9px;color:var(--t3);font-weight:700;text-transform:uppercase;margin-bottom:3px">Actual ROAS</div><div id="kac-${c.id}-roas" style="font-size:17px;font-weight:800;color:var(--p)">—</div></div>
             <div style="text-align:center"><div style="font-size:9px;color:var(--t3);font-weight:700;text-transform:uppercase;margin-bottom:3px">Actual CPA</div><div id="kac-${c.id}-cpa" style="font-size:17px;font-weight:800;color:var(--warn)">—</div></div>
-            <div style="text-align:center"><div style="font-size:9px;color:var(--t3);font-weight:700;text-transform:uppercase;margin-bottom:3px">Profit / Loss</div><div id="kac-${c.id}-pro" style="font-size:17px;font-weight:800">—</div></div>
+            <div style="text-align:center"><div style="font-size:9px;color:var(--t3);font-weight:700;text-transform:uppercase;margin-bottom:3px">Profit/Loss</div><div id="kac-${c.id}-pro" style="font-size:17px;font-weight:800">—</div></div>
           </div>
         </div>
         <div id="kovr-${c.id}"></div>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
 
 function refreshKPI(id){
-  // Budget progress
   const tB=parseFloat($(`kt-${id}-budget`)?.value)||0;
   const aB=parseFloat($(`ka-${id}-budget`)?.value)||0;
   const bp=$(`kp-${id}-budget`);
@@ -941,73 +1191,44 @@ function refreshKPI(id){
       bp.innerHTML=`<div class="prw"><div class="pri"><div class="prl">${fc(aB)} / ${fc(tB)}</div><div class="prp">${f(pct,1)}%</div></div><div class="prt"><div class="prf ${cl}" style="width:${Math.min(pct,100)}%"></div></div><div class="prs">${pct>100?'🔴 Over Budget':pct>=90?'🟡 Near Limit':'🟢 On Budget'}</div></div>`;
     }
   }
-
-  // Metrics
   const metrics=[{k:'imp',lower:false},{k:'clk',lower:false},{k:'con',lower:false},{k:'roas',lower:false},{k:'cpa',lower:true}];
   let scores=[];
   metrics.forEach(m=>{
-    const tEl=$(`kt-${id}-${m.k}`);
-    const aEl=$(`ka-${id}-${m.k}`);
-    const pEl=$(`kp-${id}-${m.k}`);
+    const tEl=$(`kt-${id}-${m.k}`),aEl=$(`ka-${id}-${m.k}`),pEl=$(`kp-${id}-${m.k}`);
     if(!tEl||!aEl||!pEl) return;
-    let target=parseFloat(tEl.value)||0;
-    let actual=parseFloat(aEl.value)||0;
-    // Auto-calc ROAS & CPA from revenue/budget/conv if input is empty
-    if(m.k==='roas'&&actual===0){
-      const ab=parseFloat($(`ka-${id}-budget`)?.value)||0;
-      const ar=parseFloat($(`ka-${id}-rev`)?.value)||0;
-      if(ab>0&&ar>0) actual=ar/ab;
-    }
-    if(m.k==='cpa'&&actual===0){
-      const ab=parseFloat($(`ka-${id}-budget`)?.value)||0;
-      const ac=parseFloat($(`ka-${id}-con`)?.value)||0;
-      if(ab>0&&ac>0) actual=ab/ac;
-    }
+    let target=parseFloat(tEl.value)||0, actual=parseFloat(aEl.value)||0;
+    if(m.k==='roas'&&actual===0){ const ab=parseFloat($(`ka-${id}-budget`)?.value)||0,ar=parseFloat($(`ka-${id}-rev`)?.value)||0;if(ab>0&&ar>0)actual=ar/ab; }
+    if(m.k==='cpa'&&actual===0){ const ab=parseFloat($(`ka-${id}-budget`)?.value)||0,ac=parseFloat($(`ka-${id}-con`)?.value)||0;if(ab>0&&ac>0)actual=ab/ac; }
     if(!target||!actual){ pEl.innerHTML='<div style="font-size:10px;color:var(--t3);padding:2px 0">กรอก Target & Actual</div>'; return; }
     const pct=m.lower?(target/actual)*100:(actual/target)*100;
-    const w=Math.min(pct,100);
     let cl,st,dot;
-    if(m.lower){
-      if(pct>=100){cl='g';st='✅ On Target';dot='var(--ok)'}
-      else if(pct>=80){cl='a';st='⚠️ Slightly Over';dot='var(--warn)'}
-      else{cl='r';st='❌ Over Limit';dot='var(--bad)'}
-    } else {
-      if(pct>=100){cl='g';st='✅ Target Met';dot='var(--ok)'}
-      else if(pct>=75){cl='a';st='⚡ On Track';dot='var(--warn)'}
-      else{cl='r';st='❌ Behind Target';dot='var(--bad)'}
-    }
+    if(m.lower){ if(pct>=100){cl='g';st='✅ On Target';dot='var(--ok)'}else if(pct>=80){cl='a';st='⚠️ Slightly Over';dot='var(--warn)'}else{cl='r';st='❌ Over Limit';dot='var(--bad)'} }
+    else{ if(pct>=100){cl='g';st='✅ Met';dot='var(--ok)'}else if(pct>=75){cl='a';st='⚡ On Track';dot='var(--warn)'}else{cl='r';st='❌ Behind';dot='var(--bad)'} }
     scores.push({pct,ok:pct>=75});
-    pEl.innerHTML=`<div class="prw"><div class="pri"><div class="prp" style="color:${dot}">${f(pct,1)}% to KPI</div><div style="font-size:10px;color:var(--t3)">${st}</div></div><div class="prt"><div class="prf ${cl}" style="width:${w}%"></div></div></div>`;
+    pEl.innerHTML=`<div class="prw"><div class="pri"><div class="prp" style="color:${dot}">${f(pct,1)}% to KPI</div><div style="font-size:10px;color:var(--t3)">${st}</div></div><div class="prt"><div class="prf ${cl}" style="width:${Math.min(pct,100)}%"></div></div></div>`;
   });
-
-  // Auto-calc display
   const aREV=parseFloat($(`ka-${id}-rev`)?.value)||0;
   const aROAS=aB>0&&aREV>0?aREV/aB:0;
   const aCON=parseFloat($(`ka-${id}-con`)?.value)||0;
   const aCPA=aB>0&&aCON>0?aB/aCON:0;
   const aProfit=aREV-aB;
-  const re=$(`kac-${id}-roas`);const ce=$(`kac-${id}-cpa`);const pe=$(`kac-${id}-pro`);
+  const re=$(`kac-${id}-roas`),ce=$(`kac-${id}-cpa`),pe=$(`kac-${id}-pro`);
   if(re){ re.textContent=aROAS>0?fr(aROAS):'—'; re.style.color=aROAS>=3?'var(--ok)':aROAS>0?'var(--warn)':'var(--t3)'; }
   if(ce) ce.textContent=aCPA>0?fc(aCPA,2):'—';
   if(pe){ pe.textContent=aB>0&&aREV>0?fc(Math.abs(aProfit))+(aProfit<0?' 🔴':' 🟢'):'—'; pe.style.color=aProfit>0?'var(--ok)':aProfit<0?'var(--bad)':'var(--t3)'; }
-
-  // Overall summary
   const oEl=$(`kovr-${id}`);
   if(oEl&&scores.length){
-    const on=scores.filter(s=>s.ok).length;
-    const pct=Math.round((on/scores.length)*100);
-    const cls=pct>=75?'ok':pct>=50?'warn':'bad';
-    const icon=pct>=75?'✅':pct>=50?'⚠️':'❌';
-    oEl.innerHTML=`<div class="kpiovr ${cls}"><div class="kpotr">${icon} KPI Achievement: ${on}/${scores.length} metrics on track (${pct}%)</div><button class="btn btn-sm btn-p" onclick="saveKPI('${id}')">💾 Save Progress</button></div>`;
+    const on=scores.filter(s=>s.ok).length,pct=Math.round((on/scores.length)*100);
+    const cls=pct>=75?'ok':pct>=50?'warn':'bad',icon=pct>=75?'✅':pct>=50?'⚠️':'❌';
+    oEl.innerHTML=`<div class="kpiovr ${cls}"><div class="kpotr">${icon} KPI Achievement: ${on}/${scores.length} on track (${pct}%)</div><button class="btn btn-sm btn-p" onclick="saveKPI('${id}')">💾 Save</button></div>`;
   }
 }
 
 function saveKPI(id){
   const c=DB.find(x=>x.id===id); if(!c) return;
-  const metrics=['imp','clk','con','roas','cpa'];
   c.kpi.tBudget=parseFloat($(`kt-${id}-budget`)?.value)||0;
   c.actual.budget=parseFloat($(`ka-${id}-budget`)?.value)||0;
-  metrics.forEach(m=>{
+  ['imp','clk','con','roas','cpa'].forEach(m=>{
     c.kpi['t'+cap(m)]=parseFloat($(`kt-${id}-${m}`)?.value)||0;
     c.actual[m]=parseFloat($(`ka-${id}-${m}`)?.value)||0;
   });
@@ -1022,94 +1243,54 @@ function renderDash(){
   const em=$('de'),ct=$('dc');
   if(!DB.length){ em.style.display='block';ct.style.display='none'; return; }
   em.style.display='none';ct.style.display='block';
-
   const tot=agg();
   const avgROAS=tot.budget>0&&tot.rev>0?tot.rev/tot.budget:0;
   const avgCTR=tot.imp>0?(tot.clk/tot.imp)*100:0;
-
-  const strip=$('dstrip');
-  if(strip) strip.innerHTML=`
+  $('dstrip').innerHTML=`
     <div class="ssi"><div class="ssv">${fc(tot.budget)}</div><div class="ssk">Total Budget</div></div>
     <div class="ssdv"></div>
     <div class="ssi"><div class="ssv">${tot.rev>0?fc(tot.rev):'—'}</div><div class="ssk">Total Revenue</div></div>
     <div class="ssdv"></div>
     <div class="ssi"><div class="ssv">${avgROAS>0?fr(avgROAS):'—'}</div><div class="ssk">Blended ROAS</div></div>
     <div class="ssdv"></div>
-    <div class="ssi"><div class="ssv">${fm(tot.imp)}</div><div class="ssk">Total Impressions</div></div>
+    <div class="ssi"><div class="ssv">${fm(tot.imp)}</div><div class="ssk">Impressions</div></div>
     <div class="ssdv"></div>
-    <div class="ssi"><div class="ssv">${fm(tot.clk)}</div><div class="ssk">Total Clicks</div></div>
+    <div class="ssi"><div class="ssv">${fm(tot.clk)}</div><div class="ssk">Clicks</div></div>
     <div class="ssdv"></div>
-    <div class="ssi"><div class="ssv">${f(tot.con,1)}</div><div class="ssk">Total Conversions</div></div>
+    <div class="ssi"><div class="ssv">${f(tot.con,1)}</div><div class="ssk">Conversions</div></div>
     <div class="ssdv"></div>
     <div class="ssi"><div class="ssv">${fp(avgCTR,2)}</div><div class="ssk">Avg CTR</div></div>
   `;
-
-  Object.values(CHARTS).forEach(ch=>{ try{ch.destroy();}catch(e){} });
-  CHARTS={};
-
+  Object.values(CHARTS).forEach(ch=>{ try{ch.destroy();}catch(e){} }); CHARTS={};
   const labels=DB.map(c=>c.name.length>14?c.name.slice(0,14)+'…':c.name);
-  const opts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}};
+  const platColors={'📘 Facebook':'#1877F2','🔍 Google':'#4285F4','🎵 TikTok':'#FE2C55','💚 LINE':'#00B900','📊 Media':'#8B5CF6'};
+  const bgColors=DB.map(c=>platColors[TPLATFORM[c.type]]||COLORS[DB.indexOf(c)%COLORS.length]);
 
-  // Budget
   const c1=$('ch1');
-  if(c1) CHARTS.c1=new Chart(c1,{type:'bar',data:{labels,datasets:[{label:'Budget',data:DB.map(c=>c.inputs.budget||0),backgroundColor:COLORS.slice(0,DB.length),borderRadius:7,borderWidth:0}]},options:{...opts,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'฿'+(v>=1000?(v/1000).toFixed(0)+'K':v)},grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
+  if(c1) CHARTS.c1=new Chart(c1,{type:'bar',data:{labels,datasets:[{label:'Budget',data:DB.map(c=>c.inputs.budget||0),backgroundColor:bgColors,borderRadius:7,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'฿'+(v>=1000?(v/1000).toFixed(0)+'K':v)},grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
 
-  // ROAS
   const c2=$('ch2');
   if(c2) CHARTS.c2=new Chart(c2,{type:'bar',data:{labels,datasets:[{label:'ROAS',data:DB.map(c=>c.results.roas||0),backgroundColor:DB.map(c=>(c.results.roas||0)>=3?'rgba(5,150,105,.8)':(c.results.roas||0)>=1?'rgba(217,119,6,.8)':'rgba(220,38,38,.8)'),borderRadius:7,borderWidth:0},{label:'Target 3x',data:DB.map(()=>3),type:'line',borderColor:'#EF4444',borderDash:[5,4],borderWidth:2,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{ticks:{callback:v=>v+'x'},beginAtZero:true,grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
 
-  // Impr vs Clicks
   const c3=$('ch3');
   if(c3) CHARTS.c3=new Chart(c3,{type:'bar',data:{labels,datasets:[{label:'Impressions',data:DB.map(c=>c.results.imp||0),backgroundColor:'rgba(59,130,246,.75)',borderRadius:5,borderWidth:0},{label:'Clicks',data:DB.map(c=>c.results.clk||0),backgroundColor:'rgba(16,185,129,.75)',borderRadius:5,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{ticks:{callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v},grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
 
-  // CPA vs Price
   const c4=$('ch4');
   if(c4) CHARTS.c4=new Chart(c4,{type:'bar',data:{labels,datasets:[{label:'CPA (฿)',data:DB.map(c=>c.results.cpa||0),backgroundColor:'rgba(220,38,38,.7)',borderRadius:5,borderWidth:0},{label:'Product Price (฿)',data:DB.map(c=>c.inputs.productPrice||0),backgroundColor:'rgba(99,102,241,.7)',borderRadius:5,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{ticks:{callback:v=>'฿'+v},grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
 
-  // Campaign Type
   const c5=$('ch5');
   if(c5){
-    const tc={};DB.forEach(c=>{ tc[c.type]=(tc[c.type]||0)+1; });
-    CHARTS.c5=new Chart(c5,{type:'doughnut',data:{labels:Object.keys(tc).map(t=>TMAP[t]),datasets:[{data:Object.values(tc),backgroundColor:['#3B82F6','#10B981','#F59E0B','#8B5CF6','#EF4444'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:14}}},cutout:'62%'}});
-  }
-
-  // KPI Summary in dash
-  const kd=$('kdash'),kdb=$('kdashb');
-  const withKPI=DB.filter(c=>c.kpi.tCon>0||c.kpi.tImp>0||c.kpi.tROAS>0);
-  if(kd&&kdb){
-    if(withKPI.length){
-      kd.style.display='block';
-      kdb.innerHTML=`<div class="g3" style="gap:12px">
-        ${withKPI.map(c=>{
-          const metrics=[{k:'con',label:'Conversions',t:c.kpi.tCon,a:c.actual.con,lower:false},{k:'roas',label:'ROAS',t:c.kpi.tROAS,a:c.actual.roas,lower:false},{k:'cpa',label:'CPA',t:c.kpi.tCPA,a:c.actual.cpa,lower:true}].filter(m=>m.t>0&&m.a>0);
-          if(!metrics.length) return '';
-          const scores=metrics.map(m=>m.lower?(m.t/m.a)>=1:(m.a/m.t)>=0.75);
-          const onTrack=scores.filter(Boolean).length;
-          const pct=Math.round((onTrack/scores.length)*100);
-          const cl=pct>=75?'ok':pct>=50?'warn':'bad';
-          const bgCl=pct>=75?'var(--okl)':pct>=50?'var(--warnl)':'var(--badl)';
-          const bdr=pct>=75?'#A7F3D0':pct>=50?'#FDE68A':'#FECACA';
-          const tcl=pct>=75?'var(--ok)':pct>=50?'var(--warn)':'var(--bad)';
-          return `<div style="background:${bgCl};border:1px solid ${bdr};border-radius:var(--r);padding:14px">
-            <div style="font-weight:700;font-size:13px;margin-bottom:6px">${esc(c.name)}</div>
-            ${metrics.map(m=>{
-              const p=m.lower?(m.t/m.a)*100:(m.a/m.t)*100;
-              return `<div style="margin-bottom:5px"><div style="font-size:10px;color:var(--t3);margin-bottom:3px">${m.label}</div><div class="prt"><div class="prf g" style="width:${Math.min(p,100)}%"></div></div><div style="font-size:10px;color:var(--t3)">${f(p,1)}%</div></div>`;
-            }).join('')}
-            <div style="font-size:12px;font-weight:700;color:${tcl};margin-top:8px">${onTrack}/${scores.length} KPIs on track (${pct}%)</div>
-          </div>`;
-        }).join('')}
-      </div>`;
-    } else { kd.style.display='none'; }
+    const tc={};DB.forEach(c=>{const pl=TPLATFORM[c.type]||c.type;tc[pl]=(tc[pl]||0)+1;});
+    const pColors={'📘 Facebook':'#1877F2','🔍 Google':'#4285F4','🎵 TikTok':'#FE2C55','💚 LINE':'#00B900','📊 Media':'#8B5CF6'};
+    CHARTS.c5=new Chart(c5,{type:'doughnut',data:{labels:Object.keys(tc),datasets:[{data:Object.values(tc),backgroundColor:Object.keys(tc).map(k=>pColors[k]||'#94A3B8'),borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:12}}},cutout:'62%'}});
   }
 }
 
 // ============================================================
-// HEADER & BADGE
+// HEADER
 // ============================================================
 function refreshHeader(){
-  const tot=agg();
-  const roas=tot.budget>0&&tot.rev>0?tot.rev/tot.budget:0;
+  const tot=agg(), roas=tot.budget>0&&tot.rev>0?tot.rev/tot.budget:0;
   const h1=$('hs1'),h2=$('hs2'),h3=$('hs3'),h4=$('hs4');
   if(h1) h1.textContent=DB.length;
   if(h2) h2.textContent=tot.budget>=1e6?'฿'+f(tot.budget/1e6,1)+'M':tot.budget>=1000?'฿'+f(tot.budget/1000,1)+'K':fc(tot.budget);
@@ -1123,39 +1304,14 @@ function refreshBadge(){ const nb=$('nc'); if(nb) nb.textContent=DB.length; }
 // ============================================================
 function toast(msg,type='ok'){
   let box=$('toasts');
-  if(!box){ box=document.createElement('div');box.id='toasts';document.body.appendChild(box); }
   const t=document.createElement('div');
-  t.className='tst '+type;t.textContent=msg;
-  box.appendChild(t);
+  t.className='tst '+type;t.textContent=msg;box.appendChild(t);
   setTimeout(()=>{ t.style.cssText+='opacity:0;transform:translateX(16px);transition:all .25s'; setTimeout(()=>t.remove(),260); },2800);
 }
 
-// ============================================================
 // INIT
-// ============================================================
 refreshHeader(); refreshBadge();
 </script>
 </body>
 </html>
 ```
-
----
-
-## ฟีเจอร์ครบทั้งหมด ✅
-
-<details>
-<summary><strong>📋 สิ่งที่มีในเว็บนี้</strong></summary>
-
-| Tab | ฟีเจอร์ |
-|-----|---------|
-| 🧮 **Media Buying** | คำนวณ Budget, CPM, CPC, CVR, Product Price → Impressions, Clicks, Conversions, CPA, ROAS, Profit, CTR, eCPM |
-| 📘 **Facebook Ads** | Page Like / Engagement / Lead Ads / Video View — แยก Objective ครบ |
-| 📋 **Campaigns** | บันทึก + เปรียบเทียบทุกแคมเปญ, Export CSV ครบทุกคอลัมน์ |
-| 🎯 **KPI Tracking** | Target vs Actual ทุก metric, Progress bar, Auto-calc ROAS/CPA, Overall score |
-| 📈 **Dashboard** | Chart 5 ประเภท, Summary strip, KPI Achievement overview |
-
-</details>
-
-- **Light theme** อ่านง่าย เหมาะ B2B presentation
-- **Responsive** ทุกขนาดหน้าจอ
-- **Local Storage** — ข้อมูลไม่หายเมื่อ refresh
