@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ads Performance Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-light: #5a5a7a;
+    --ink-faint: #a0a0b8;
+    --bg: #f7f6f3;
+    --white: #ffffff;
+    --border: #e8e6e0;
+    --border-strong: #d0cdc5;
+    --accent: #2563eb;
+    --accent-light: #eff4ff;
+    --green: #059669;
+    --green-light: #ecfdf5;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --amber: #d97706;
+    --amber-light: #fffbeb;
+    --r: 10px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--ink); font-size: 14px; line-height: 1.5; min-height: 100vh; }
+  .app { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+  .header { display:flex; align-items:flex-end; justify-content:space-between; padding:36px 0 28px; border-bottom:1px solid var(--border); margin-bottom:32px; gap:16px; flex-wrap:wrap; }
+  .header-left h1 { font-family:'Lora',serif; font-size:22px; font-weight:600; color:var(--ink); letter-spacing:-0.3px; margin-bottom:2px; }
+  .header-left p { color:var(--ink-light); font-size:13px; }
+  .header-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:8px; font-size:13px; font-weight:500; font-family:inherit; cursor:pointer; transition:all 0.15s; border:1px solid transparent; white-space:nowrap; }
+  .btn-primary { background:var(--accent); color:white; border-color:var(--accent); }
+  .btn-primary:hover { background:#1d4ed8; }
+  .btn-ghost { background:var(--white); color:var(--ink-light); border-color:var(--border); }
+  .btn-ghost:hover { color:var(--ink); border-color:var(--border-strong); }
+  .section-title { font-family:'Lora',serif; font-size:13px; font-weight:500; color:var(--ink-faint); text-transform:uppercase; letter-spacing:1.2px; margin-bottom:14px; }
+  .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:32px; }
+  .kpi-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:20px; box-shadow:var(--shadow); transition:box-shadow 0.2s; }
+  .kpi-card:hover { box-shadow:var(--shadow-md); }
+  .kpi-label { font-size:11px; font-weight:600; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; }
+  .kpi-value { font-family:'Lora',serif; font-size:28px; font-weight:600; color:var(--ink); line-height:1; margin-bottom:10px; cursor:pointer; min-height:28px; border-radius:4px; padding:2px 0; }
+  .kpi-value:focus { outline:2px solid var(--accent); outline-offset:3px; }
+  .kpi-change { display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:600; padding:2px 8px; border-radius:100px; }
+  .kpi-change.up { background:var(--green-light); color:var(--green); }
+  .kpi-change.down { background:var(--red-light); color:var(--red); }
+  .kpi-change.neutral { background:var(--bg); color:var(--ink-faint); }
+  .campaigns-section { margin-bottom:32px; }
+  .section-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:10px; }
+  .editable-hint { font-size:11px; color:var(--ink-faint); display:flex; align-items:center; gap:4px; }
+  .table-wrap { background:var(--white); border:1px solid var(--border); border-radius:var(--r); box-shadow:var(--shadow); overflow:hidden; }
+  table { width:100%; border-collapse:collapse; }
+  thead th { font-size:11px; font-weight:600; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.7px; text-align:left; padding:12px 16px; background:var(--bg); border-bottom:1px solid var(--border); white-space:nowrap; }
+  thead th:last-child { text-align:center; }
+  tbody tr { border-bottom:1px solid var(--border); transition:background 0.1s; }
+  tbody tr:last-child { border-bottom:none; }
+  tbody tr:hover { background:#fafaf8; }
+  tbody td { padding:11px 16px; vertical-align:middle; font-size:13px; color:var(--ink); }
+  tbody td:last-child { text-align:center; }
+  .td-input { width:100%; border:none; background:transparent; font-family:inherit; font-size:13px; color:var(--ink); padding:4px 6px; border-radius:5px; transition:background 0.15s, box-shadow 0.15s; min-width:60px; }
+  .td-input:focus { outline:none; background:var(--accent-light); box-shadow:0 0 0 2px rgba(37,99,235,0.2); }
+  .td-name-input { font-weight:500; min-width:140px; }
+  .platform-select { border:1px solid var(--border); border-radius:6px; padding:4px 8px; font-family:inherit; font-size:12px; color:var(--ink); background:var(--white); cursor:pointer; }
+  .platform-select:focus { outline:2px solid var(--accent); }
+  .status-select { border:none; border-radius:100px; padding:4px 12px; font-family:inherit; font-size:11px; font-weight:600; cursor:pointer; -webkit-appearance:none; appearance:none; text-align:center; }
+  .status-active { background:var(--green-light); color:var(--green); }
+  .status-paused { background:var(--amber-light); color:var(--amber); }
+  .status-draft { background:var(--bg); color:var(--ink-faint); border:1px solid var(--border); }
+  .roas-badge { display:inline-block; padding:3px 10px; border-radius:100px; font-weight:600; font-size:12px; }
+  .roas-great { background:var(--green-light); color:var(--green); }
+  .roas-ok { background:var(--amber-light); color:var(--amber); }
+  .roas-poor { background:var(--red-light); color:var(--red); }
+  .roas-none { background:var(--bg); color:var(--ink-faint); }
+  .delete-btn { background:none; border:none; cursor:pointer; color:var(--ink-faint); padding:4px 8px; border-radius:6px; font-size:13px; transition:all 0.15s; line-height:1; }
+  .delete-btn:hover { background:var(--red-light); color:var(--red); }
+  .add-row-btn { width:100%; padding:12px; background:none; border:none; border-top:1px solid var(--border); color:var(--ink-faint); font-family:inherit; font-size:13px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; transition:all 0.15s; border-radius:0 0 var(--r) var(--r); }
+  .add-row-btn:hover { background:var(--bg); color:var(--accent); }
+  .analytics-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; }
+  .panel { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:24px; box-shadow:var(--shadow); }
+  .panel-title { font-family:'Lora',serif; font-size:14px; font-weight:600; color:var(--ink); margin-bottom:20px; }
+  .platform-bar-row { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .platform-bar-row:last-child { margin-bottom:0; }
+  .pbar-label { font-size:12px; font-weight:500; color:var(--ink-light); width:80px; flex-shrink:0; display:flex; align-items:center; gap:6px; }
+  .pbar-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .pbar-track { flex:1; height:8px; background:var(--bg); border-radius:100px; overflow:hidden; }
+  .pbar-fill { height:100%; border-radius:100px; transition:width 0.8s cubic-bezier(0.34,1.2,0.64,1); }
+  .pbar-val { font-size:12px; font-weight:600; color:var(--ink); width:52px; text-align:right; flex-shrink:0; }
+  .funnel-row { display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+  .funnel-label { font-size:12px; color:var(--ink-light); width:90px; flex-shrink:0; }
+  .funnel-bar-outer { flex:1; height:28px; background:var(--bg); border-radius:6px; overflow:hidden; }
+  .funnel-bar-inner { height:100%; border-radius:6px; display:flex; align-items:center; padding:0 10px; font-size:11px; font-weight:600; color:white; transition:width 0.8s cubic-bezier(0.34,1.2,0.64,1); white-space:nowrap; overflow:hidden; }
+  .notes-section { margin-bottom:20px; }
+  .notes-area { width:100%; min-height:80px; border:1px solid var(--border); border-radius:var(--r); padding:14px 16px; font-family:inherit; font-size:13px; color:var(--ink); background:var(--white); resize:vertical; line-height:1.6; box-shadow:var(--shadow); transition:border-color 0.15s, box-shadow 0.15s; }
+  .notes-area::placeholder { color:var(--ink-faint); }
+  .notes-area:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
+  .modal-overlay { position:fixed; inset:0; background:rgba(26,26,46,0.35); display:flex; align-items:center; justify-content:center; z-index:100; opacity:0; pointer-events:none; transition:opacity 0.2s; padding:20px; }
+  .modal-overlay.open { opacity:1; pointer-events:all; }
+  .modal { background:var(--white); border-radius:16px; padding:32px; width:100%; max-width:440px; box-shadow:0 20px 60px rgba(0,0,0,0.15); transform:translateY(12px); transition:transform 0.2s; }
+  .modal-overlay.open .modal { transform:translateY(0); }
+  .modal h2 { font-family:'Lora',serif; font-size:18px; font-weight:600; margin-bottom:6px; }
+  .modal p { color:var(--ink-light); font-size:13px; margin-bottom:24px; }
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .form-field { display:flex; flex-direction:column; gap:5px; }
+  .form-field.full { grid-column:1/-1; }
+  .form-label { font-size:11px; font-weight:600; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.6px; }
+  .form-input, .form-select { border:1px solid var(--border); border-radius:8px; padding:9px 12px; font-family:inherit; font-size:13px; color:var(--ink); background:var(--bg); transition:border-color 0.15s, box-shadow 0.15s; }
+  .form-input:focus, .form-select:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,0.1); background:var(--white); }
+  .modal-actions { display:flex; gap:8px; justify-content:flex-end; margin-top:24px; }
+  .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--ink); color:white; padding:10px 20px; border-radius:100px; font-size:13px; font-weight:500; opacity:0; transition:all 0.3s; z-index:200; pointer-events:none; }
+  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  .empty-row td { text-align:center; padding:32px; color:var(--ink-faint); font-size:13px; }
+  .period-tabs { display:flex; gap:2px; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:3px; }
+  .period-tab { padding:5px 12px; border-radius:6px; font-size:12px; font-weight:500; color:var(--ink-light); cursor:pointer; transition:all 0.15s; border:none; background:none; font-family:inherit; }
+  .period-tab.active { background:var(--white); color:var(--ink); box-shadow:var(--shadow); }
+  @media (max-width:900px) {
+    .kpi-grid { grid-template-columns:repeat(2,1fr); }
+    .analytics-grid { grid-template-columns:1fr; }
+  }
+  @media (max-width:600px) {
+    .header { padding:24px 0 20px; }
+    .header-left h1 { font-size:18px; }
+    .table-wrap { overflow-x:auto; }
+    table { min-width:600px; }
+    .form-grid { grid-template-columns:1fr; }
+    .modal { padding:24px; }
+  }
+  @media (max-width:400px) {
+    .kpi-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <h1>Ads Performance</h1>
+      <p id="period-label">ย้อนหลัง 30 วัน</p>
+    </div>
+    <div class="header-actions">
+      <div class="period-tabs">
+        <button class="period-tab" onclick="setPeriod(this,'7D')">7 วัน</button>
+        <button class="period-tab active" onclick="setPeriod(this,'30D')">30 วัน</button>
+        <button class="period-tab" onclick="setPeriod(this,'90D')">90 วัน</button>
+      </div>
+      <button class="btn btn-primary" onclick="openModal()">+ เพิ่มแคมเปญ</button>
+    </div>
+  </header>
+
+  <!-- KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Total Spend <span title="คลิกเพื่อแก้ไข">✏️</span></div>
+      <div class="kpi-value" contenteditable="true" spellcheck="false">฿451,400</div>
+      <span class="kpi-change up">↑ 12.4% vs ก่อนหน้า</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Impressions <span>👁</span></div>
+      <div class="kpi-value" contenteditable="true" spellcheck="false">12.4M</div>
+      <span class="kpi-change up">↑ 8.7% vs ก่อนหน้า</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Clicks <span>🖱️</span></div>
+      <div class="kpi-value" contenteditable="true" spellcheck="false">342K</div>
+      <span class="kpi-change down">↓ 2.1% vs ก่อนหน้า</span>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">ROAS <span>📈</span></div>
+      <div class="kpi-value" contenteditable="true" spellcheck="false">4.8x</div>
+      <span class="kpi-change up">↑ 5.3% vs ก่อนหน้า</span>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="campaigns-section">
+    <div class="section-bar">
+      <div class="section-title">แคมเปญทั้งหมด</div>
+      <div class="editable-hint">✏️ คลิกที่ช่องเพื่อแก้ไขข้อมูลได้เลย</div>
+    </div>
+    <div class="table-wrap">
+      <table id="campaign-table">
+        <thead>
+          <tr>
+            <th>ชื่อแคมเปญ</th>
+            <th>Platform</th>
+            <th>สถานะ</th>
+            <th>Spend (฿)</th>
+            <th>Impressions</th>
+            <th>CTR (%)</th>
+            <th>CPC (฿)</th>
+            <th>ROAS</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="campaign-tbody"></tbody>
+      </table>
+      <button class="add-row-btn" onclick="addRow()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        เพิ่มแคมเปญใหม่
+      </button>
+    </div>
+  </div>
+
+  <!-- ANALYTICS -->
+  <div class="analytics-grid">
+    <div class="panel">
+      <div class="panel-title">Spend by Platform</div>
+      <div id="platform-bars"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Conversion Funnel</div>
+      <div id="funnel-chart"></div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="notes-section">
+    <div class="section-title" style="margin-bottom:8px;">หมายเหตุ / บันทึก</div>
+    <textarea class="notes-area" placeholder="เพิ่มโน้ต ข้อสังเกต หรือ action items สำหรับแคมเปญนี้..."></textarea>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h2>เพิ่มแคมเปญใหม่</h2>
+    <p>กรอกข้อมูลเบื้องต้น แล้วแก้ไขเพิ่มเติมในตารางได้เลย</p>
+    <div class="form-grid">
+      <div class="form-field full">
+        <label class="form-label">ชื่อแคมเปญ</label>
+        <input class="form-input" id="f-name" placeholder="เช่น Summer Sale 2025" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Platform</label>
+        <select class="form-select" id="f-platform">
+          <option>Facebook</option><option>Google</option><option>Instagram</option>
+          <option>TikTok</option><option>YouTube</option><option>LINE</option><option>Twitter/X</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">สถานะ</label>
+        <select class="form-select" id="f-status">
+          <option value="active">Active</option>
+          <option value="paused">Paused</option>
+          <option value="draft">Draft</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Spend (฿)</label>
+        <input class="form-input" id="f-spend" type="number" placeholder="0" min="0" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Impressions</label>
+        <input class="form-input" id="f-impr" type="number" placeholder="0" min="0" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">CTR (%)</label>
+        <input class="form-input" id="f-ctr" type="number" placeholder="0.0" step="0.1" min="0" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">CPC (฿)</label>
+        <input class="form-input" id="f-cpc" type="number" placeholder="0.0" step="0.1" min="0" />
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">ยกเลิก</button>
+      <button class="btn btn-primary" onclick="submitModal()">เพิ่มแคมเปญ</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let campaigns = [
+  {id:1,name:'Summer Sale 2025',platform:'Facebook',status:'active',spend:124500,impr:2400000,ctr:3.2,cpc:4.2},
+  {id:2,name:'Brand Awareness Q1',platform:'Google',status:'active',spend:98200,impr:5200000,ctr:1.8,cpc:6.1},
+  {id:3,name:'Retargeting V2',platform:'Instagram',status:'active',spend:62400,impr:980000,ctr:4.7,cpc:3.8},
+  {id:4,name:'New Year Campaign',platform:'TikTok',status:'paused',spend:45000,impr:3100000,ctr:2.3,cpc:5.6},
+  {id:5,name:'Product Launch Pro',platform:'Google',status:'active',spend:87300,impr:1800000,ctr:2.9,cpc:5.2},
+  {id:6,name:'Influencer Boost',platform:'Instagram',status:'active',spend:33000,impr:740000,ctr:5.1,cpc:2.9},
+];
+let nextId = 7;
+
+const PCOLORS = {Facebook:'#1877f2',Google:'#ea4335',Instagram:'#e1306c',TikTok:'#2d2d2d',YouTube:'#ff0000',LINE:'#06c755','Twitter/X':'#2d2d2d'};
+const PLATFORMS = ['Facebook','Google','Instagram','TikTok','YouTube','LINE','Twitter/X'];
+
+function calcRoas(c) {
+  if (!c.spend || c.spend === 0) return null;
+  if (c.cpc > 0 && c.ctr > 0) return +(c.cpc * c.ctr * 0.8).toFixed(1);
+  if (c.impr > 0) return +((c.impr * c.ctr / 100 * 80) / c.spend).toFixed(1);
+  return null;
+}
+
+function renderTable() {
+  const tbody = document.getElementById('campaign-tbody');
+  tbody.innerHTML = '';
+  if (!campaigns.length) {
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="9">ยังไม่มีแคมเปญ — กด "+ เพิ่มแคมเปญ" เพื่อเริ่มต้น</td></tr>';
+    renderBars(); return;
+  }
+  campaigns.forEach(c => {
+    const roas = calcRoas(c);
+    const rc = roas === null ? 'roas-none' : roas >= 5 ? 'roas-great' : roas >= 3 ? 'roas-ok' : 'roas-poor';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><input class="td-input td-name-input" value="${esc(c.name)}" onchange="upd(${c.id},'name',this.value)"/></td>
+      <td><select class="platform-select" onchange="upd(${c.id},'platform',this.value)">${PLATFORMS.map(p=>`<option${p===c.platform?' selected':''}>${p}</option>`).join('')}</select></td>
+      <td><select class="status-select status-${c.status}" onchange="updStatus(${c.id},this)">
+        <option value="active"${c.status==='active'?' selected':''}>Active</option>
+        <option value="paused"${c.status==='paused'?' selected':''}>Paused</option>
+        <option value="draft"${c.status==='draft'?' selected':''}>Draft</option>
+      </select></td>
+      <td><input class="td-input" type="number" value="${c.spend}" onchange="upd(${c.id},'spend',+this.value)"/></td>
+      <td><input class="td-input" type="number" value="${c.impr}" onchange="upd(${c.id},'impr',+this.value)"/></td>
+      <td><input class="td-input" type="number" value="${c.ctr}" onchange="upd(${c.id},'ctr',+this.value)" step="0.1"/></td>
+      <td><input class="td-input" type="number" value="${c.cpc}" onchange="upd(${c.id},'cpc',+this.value)" step="0.1"/></td>
+      <td><span class="roas-badge ${rc}">${roas !== null ? roas+'x' : '–'}</span></td>
+      <td><button class="delete-btn" onclick="delRow(${c.id})" title="ลบ">✕</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+  renderBars();
+  renderFunnel();
+}
+
+function esc(s) { return (s||'').replace(/"/g,'&quot;'); }
+
+function upd(id,f,v) {
+  const c = campaigns.find(x=>x.id===id);
+  if (c) { c[f]=v; renderTable(); }
+}
+
+function updStatus(id,sel) {
+  const c = campaigns.find(x=>x.id===id);
+  if (c) { c.status=sel.value; sel.className='status-select status-'+c.status; renderBars(); }
+}
+
+function delRow(id) {
+  campaigns = campaigns.filter(x=>x.id!==id);
+  renderTable();
+  toast('ลบแคมเปญแล้ว');
+}
+
+function addRow() {
+  campaigns.push({id:nextId++,name:'แคมเปญใหม่',platform:'Facebook',status:'draft',spend:0,impr:0,ctr:0,cpc:0});
+  renderTable();
+  setTimeout(()=>{const ins=document.querySelectorAll('.td-name-input');if(ins.length)ins[ins.length-1].focus();},60);
+}
+
+function renderBars() {
+  const c = document.getElementById('platform-bars');
+  const tot = {};
+  campaigns.forEach(x=>{tot[x.platform]=(tot[x.platform]||0)+(x.spend||0);});
+  const sorted = Object.entries(tot).sort((a,b)=>b[1]-a[1]);
+  const max = sorted.length ? sorted[0][1] : 1;
+  c.innerHTML = '';
+  if (!sorted.length) { c.innerHTML='<p style="color:var(--ink-faint);font-size:13px">ยังไม่มีข้อมูล Spend</p>'; return; }
+  sorted.forEach(([p,s])=>{
+    const pct = max>0?(s/max)*100:0;
+    const col = PCOLORS[p]||'#94a3b8';
+    const d = document.createElement('div');
+    d.className='platform-bar-row';
+    d.innerHTML=`<div class="pbar-label"><div class="pbar-dot" style="background:${col}"></div>${p}</div><div class="pbar-track"><div class="pbar-fill" style="width:0%;background:${col}" data-w="${pct}"></div></div><div class="pbar-val">฿${(s/1000).toFixed(0)}K</div>`;
+    c.appendChild(d);
+  });
+  setTimeout(()=>document.querySelectorAll('.pbar-fill').forEach(el=>el.style.width=el.dataset.w+'%'),50);
+}
+
+function renderFunnel() {
+  const c = document.getElementById('funnel-chart');
+  const impr = campaigns.reduce((a,x)=>a+(x.impr||0),0);
+  const avgCtr = campaigns.length ? campaigns.reduce((a,x)=>a+(x.ctr||0),0)/campaigns.length : 0;
+  const clicks = Math.round(impr*avgCtr/100);
+  const leads = Math.round(clicks*0.08);
+  const purchases = Math.round(leads*0.15);
+  const steps = [
+    {label:'Impressions',val:fmt(impr),pct:100,color:'#2563eb'},
+    {label:'Clicks',val:fmt(clicks),pct:impr>0?Math.max((clicks/impr)*100,1):0,color:'#7c3aed'},
+    {label:'Leads',val:fmt(leads),pct:impr>0?Math.max((leads/impr)*100,0.5):0,color:'#059669'},
+    {label:'Purchases',val:fmt(purchases),pct:impr>0?Math.max((purchases/impr)*100,0.2):0,color:'#d97706'},
+  ];
+  c.innerHTML='';
+  steps.forEach(s=>{
+    const d=document.createElement('div');d.className='funnel-row';
+    d.innerHTML=`<div class="funnel-label">${s.label}</div><div class="funnel-bar-outer"><div class="funnel-bar-inner" style="width:0%;background:${s.color}" data-w="${s.pct}">${s.val}</div></div>`;
+    c.appendChild(d);
+  });
+  setTimeout(()=>document.querySelectorAll('.funnel-bar-inner').forEach(el=>el.style.width=el.dataset.w+'%'),50);
+}
+
+function fmt(n){if(!n)return'0';if(n>=1e6)return(n/1e6).toFixed(1)+'M';if(n>=1000)return(n/1000).toFixed(0)+'K';return n.toString();}
+
+function openModal(){document.getElementById('modal').classList.add('open');setTimeout(()=>document.getElementById('f-name').focus(),100);}
+function closeModal(){document.getElementById('modal').classList.remove('open');['f-name','f-spend','f-impr','f-ctr','f-cpc'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});}
+function submitModal(){
+  const name=document.getElementById('f-name').value.trim()||'แคมเปญใหม่';
+  campaigns.push({id:nextId++,name,platform:document.getElementById('f-platform').value,status:document.getElementById('f-status').value,spend:+document.getElementById('f-spend').value||0,impr:+document.getElementById('f-impr').value||0,ctr:+document.getElementById('f-ctr').value||0,cpc:+document.getElementById('f-cpc').value||0});
+  renderTable();closeModal();toast('เพิ่มแคมเปญ "'+name+'" แล้ว');
+}
+
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+const PERIODS={'7D':'ย้อนหลัง 7 วัน','30D':'ย้อนหลัง 30 วัน','90D':'ย้อนหลัง 90 วัน'};
+function setPeriod(btn,key){document.querySelectorAll('.period-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('period-label').textContent=PERIODS[key];}
+
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+renderTable();
+renderFunnel();
+</script>
+</body>
+</html>
