@@ -1,418 +1,1161 @@
+# กำลังสร้างให้เลย! 🚀
+
+ขอโทษที่ค้างไว้ นี่คือเวอร์ชันสมบูรณ์ครบทุกฟีเจอร์:
+
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ads Performance Tracker</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>AdMetrics Pro</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-  :root {
-    --ink: #1a1a2e;
-    --ink-light: #5a5a7a;
-    --ink-faint: #a0a0b8;
-    --bg: #f7f6f3;
-    --white: #ffffff;
-    --border: #e8e6e0;
-    --border-strong: #d0cdc5;
-    --accent: #2563eb;
-    --accent-light: #eff4ff;
-    --green: #059669;
-    --green-light: #ecfdf5;
-    --red: #dc2626;
-    --red-light: #fef2f2;
-    --amber: #d97706;
-    --amber-light: #fffbeb;
-    --r: 10px;
-    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--ink); font-size: 14px; line-height: 1.5; min-height: 100vh; }
-  .app { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
-  .header { display:flex; align-items:flex-end; justify-content:space-between; padding:36px 0 28px; border-bottom:1px solid var(--border); margin-bottom:32px; gap:16px; flex-wrap:wrap; }
-  .header-left h1 { font-family:'Lora',serif; font-size:22px; font-weight:600; color:var(--ink); letter-spacing:-0.3px; margin-bottom:2px; }
-  .header-left p { color:var(--ink-light); font-size:13px; }
-  .header-actions { display:flex; gap:8px; flex-wrap:wrap; }
-  .btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:8px; font-size:13px; font-weight:500; font-family:inherit; cursor:pointer; transition:all 0.15s; border:1px solid transparent; white-space:nowrap; }
-  .btn-primary { background:var(--accent); color:white; border-color:var(--accent); }
-  .btn-primary:hover { background:#1d4ed8; }
-  .btn-ghost { background:var(--white); color:var(--ink-light); border-color:var(--border); }
-  .btn-ghost:hover { color:var(--ink); border-color:var(--border-strong); }
-  .section-title { font-family:'Lora',serif; font-size:13px; font-weight:500; color:var(--ink-faint); text-transform:uppercase; letter-spacing:1.2px; margin-bottom:14px; }
-  .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:32px; }
-  .kpi-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:20px; box-shadow:var(--shadow); transition:box-shadow 0.2s; }
-  .kpi-card:hover { box-shadow:var(--shadow-md); }
-  .kpi-label { font-size:11px; font-weight:600; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; }
-  .kpi-value { font-family:'Lora',serif; font-size:28px; font-weight:600; color:var(--ink); line-height:1; margin-bottom:10px; cursor:pointer; min-height:28px; border-radius:4px; padding:2px 0; }
-  .kpi-value:focus { outline:2px solid var(--accent); outline-offset:3px; }
-  .kpi-change { display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:600; padding:2px 8px; border-radius:100px; }
-  .kpi-change.up { background:var(--green-light); color:var(--green); }
-  .kpi-change.down { background:var(--red-light); color:var(--red); }
-  .kpi-change.neutral { background:var(--bg); color:var(--ink-faint); }
-  .campaigns-section { margin-bottom:32px; }
-  .section-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:10px; }
-  .editable-hint { font-size:11px; color:var(--ink-faint); display:flex; align-items:center; gap:4px; }
-  .table-wrap { background:var(--white); border:1px solid var(--border); border-radius:var(--r); box-shadow:var(--shadow); overflow:hidden; }
-  table { width:100%; border-collapse:collapse; }
-  thead th { font-size:11px; font-weight:600; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.7px; text-align:left; padding:12px 16px; background:var(--bg); border-bottom:1px solid var(--border); white-space:nowrap; }
-  thead th:last-child { text-align:center; }
-  tbody tr { border-bottom:1px solid var(--border); transition:background 0.1s; }
-  tbody tr:last-child { border-bottom:none; }
-  tbody tr:hover { background:#fafaf8; }
-  tbody td { padding:11px 16px; vertical-align:middle; font-size:13px; color:var(--ink); }
-  tbody td:last-child { text-align:center; }
-  .td-input { width:100%; border:none; background:transparent; font-family:inherit; font-size:13px; color:var(--ink); padding:4px 6px; border-radius:5px; transition:background 0.15s, box-shadow 0.15s; min-width:60px; }
-  .td-input:focus { outline:none; background:var(--accent-light); box-shadow:0 0 0 2px rgba(37,99,235,0.2); }
-  .td-name-input { font-weight:500; min-width:140px; }
-  .platform-select { border:1px solid var(--border); border-radius:6px; padding:4px 8px; font-family:inherit; font-size:12px; color:var(--ink); background:var(--white); cursor:pointer; }
-  .platform-select:focus { outline:2px solid var(--accent); }
-  .status-select { border:none; border-radius:100px; padding:4px 12px; font-family:inherit; font-size:11px; font-weight:600; cursor:pointer; -webkit-appearance:none; appearance:none; text-align:center; }
-  .status-active { background:var(--green-light); color:var(--green); }
-  .status-paused { background:var(--amber-light); color:var(--amber); }
-  .status-draft { background:var(--bg); color:var(--ink-faint); border:1px solid var(--border); }
-  .roas-badge { display:inline-block; padding:3px 10px; border-radius:100px; font-weight:600; font-size:12px; }
-  .roas-great { background:var(--green-light); color:var(--green); }
-  .roas-ok { background:var(--amber-light); color:var(--amber); }
-  .roas-poor { background:var(--red-light); color:var(--red); }
-  .roas-none { background:var(--bg); color:var(--ink-faint); }
-  .delete-btn { background:none; border:none; cursor:pointer; color:var(--ink-faint); padding:4px 8px; border-radius:6px; font-size:13px; transition:all 0.15s; line-height:1; }
-  .delete-btn:hover { background:var(--red-light); color:var(--red); }
-  .add-row-btn { width:100%; padding:12px; background:none; border:none; border-top:1px solid var(--border); color:var(--ink-faint); font-family:inherit; font-size:13px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; transition:all 0.15s; border-radius:0 0 var(--r) var(--r); }
-  .add-row-btn:hover { background:var(--bg); color:var(--accent); }
-  .analytics-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; }
-  .panel { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:24px; box-shadow:var(--shadow); }
-  .panel-title { font-family:'Lora',serif; font-size:14px; font-weight:600; color:var(--ink); margin-bottom:20px; }
-  .platform-bar-row { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
-  .platform-bar-row:last-child { margin-bottom:0; }
-  .pbar-label { font-size:12px; font-weight:500; color:var(--ink-light); width:80px; flex-shrink:0; display:flex; align-items:center; gap:6px; }
-  .pbar-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-  .pbar-track { flex:1; height:8px; background:var(--bg); border-radius:100px; overflow:hidden; }
-  .pbar-fill { height:100%; border-radius:100px; transition:width 0.8s cubic-bezier(0.34,1.2,0.64,1); }
-  .pbar-val { font-size:12px; font-weight:600; color:var(--ink); width:52px; text-align:right; flex-shrink:0; }
-  .funnel-row { display:flex; align-items:center; gap:14px; margin-bottom:10px; }
-  .funnel-label { font-size:12px; color:var(--ink-light); width:90px; flex-shrink:0; }
-  .funnel-bar-outer { flex:1; height:28px; background:var(--bg); border-radius:6px; overflow:hidden; }
-  .funnel-bar-inner { height:100%; border-radius:6px; display:flex; align-items:center; padding:0 10px; font-size:11px; font-weight:600; color:white; transition:width 0.8s cubic-bezier(0.34,1.2,0.64,1); white-space:nowrap; overflow:hidden; }
-  .notes-section { margin-bottom:20px; }
-  .notes-area { width:100%; min-height:80px; border:1px solid var(--border); border-radius:var(--r); padding:14px 16px; font-family:inherit; font-size:13px; color:var(--ink); background:var(--white); resize:vertical; line-height:1.6; box-shadow:var(--shadow); transition:border-color 0.15s, box-shadow 0.15s; }
-  .notes-area::placeholder { color:var(--ink-faint); }
-  .notes-area:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
-  .modal-overlay { position:fixed; inset:0; background:rgba(26,26,46,0.35); display:flex; align-items:center; justify-content:center; z-index:100; opacity:0; pointer-events:none; transition:opacity 0.2s; padding:20px; }
-  .modal-overlay.open { opacity:1; pointer-events:all; }
-  .modal { background:var(--white); border-radius:16px; padding:32px; width:100%; max-width:440px; box-shadow:0 20px 60px rgba(0,0,0,0.15); transform:translateY(12px); transition:transform 0.2s; }
-  .modal-overlay.open .modal { transform:translateY(0); }
-  .modal h2 { font-family:'Lora',serif; font-size:18px; font-weight:600; margin-bottom:6px; }
-  .modal p { color:var(--ink-light); font-size:13px; margin-bottom:24px; }
-  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .form-field { display:flex; flex-direction:column; gap:5px; }
-  .form-field.full { grid-column:1/-1; }
-  .form-label { font-size:11px; font-weight:600; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.6px; }
-  .form-input, .form-select { border:1px solid var(--border); border-radius:8px; padding:9px 12px; font-family:inherit; font-size:13px; color:var(--ink); background:var(--bg); transition:border-color 0.15s, box-shadow 0.15s; }
-  .form-input:focus, .form-select:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,0.1); background:var(--white); }
-  .modal-actions { display:flex; gap:8px; justify-content:flex-end; margin-top:24px; }
-  .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--ink); color:white; padding:10px 20px; border-radius:100px; font-size:13px; font-weight:500; opacity:0; transition:all 0.3s; z-index:200; pointer-events:none; }
-  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-  .empty-row td { text-align:center; padding:32px; color:var(--ink-faint); font-size:13px; }
-  .period-tabs { display:flex; gap:2px; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:3px; }
-  .period-tab { padding:5px 12px; border-radius:6px; font-size:12px; font-weight:500; color:var(--ink-light); cursor:pointer; transition:all 0.15s; border:none; background:none; font-family:inherit; }
-  .period-tab.active { background:var(--white); color:var(--ink); box-shadow:var(--shadow); }
-  @media (max-width:900px) {
-    .kpi-grid { grid-template-columns:repeat(2,1fr); }
-    .analytics-grid { grid-template-columns:1fr; }
-  }
-  @media (max-width:600px) {
-    .header { padding:24px 0 20px; }
-    .header-left h1 { font-size:18px; }
-    .table-wrap { overflow-x:auto; }
-    table { min-width:600px; }
-    .form-grid { grid-template-columns:1fr; }
-    .modal { padding:24px; }
-  }
-  @media (max-width:400px) {
-    .kpi-grid { grid-template-columns:1fr; }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#1D4ED8;--ph:#1E40AF;--pd:#1E3A8A;--pl:#EFF6FF;--pm:#DBEAFE;
+  --sec:#7C3AED;--sl:#F5F3FF;
+  --ok:#059669;--okl:#ECFDF5;--okm:#D1FAE5;
+  --warn:#D97706;--warnl:#FFFBEB;--warnm:#FEF3C7;
+  --bad:#DC2626;--badl:#FEF2F2;--badm:#FECACA;
+  --bg:#F8FAFC;--bg2:#F1F5F9;--card:#fff;
+  --t1:#0F172A;--t2:#334155;--t3:#64748B;
+  --b1:#E2E8F0;--b2:#CBD5E1;
+  --s1:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --s2:0 4px 6px -1px rgba(0,0,0,.06),0 2px 4px -1px rgba(0,0,0,.04);
+  --s3:0 10px 20px -3px rgba(0,0,0,.07),0 4px 6px -2px rgba(0,0,0,.04);
+  --r:10px;--rl:14px;--rs:6px
+}
+html{font-size:14px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans Thai',sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--b2);border-radius:3px}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,#1E3A8A 0%,#1D4ED8 55%,#7C3AED 100%);position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(29,78,216,.28)}
+.hdr-in{max-width:1440px;margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px}
+.brand-ico{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.brand-name{color:#fff;font-size:16px;font-weight:800;letter-spacing:-.3px;line-height:1.2}
+.brand-sub{color:rgba(255,255,255,.65);font-size:9.5px;text-transform:uppercase;letter-spacing:.8px}
+.hstats{display:flex;gap:24px}
+.hs{text-align:center;color:#fff}
+.hs-v{font-size:15px;font-weight:800;line-height:1.2}
+.hs-k{font-size:9px;opacity:.65;text-transform:uppercase;letter-spacing:.7px}
+
+/* NAV */
+.nav{background:#fff;border-bottom:1px solid var(--b1);position:sticky;top:62px;z-index:199;box-shadow:var(--s1)}
+.nav-in{max-width:1440px;margin:0 auto;padding:0 24px;display:flex;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nb{padding:0 18px;height:50px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--t3);display:flex;align-items:center;gap:7px;white-space:nowrap;border-bottom:2.5px solid transparent;transition:all .18s;font-family:inherit}
+.nb:hover{color:var(--p);background:var(--pl)}
+.nb.on{color:var(--p);border-bottom-color:var(--p);font-weight:700}
+.nc{min-width:17px;height:17px;padding:0 5px;background:var(--p);color:#fff;font-size:10px;font-weight:800;border-radius:100px;display:inline-flex;align-items:center;justify-content:center}
+
+/* MAIN */
+.main{max-width:1440px;margin:0 auto;padding:26px 24px}
+.sec{display:none}.sec.on{display:block;animation:fu .22s ease}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* PAGE HEAD */
+.ph{margin-bottom:26px}
+.ph-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.pt{font-size:22px;font-weight:800;color:var(--t1);letter-spacing:-.4px;margin-bottom:5px}
+.pd{font-size:13px;color:var(--t3)}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--b1);border-radius:var(--rl);box-shadow:var(--s1);overflow:hidden}
+.cb{padding:22px}
+.ch{padding:18px 22px 15px;border-bottom:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between}
+.ct{font-size:14px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:8px}
+.cs{font-size:12px;color:var(--t3);margin-top:2px}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.g6{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+
+/* FORM */
+.fg{margin-bottom:14px}.fg:last-child{margin-bottom:0}
+.fl{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.fl .req{color:var(--bad)}
+.fi{width:100%;padding:9px 12px;border:1.5px solid var(--b1);border-radius:var(--r);font-size:14px;color:var(--t1);background:#fff;transition:all .18s;font-family:inherit;outline:none}
+.fi:hover{border-color:var(--b2)}
+.fi:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(29,78,216,.08)}
+.fi::placeholder{color:var(--b2)}
+.iw{position:relative}
+.iw .ipre{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--t3);font-weight:500;pointer-events:none}
+.iw .isuf{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--t3);font-weight:500;pointer-events:none}
+.iw.p .fi{padding-left:27px}
+.iw.s .fi{padding-right:27px}
+.fh{font-size:11px;color:var(--t3);margin-top:4px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 17px;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .18s;font-family:inherit;white-space:nowrap;line-height:1}
+.btn:active{transform:translateY(1px)!important}
+.btn-p{background:var(--p);color:#fff}
+.btn-p:hover{background:var(--ph);box-shadow:0 4px 14px rgba(29,78,216,.28);transform:translateY(-1px)}
+.btn-ok{background:var(--ok);color:#fff}
+.btn-ok:hover{background:#047857;box-shadow:0 4px 14px rgba(5,150,105,.24);transform:translateY(-1px)}
+.btn-bad{background:var(--bad);color:#fff}
+.btn-bad:hover{background:#B91C1C}
+.btn-g{background:transparent;color:var(--t2);border:1.5px solid var(--b1)}
+.btn-g:hover{background:var(--bg2);border-color:var(--b2)}
+.btn-ol{background:transparent;color:var(--p);border:1.5px solid var(--p)}
+.btn-ol:hover{background:var(--pl)}
+.btn-sm{padding:6px 12px;font-size:12px;border-radius:var(--rs)}
+.btn-lg{padding:11px 24px;font-size:14px}
+.brow{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+
+/* METRIC CARD */
+.mc{background:#fff;border:1px solid var(--b1);border-radius:var(--rl);padding:16px 18px;transition:all .2s;position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--p);border-radius:var(--rl) var(--rl) 0 0}
+.mc.g::before{background:var(--ok)}.mc.a::before{background:var(--warn)}.mc.v::before{background:var(--sec)}.mc.r::before{background:var(--bad)}.mc.t::before{background:#0D9488}.mc.i::before{background:#4F46E5}
+.mc:hover{box-shadow:var(--s3);transform:translateY(-2px)}
+.mc-lbl{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.mc-v{font-size:24px;font-weight:800;line-height:1.15;color:var(--t1);margin-bottom:4px;font-variant-numeric:tabular-nums}
+.mc-v.b{color:var(--p)}.mc-v.g{color:var(--ok)}.mc-v.a{color:var(--warn)}.mc-v.v{color:var(--sec)}.mc-v.r{color:var(--bad)}.mc-v.t{color:#0D9488}
+.mc-sub{font-size:11px;color:var(--t3)}
+.mc-bg-b{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#BFDBFE}
+.mc-bg-g{background:linear-gradient(135deg,#F0FDF4,#D1FAE5);border-color:#A7F3D0}
+.mc-bg-a{background:linear-gradient(135deg,#FEFCE8,#FEF3C7);border-color:#FDE68A}
+.mc-bg-v{background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#DDD6FE}
+.mc-bg-t{background:linear-gradient(135deg,#F0FDFA,#CCFBF1);border-color:#99F6E4}
+.mc-bg-r{background:linear-gradient(135deg,#FFF1F2,#FFE4E6);border-color:#FECDD3}
+
+/* RESULT BOX */
+.rbox{background:linear-gradient(135deg,#F0F7FF,#F5F0FF);border:1px solid #C7D2FE;border-radius:var(--rl);padding:22px}
+.rtitle{font-size:11px;font-weight:800;color:var(--p);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px;display:flex;align-items:center;gap:7px}
+
+/* FORMULA */
+.frmbox{background:var(--bg2);border:1px solid var(--b1);border-radius:var(--r);padding:13px 15px;font-size:12px;color:var(--t2);line-height:2.1}
+.frmbox code{background:#fff;color:var(--p);font-family:'Consolas','Monaco',monospace;font-size:11px;padding:2px 6px;border-radius:4px;border:1px solid var(--b1)}
+
+/* BADGE */
+.bdg{display:inline-flex;align-items:center;padding:2px 8px;border-radius:100px;font-size:11px;font-weight:700}
+.bdg-b{background:#DBEAFE;color:#1E40AF}.bdg-g{background:#D1FAE5;color:#065F46}
+.bdg-a{background:#FEF3C7;color:#92400E}.bdg-v{background:#EDE9FE;color:#5B21B6}
+.bdg-r{background:#FFE4E6;color:#9F1239}.bdg-t{background:#CCFBF1;color:#134E4A}
+.bdg-gr{background:var(--bg2);color:var(--t3)}
+
+/* PROGRESS */
+.prw{margin-bottom:2px}
+.pri{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.prl{font-size:12px;font-weight:600;color:var(--t2)}
+.prp{font-size:12px;font-weight:700}
+.prt{height:7px;background:var(--bg2);border-radius:100px;overflow:hidden}
+.prf{height:100%;border-radius:100px;transition:width .55s cubic-bezier(.4,0,.2,1)}
+.prf.b{background:linear-gradient(90deg,var(--p),#60A5FA)}
+.prf.g{background:linear-gradient(90deg,var(--ok),#34D399)}
+.prf.a{background:linear-gradient(90deg,var(--warn),#FBBF24)}
+.prf.r{background:linear-gradient(90deg,var(--bad),#F87171)}
+.prs{font-size:10px;color:var(--t3);margin-top:3px;display:flex;align-items:center;gap:4px}
+
+/* TABLE */
+.tw{overflow-x:auto;border-radius:var(--rl);border:1px solid var(--b1)}
+table{width:100%;border-collapse:collapse}
+thead th{padding:11px 15px;text-align:left;font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;background:var(--bg2);border-bottom:1px solid var(--b1);white-space:nowrap}
+tbody td{padding:13px 15px;border-bottom:1px solid var(--b1);color:var(--t1);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--pl)}
+.tn{font-weight:700;font-size:13px}.tnm{font-size:11px;color:var(--t3);margin-top:2px}
+.tv{font-weight:600;color:var(--p);font-variant-numeric:tabular-nums;font-size:13px}
+
+/* SUB TABS */
+.str{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.st{padding:7px 15px;border-radius:100px;border:1.5px solid var(--b1);background:#fff;font-size:12px;font-weight:600;color:var(--t3);cursor:pointer;transition:all .18s;font-family:inherit}
+.st:hover{border-color:var(--p);color:var(--p);background:var(--pl)}
+.st.on{background:var(--p);color:#fff;border-color:var(--p)}
+
+/* DIV */
+.dv{height:1px;background:var(--b1);margin:18px 0}
+
+/* EMPTY */
+.emp{text-align:center;padding:60px 20px;display:flex;flex-direction:column;align-items:center;gap:11px}
+.emp-i{font-size:48px;line-height:1}
+.emp-t{font-size:16px;font-weight:700;color:var(--t2)}
+.emp-d{font-size:13px;color:var(--t3);max-width:350px;line-height:1.7}
+
+/* TOOLTIP */
+.tip{position:relative;display:inline-flex;align-items:center}
+.tip-i{width:14px;height:14px;background:var(--b1);border-radius:50%;font-size:9px;color:var(--t3);cursor:help;display:inline-flex;align-items:center;justify-content:center;margin-left:4px;flex-shrink:0;font-style:italic;font-weight:700}
+.tip-t{display:none;position:absolute;bottom:130%;left:50%;transform:translateX(-50%);background:#0F172A;color:#fff;font-size:11px;padding:7px 11px;border-radius:7px;min-width:170px;max-width:220px;text-align:center;z-index:500;line-height:1.5;pointer-events:none;font-weight:400;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.tip-t::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#0F172A}
+.tip:hover .tip-t{display:block}
+
+/* KPI CARD */
+.kpic{background:#fff;border:1px solid var(--b1);border-radius:var(--rl);margin-bottom:18px;box-shadow:var(--s1);overflow:hidden}
+.kpih{background:linear-gradient(135deg,#1E3A8A,#1D4ED8 55%,#7C3AED);padding:17px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.kpin{font-size:15px;font-weight:800;color:#fff}
+.kpim{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
+.kpib{padding:18px 22px}
+
+/* KPI metric item */
+.kmi{background:var(--bg);border:1px solid var(--b1);border-radius:var(--r);padding:14px}
+.kmit{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.kmi-g{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px}
+.kmi-g .fg{margin:0}
+.kmi-g .fl{font-size:9px;letter-spacing:.3px}
+.kmi-g .fi{padding:6px 10px;font-size:12px}
+
+/* Overall KPI */
+.kpiovr{border-radius:var(--r);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px;border:1px solid}
+.kpiovr.ok{background:var(--okl);border-color:#A7F3D0}
+.kpiovr.warn{background:var(--warnl);border-color:#FDE68A}
+.kpiovr.bad{background:var(--badl);border-color:#FECACA}
+.kpotr{font-size:13px;font-weight:700}
+.kpiovr.ok .kpotr{color:var(--ok)}.kpiovr.warn .kpotr{color:var(--warn)}.kpiovr.bad .kpotr{color:var(--bad)}
+
+/* CHART CARD */
+.chc{background:#fff;border:1px solid var(--b1);border-radius:var(--rl);padding:20px;box-shadow:var(--s1)}
+.cht{font-size:14px;font-weight:700;color:var(--t1);margin-bottom:3px}
+.chs{font-size:11px;color:var(--t3);margin-bottom:16px}
+.chw{position:relative;height:230px}
+
+/* SUMMARY STRIP */
+.sstrip{background:linear-gradient(135deg,var(--pd),var(--p) 50%,var(--sec));border-radius:var(--rl);padding:18px 26px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+.ssi{color:#fff;flex:1;min-width:90px}
+.ssv{font-size:21px;font-weight:800;line-height:1.2}
+.ssk{font-size:9px;opacity:.7;text-transform:uppercase;letter-spacing:.7px}
+.ssdv{width:1px;height:36px;background:rgba(255,255,255,.2)}
+
+/* TOAST */
+#toasts{position:fixed;bottom:22px;right:22px;z-index:9999;display:flex;flex-direction:column-reverse;gap:8px;pointer-events:none}
+.tst{padding:10px 15px;border-radius:10px;font-size:13px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.12);max-width:300px;animation:si .22s ease;pointer-events:auto;display:flex;align-items:center;gap:8px}
+.tst.ok{background:#F0FDF4;border:1px solid #BBF7D0;color:#065F46}
+.tst.warn{background:var(--warnl);border:1px solid #FDE68A;color:#92400E}
+.tst.bad{background:var(--badl);border:1px solid #FECACA;color:#991B1B}
+@keyframes si{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+
+/* SPACING */
+.mb3{margin-bottom:12px}.mb4{margin-bottom:16px}.mb6{margin-bottom:24px}.mt4{margin-top:16px}.mt6{margin-top:24px}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.g5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr)}.g6{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){
+  .hstats{display:none}.main{padding:16px}
+  .g2,.g3,.g4,.g5,.g6{grid-template-columns:1fr}
+  .pt{font-size:19px}.sstrip{flex-direction:column;padding:16px 18px}
+  .ssdv{width:36px;height:1px}.mc-v{font-size:20px}
+  .kpib{padding:14px 16px}.kpih{padding:14px 16px}
+  .kmi-g{grid-template-columns:1fr}
+}
+@media(max-width:480px){.cb{padding:15px}.ch{padding:14px 15px 12px}}
 </style>
 </head>
 <body>
-<div class="app">
-  <header class="header">
-    <div class="header-left">
-      <h1>Ads Performance</h1>
-      <p id="period-label">ย้อนหลัง 30 วัน</p>
-    </div>
-    <div class="header-actions">
-      <div class="period-tabs">
-        <button class="period-tab" onclick="setPeriod(this,'7D')">7 วัน</button>
-        <button class="period-tab active" onclick="setPeriod(this,'30D')">30 วัน</button>
-        <button class="period-tab" onclick="setPeriod(this,'90D')">90 วัน</button>
-      </div>
-      <button class="btn btn-primary" onclick="openModal()">+ เพิ่มแคมเปญ</button>
-    </div>
-  </header>
+<div id="toasts"></div>
 
-  <!-- KPIs -->
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-label">Total Spend <span title="คลิกเพื่อแก้ไข">✏️</span></div>
-      <div class="kpi-value" contenteditable="true" spellcheck="false">฿451,400</div>
-      <span class="kpi-change up">↑ 12.4% vs ก่อนหน้า</span>
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="brand">
+      <div class="brand-ico">📊</div>
+      <div><div class="brand-name">AdMetrics Pro</div><div class="brand-sub">Media Buying & Performance Calculator</div></div>
     </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Impressions <span>👁</span></div>
-      <div class="kpi-value" contenteditable="true" spellcheck="false">12.4M</div>
-      <span class="kpi-change up">↑ 8.7% vs ก่อนหน้า</span>
+    <div class="hstats">
+      <div class="hs"><div class="hs-v" id="hs1">0</div><div class="hs-k">Campaigns</div></div>
+      <div class="hs"><div class="hs-v" id="hs2">฿0</div><div class="hs-k">Total Budget</div></div>
+      <div class="hs"><div class="hs-v" id="hs3">—</div><div class="hs-k">Avg ROAS</div></div>
+      <div class="hs"><div class="hs-v" id="hs4">0</div><div class="hs-k">Conversions</div></div>
     </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Clicks <span>🖱️</span></div>
-      <div class="kpi-value" contenteditable="true" spellcheck="false">342K</div>
-      <span class="kpi-change down">↓ 2.1% vs ก่อนหน้า</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-in">
+    <button class="nb on" onclick="goTab('calc')">🧮 Media Buying</button>
+    <button class="nb" onclick="goTab('fb')">📘 Facebook Ads</button>
+    <button class="nb" onclick="goTab('camps')">📋 Campaigns <span class="nc" id="nc">0</span></button>
+    <button class="nb" onclick="goTab('kpi')">🎯 KPI Tracking</button>
+    <button class="nb" onclick="goTab('dash')">📈 Dashboard</button>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- =================== TAB: MEDIA BUYING =================== -->
+<section id="t-calc" class="sec on">
+  <div class="ph">
+    <div class="pt">Media Buying Calculator</div>
+    <div class="pd">คำนวณ Impressions, Clicks, Conversions, CPA และ ROAS จากงบประมาณแคมเปญ</div>
+  </div>
+  <div class="g2">
+    <!-- INPUTS -->
+    <div>
+      <div class="card">
+        <div class="ch"><div><div class="ct">⚙️ Campaign Setup</div><div class="cs">กรอกข้อมูลแคมเปญเพื่อคำนวณและบันทึก</div></div></div>
+        <div class="cb">
+          <div class="fg">
+            <label class="fl">Campaign Name <span class="req">*</span></label>
+            <input class="fi" id="cn" type="text" placeholder="e.g. Q2 Brand Campaign 2025">
+          </div>
+          <div class="g2">
+            <div class="fg">
+              <label class="fl">Budget <span class="tip"><span class="tip-i">i</span><span class="tip-t">งบประมาณรวมทั้งแคมเปญ (บาท)</span></span></label>
+              <div class="iw p"><span class="ipre">฿</span><input class="fi" id="cb2" type="number" min="0" placeholder="50,000" oninput="calcM()"></div>
+            </div>
+            <div class="fg">
+              <label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per Mille — ต้นทุนต่อการแสดงผล 1,000 ครั้ง</span></span></label>
+              <div class="iw p"><span class="ipre">฿</span><input class="fi" id="ccpm" type="number" min="0" step=".1" placeholder="80" oninput="calcM()"></div>
+            </div>
+            <div class="fg">
+              <label class="fl">CPC <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per Click — ต้นทุนต่อ 1 คลิก</span></span></label>
+              <div class="iw p"><span class="ipre">฿</span><input class="fi" id="ccpc" type="number" min="0" step=".01" placeholder="5.00" oninput="calcM()"></div>
+            </div>
+            <div class="fg">
+              <label class="fl">CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">Conversion Rate — % ของคนที่คลิกแล้วซื้อสินค้า</span></span></label>
+              <div class="iw s"><input class="fi" id="ccvr" type="number" min="0" max="100" step=".01" placeholder="2.50" oninput="calcM()"><span class="isuf">%</span></div>
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">Product Price / Unit <span class="tip"><span class="tip-i">i</span><span class="tip-t">ราคาขายเฉลี่ยต่อ 1 ชิ้น ใช้คำนวณ Revenue และ ROAS</span></span></label>
+            <div class="iw p"><span class="ipre">฿</span><input class="fi" id="cprc" type="number" min="0" placeholder="990" oninput="calcM()"></div>
+          </div>
+          <div class="frmbox mt4">
+            📐 <strong style="color:var(--p)">Formulas:</strong><br>
+            <code>Impressions = (Budget ÷ CPM) × 1,000</code> | <code>Clicks = Budget ÷ CPC</code><br>
+            <code>Conversions = Clicks × CVR%</code> | <code>CPA = Budget ÷ Conversions</code><br>
+            <code>Revenue = Conversions × Price</code> | <code>ROAS = Revenue ÷ Budget</code>
+          </div>
+          <div class="brow mt4">
+            <button class="btn btn-p btn-lg" onclick="saveM()">💾 Save Campaign</button>
+            <button class="btn btn-g" onclick="clearM()">🔄 Reset</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="kpi-card">
-      <div class="kpi-label">ROAS <span>📈</span></div>
-      <div class="kpi-value" contenteditable="true" spellcheck="false">4.8x</div>
-      <span class="kpi-change up">↑ 5.3% vs ก่อนหน้า</span>
+    <!-- RESULTS -->
+    <div>
+      <div class="rbox">
+        <div class="rtitle">✨ Calculated Results</div>
+        <div class="g2 mb4">
+          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="ri">—</div><div class="mc-sub">การแสดงผลทั้งหมด</div></div>
+          <div class="mc mc-bg-g"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v g" id="rc">—</div><div class="mc-sub">จำนวนคลิก</div></div>
+          <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v" id="rv">—</div><div class="mc-sub">จำนวน Conversion</div></div>
+          <div class="mc mc-bg-a"><div class="mc-lbl">💰 CPA</div><div class="mc-v a" id="rpa">—</div><div class="mc-sub">Cost per Acquisition</div></div>
+        </div>
+        <div class="g3 mb4">
+          <div class="mc mc-bg-t"><div class="mc-lbl">📦 Revenue</div><div class="mc-v t" id="rrev">—</div><div class="mc-sub">รายได้คาดการณ์</div></div>
+          <div class="mc mc-bg-g"><div class="mc-lbl">📈 ROAS</div><div class="mc-v g" id="rroas">—</div><div class="mc-sub">Return on Ad Spend</div></div>
+          <div class="mc" id="rpc2"><div class="mc-lbl">💵 Gross Profit</div><div class="mc-v" id="rpro">—</div><div class="mc-sub">Revenue − Budget</div></div>
+        </div>
+        <div class="g3">
+          <div style="background:#fff;border:1px solid var(--b1);border-radius:var(--r);padding:12px;text-align:center">
+            <div class="mc-lbl" style="justify-content:center;margin-bottom:5px">CTR</div>
+            <div style="font-size:19px;font-weight:800;color:var(--p)" id="rctr">—</div>
+            <div class="mc-sub">Click-Through Rate</div>
+          </div>
+          <div style="background:#fff;border:1px solid var(--b1);border-radius:var(--r);padding:12px;text-align:center">
+            <div class="mc-lbl" style="justify-content:center;margin-bottom:5px">eCPM</div>
+            <div style="font-size:19px;font-weight:800;color:var(--sec)" id="recpm">—</div>
+            <div class="mc-sub">Effective CPM</div>
+          </div>
+          <div style="background:#fff;border:1px solid var(--b1);border-radius:var(--r);padding:12px;text-align:center">
+            <div class="mc-lbl" style="justify-content:center;margin-bottom:5px">Rev/Conv</div>
+            <div style="font-size:19px;font-weight:800;color:var(--ok)" id="rrpc">—</div>
+            <div class="mc-sub">Revenue per Conv.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== TAB: FACEBOOK ADS =================== -->
+<section id="t-fb" class="sec">
+  <div class="ph">
+    <div class="pt">Facebook Ads Calculator</div>
+    <div class="pd">คำนวณประสิทธิภาพแคมเปญ Facebook แยกตาม Objective</div>
+  </div>
+  <div class="str">
+    <button class="st on" onclick="fbTab('like')">👍 Page Like</button>
+    <button class="st" onclick="fbTab('eng')">💬 Engagement</button>
+    <button class="st" onclick="fbTab('lead')">📋 Lead Ads</button>
+    <button class="st" onclick="fbTab('vid')">🎬 Video View</button>
+  </div>
+
+  <!-- PAGE LIKE -->
+  <div id="fb-like" class="fb-p">
+    <div class="g2">
+      <div class="card">
+        <div class="ch"><div><div class="ct">👍 Page Like Ads</div><div class="cs">เพิ่ม Page Followers</div></div></div>
+        <div class="cb">
+          <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fln" type="text" placeholder="Page Like Campaign Q2"></div>
+          <div class="g2">
+            <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="flb" type="number" min="0" placeholder="10,000" oninput="calcLike()"></div></div>
+            <div class="fg"><label class="fl">CPM <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. ฿40–80</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="flcpm" type="number" min="0" placeholder="50" oninput="calcLike()"></div></div>
+            <div class="fg"><label class="fl">Cost per Like (Target) <span class="tip"><span class="tip-i">i</span><span class="tip-t">avg. ฿1–5 ต่อ Like</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="flcpl" type="number" min="0" step=".1" placeholder="2.50" oninput="calcLike()"></div></div>
+            <div class="fg"><label class="fl">Like Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่เห็นโฆษณาแล้ว Like Page</span></span></label><div class="iw s"><input class="fi" id="flr" type="number" min="0" max="100" step=".1" placeholder="1.5" oninput="calcLike()"><span class="isuf">%</span></div></div>
+          </div>
+          <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_page_like','fln')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['flb','flcpm','flcpl','flr'])">🔄 Clear</button></div>
+        </div>
+      </div>
+      <div class="rbox">
+        <div class="rtitle">📊 Page Like Results</div>
+        <div class="g2">
+          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="flri">—</div></div>
+          <div class="mc mc-bg-t"><div class="mc-lbl">👥 Est. Reach</div><div class="mc-v t" id="flrr">—</div></div>
+          <div class="mc mc-bg-g"><div class="mc-lbl">👍 Page Likes</div><div class="mc-v g" id="flrl">—</div></div>
+          <div class="mc mc-bg-a"><div class="mc-lbl">💰 Actual CPL</div><div class="mc-v a" id="flrc">—</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- TABLE -->
-  <div class="campaigns-section">
-    <div class="section-bar">
-      <div class="section-title">แคมเปญทั้งหมด</div>
-      <div class="editable-hint">✏️ คลิกที่ช่องเพื่อแก้ไขข้อมูลได้เลย</div>
-    </div>
-    <div class="table-wrap">
-      <table id="campaign-table">
-        <thead>
-          <tr>
-            <th>ชื่อแคมเปญ</th>
-            <th>Platform</th>
-            <th>สถานะ</th>
-            <th>Spend (฿)</th>
-            <th>Impressions</th>
-            <th>CTR (%)</th>
-            <th>CPC (฿)</th>
-            <th>ROAS</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="campaign-tbody"></tbody>
-      </table>
-      <button class="add-row-btn" onclick="addRow()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-        เพิ่มแคมเปญใหม่
-      </button>
+  <!-- ENGAGEMENT -->
+  <div id="fb-eng" class="fb-p" style="display:none">
+    <div class="g2">
+      <div class="card">
+        <div class="ch"><div><div class="ct">💬 Engagement Ads</div><div class="cs">Post Likes, Comments, Shares</div></div></div>
+        <div class="cb">
+          <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fen" type="text" placeholder="Engagement Campaign Q2"></div>
+          <div class="g2">
+            <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="feb" type="number" min="0" placeholder="20,000" oninput="calcEng()"></div></div>
+            <div class="fg"><label class="fl">CPM</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fecpm" type="number" min="0" placeholder="60" oninput="calcEng()"></div></div>
+            <div class="fg"><label class="fl">CPE <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per Engagement avg. ฿0.5–3</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fecpe" type="number" min="0" step=".1" placeholder="1.50" oninput="calcEng()"></div></div>
+            <div class="fg"><label class="fl">Engagement Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่เห็นโฆษณาแล้ว Interact</span></span></label><div class="iw s"><input class="fi" id="fer" type="number" min="0" max="100" step=".1" placeholder="3.0" oninput="calcEng()"><span class="isuf">%</span></div></div>
+          </div>
+          <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_engagement','fen')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['feb','fecpm','fecpe','fer'])">🔄 Clear</button></div>
+        </div>
+      </div>
+      <div class="rbox">
+        <div class="rtitle">📊 Engagement Results</div>
+        <div class="g2">
+          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="feri">—</div></div>
+          <div class="mc mc-bg-t"><div class="mc-lbl">👥 Reach</div><div class="mc-v t" id="ferr">—</div></div>
+          <div class="mc mc-bg-g"><div class="mc-lbl">💬 Engagements</div><div class="mc-v g" id="fere">—</div></div>
+          <div class="mc mc-bg-a"><div class="mc-lbl">💰 Actual CPE</div><div class="mc-v a" id="ferc">—</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- ANALYTICS -->
-  <div class="analytics-grid">
-    <div class="panel">
-      <div class="panel-title">Spend by Platform</div>
-      <div id="platform-bars"></div>
-    </div>
-    <div class="panel">
-      <div class="panel-title">Conversion Funnel</div>
-      <div id="funnel-chart"></div>
+  <!-- LEAD ADS -->
+  <div id="fb-lead" class="fb-p" style="display:none">
+    <div class="g2">
+      <div class="card">
+        <div class="ch"><div><div class="ct">📋 Lead Ads</div><div class="cs">Facebook Instant Lead Form</div></div></div>
+        <div class="cb">
+          <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fldn" type="text" placeholder="Lead Gen Campaign Q2"></div>
+          <div class="g2">
+            <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fldb" type="number" min="0" placeholder="30,000" oninput="calcLead()"></div></div>
+            <div class="fg"><label class="fl">CPM</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fldcpm" type="number" min="0" placeholder="80" oninput="calcLead()"></div></div>
+            <div class="fg"><label class="fl">CTR <span class="tip"><span class="tip-i">i</span><span class="tip-t">% คนที่คลิกโฆษณา avg. 0.5–2.5%</span></span></label><div class="iw s"><input class="fi" id="fldctr" type="number" min="0" max="100" step=".1" placeholder="1.5" oninput="calcLead()"><span class="isuf">%</span></div></div>
+            <div class="fg"><label class="fl">Form Fill Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่กรอก Lead Form avg. 10–30%</span></span></label><div class="iw s"><input class="fi" id="fldf" type="number" min="0" max="100" step="1" placeholder="20" oninput="calcLead()"><span class="isuf">%</span></div></div>
+            <div class="fg"><label class="fl">Product Price / Unit</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fldp" type="number" min="0" placeholder="2,500" oninput="calcLead()"></div></div>
+            <div class="fg"><label class="fl">Lead → Sale CVR <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ของ Lead ที่ปิดการขายได้</span></span></label><div class="iw s"><input class="fi" id="fldcvr" type="number" min="0" max="100" step="1" placeholder="15" oninput="calcLead()"><span class="isuf">%</span></div></div>
+          </div>
+          <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_lead','fldn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['fldb','fldcpm','fldctr','fldf','fldp','fldcvr'])">🔄 Clear</button></div>
+        </div>
+      </div>
+      <div class="rbox">
+        <div class="rtitle">📊 Lead Gen Results</div>
+        <div class="g2">
+          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="fldri">—</div></div>
+          <div class="mc mc-bg-t"><div class="mc-lbl">🖱️ Clicks</div><div class="mc-v t" id="fldrc">—</div></div>
+          <div class="mc mc-bg-v"><div class="mc-lbl">📋 Leads</div><div class="mc-v v" id="fldrl">—</div></div>
+          <div class="mc mc-bg-a"><div class="mc-lbl">💰 Cost per Lead</div><div class="mc-v a" id="fldra">—</div></div>
+          <div class="mc mc-bg-g"><div class="mc-lbl">🎯 Sales</div><div class="mc-v g" id="fldrs">—</div></div>
+          <div class="mc mc-bg-t"><div class="mc-lbl">📈 ROAS</div><div class="mc-v t" id="fldrr">—</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- NOTES -->
-  <div class="notes-section">
-    <div class="section-title" style="margin-bottom:8px;">หมายเหตุ / บันทึก</div>
-    <textarea class="notes-area" placeholder="เพิ่มโน้ต ข้อสังเกต หรือ action items สำหรับแคมเปญนี้..."></textarea>
-  </div>
-</div>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <h2>เพิ่มแคมเปญใหม่</h2>
-    <p>กรอกข้อมูลเบื้องต้น แล้วแก้ไขเพิ่มเติมในตารางได้เลย</p>
-    <div class="form-grid">
-      <div class="form-field full">
-        <label class="form-label">ชื่อแคมเปญ</label>
-        <input class="form-input" id="f-name" placeholder="เช่น Summer Sale 2025" />
+  <!-- VIDEO -->
+  <div id="fb-vid" class="fb-p" style="display:none">
+    <div class="g2">
+      <div class="card">
+        <div class="ch"><div><div class="ct">🎬 Video View Ads</div><div class="cs">ThruPlay / 2-Second Video Views</div></div></div>
+        <div class="cb">
+          <div class="fg"><label class="fl">Campaign Name</label><input class="fi" id="fvn" type="text" placeholder="Video Campaign Q2"></div>
+          <div class="g2">
+            <div class="fg"><label class="fl">Budget</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fvb" type="number" min="0" placeholder="15,000" oninput="calcVid()"></div></div>
+            <div class="fg"><label class="fl">CPM</label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fvcpm" type="number" min="0" placeholder="55" oninput="calcVid()"></div></div>
+            <div class="fg"><label class="fl">2-Sec View Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ดู VDO ≥ 2 วินาที avg. 20–50%</span></span></label><div class="iw s"><input class="fi" id="fv2" type="number" min="0" max="100" step="1" placeholder="35" oninput="calcVid()"><span class="isuf">%</span></div></div>
+            <div class="fg"><label class="fl">ThruPlay Rate <span class="tip"><span class="tip-i">i</span><span class="tip-t">% ที่ดูจนจบหรือ ≥ 15 วิ avg. 5–15%</span></span></label><div class="iw s"><input class="fi" id="fvt" type="number" min="0" max="100" step="1" placeholder="10" oninput="calcVid()"><span class="isuf">%</span></div></div>
+            <div class="fg"><label class="fl">CPV Target <span class="tip"><span class="tip-i">i</span><span class="tip-t">Cost per ThruPlay เป้าหมาย avg. ฿0.5–2</span></span></label><div class="iw p"><span class="ipre">฿</span><input class="fi" id="fvcpv" type="number" min="0" step=".1" placeholder="1.00" oninput="calcVid()"></div></div>
+          </div>
+          <div class="brow mt4"><button class="btn btn-p" onclick="saveFb('fb_video','fvn')">💾 Save</button><button class="btn btn-g" onclick="clearFb(['fvb','fvcpm','fv2','fvt','fvcpv'])">🔄 Clear</button></div>
+        </div>
       </div>
-      <div class="form-field">
-        <label class="form-label">Platform</label>
-        <select class="form-select" id="f-platform">
-          <option>Facebook</option><option>Google</option><option>Instagram</option>
-          <option>TikTok</option><option>YouTube</option><option>LINE</option><option>Twitter/X</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label class="form-label">สถานะ</label>
-        <select class="form-select" id="f-status">
-          <option value="active">Active</option>
-          <option value="paused">Paused</option>
-          <option value="draft">Draft</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label class="form-label">Spend (฿)</label>
-        <input class="form-input" id="f-spend" type="number" placeholder="0" min="0" />
-      </div>
-      <div class="form-field">
-        <label class="form-label">Impressions</label>
-        <input class="form-input" id="f-impr" type="number" placeholder="0" min="0" />
-      </div>
-      <div class="form-field">
-        <label class="form-label">CTR (%)</label>
-        <input class="form-input" id="f-ctr" type="number" placeholder="0.0" step="0.1" min="0" />
-      </div>
-      <div class="form-field">
-        <label class="form-label">CPC (฿)</label>
-        <input class="form-input" id="f-cpc" type="number" placeholder="0.0" step="0.1" min="0" />
+      <div class="rbox">
+        <div class="rtitle">📊 Video View Results</div>
+        <div class="g2">
+          <div class="mc mc-bg-b"><div class="mc-lbl">👁️ Impressions</div><div class="mc-v b" id="fvri">—</div></div>
+          <div class="mc mc-bg-g"><div class="mc-lbl">▶️ 2-Sec Views</div><div class="mc-v g" id="fvr2">—</div></div>
+          <div class="mc mc-bg-v"><div class="mc-lbl">📺 ThruPlays</div><div class="mc-v v" id="fvrt">—</div></div>
+          <div class="mc mc-bg-a"><div class="mc-lbl">💰 Cost/ThruPlay</div><div class="mc-v a" id="fvrc">—</div></div>
+          <div class="mc mc-bg-t"><div class="mc-lbl">📊 ThruPlay Rate</div><div class="mc-v t" id="fvrr">—</div></div>
+          <div class="mc mc-bg-r"><div class="mc-lbl">💵 eCPM</div><div class="mc-v r" id="fvre">—</div></div>
+        </div>
       </div>
     </div>
-    <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="closeModal()">ยกเลิก</button>
-      <button class="btn btn-primary" onclick="submitModal()">เพิ่มแคมเปญ</button>
+  </div>
+</section>
+
+<!-- =================== TAB: CAMPAIGNS =================== -->
+<section id="t-camps" class="sec">
+  <div class="ph-row mb6">
+    <div><div class="pt">Campaign Manager</div><div class="pd">เปรียบเทียบ แก้ไข และ Export ข้อมูลแคมเปญทั้งหมด</div></div>
+    <div class="brow">
+      <button class="btn btn-ok" onclick="exportCSV()">📥 Export CSV</button>
+      <button class="btn btn-g btn-sm" onclick="clearAll()">🗑️ Clear All</button>
     </div>
   </div>
-</div>
+  <div id="ce" class="card"><div class="emp"><div class="emp-i">📭</div><div class="emp-t">ยังไม่มีแคมเปญ</div><div class="emp-d">กรอกข้อมูลใน Media Buying หรือ Facebook Ads แล้วกด Save</div></div></div>
+  <div id="cc" style="display:none">
+    <div class="g4 mb6" id="cs2"></div>
+    <div class="card">
+      <div class="ch"><div class="ct">📋 All Campaigns</div><div style="font-size:12px;color:var(--t3)" id="ccount">0</div></div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Campaign</th><th>Type</th><th>Budget</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Conversions</th><th>CVR</th><th>CPA</th><th>Revenue</th><th>ROAS</th><th>Actions</th></tr></thead>
+          <tbody id="ctbl"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="toast" id="toast"></div>
+<!-- =================== TAB: KPI =================== -->
+<section id="t-kpi" class="sec">
+  <div class="ph"><div class="pt">🎯 KPI Tracking — Actual vs Target</div><div class="pd">ตั้งเป้าหมาย KPI และติดตามผลการดำเนินงานจริงของแต่ละแคมเปญ</div></div>
+  <div id="ke" class="card"><div class="emp"><div class="emp-i">🎯</div><div class="emp-t">ไม่มีแคมเปญสำหรับ KPI</div><div class="emp-d">บันทึกแคมเปญก่อน แล้วกลับมาตั้ง Target และกรอก Actual ที่นี่</div></div></div>
+  <div id="kc"></div>
+</section>
+
+<!-- =================== TAB: DASHBOARD =================== -->
+<section id="t-dash" class="sec">
+  <div class="ph"><div class="pt">📈 Performance Dashboard</div><div class="pd">ภาพรวมและการวิเคราะห์ประสิทธิภาพแคมเปญทั้งหมด</div></div>
+  <div id="de" class="card"><div class="emp"><div class="emp-i">📊</div><div class="emp-t">ไม่มีข้อมูล Dashboard</div><div class="emp-d">บันทึกแคมเปญอย่างน้อย 1 แคมเปญ</div></div></div>
+  <div id="dc" style="display:none">
+    <div class="sstrip" id="dstrip"></div>
+    <div class="g2 mb6">
+      <div class="chc"><div class="cht">Budget Allocation</div><div class="chs">งบประมาณแต่ละแคมเปญ (฿)</div><div class="chw"><canvas id="ch1"></canvas></div></div>
+      <div class="chc"><div class="cht">ROAS Comparison</div><div class="chs">Return on Ad Spend — เส้นแดง = Target 3x</div><div class="chw"><canvas id="ch2"></canvas></div></div>
+    </div>
+    <div class="g3 mb6">
+      <div class="chc"><div class="cht">Impressions vs Clicks</div><div class="chs">การแสดงผล & คลิกเปรียบเทียบ</div><div class="chw"><canvas id="ch3"></canvas></div></div>
+      <div class="chc"><div class="cht">CPA vs Product Price</div><div class="chs">ต้นทุนต่อ Conversion vs ราคาสินค้า</div><div class="chw"><canvas id="ch4"></canvas></div></div>
+      <div class="chc"><div class="cht">Campaign Type Mix</div><div class="chs">สัดส่วนประเภทแคมเปญ</div><div class="chw"><canvas id="ch5"></canvas></div></div>
+    </div>
+    <div class="card" id="kdash" style="display:none">
+      <div class="ch"><div class="ct">🎯 KPI Achievement Summary</div></div>
+      <div class="cb" id="kdashb"></div>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <script>
-let campaigns = [
-  {id:1,name:'Summer Sale 2025',platform:'Facebook',status:'active',spend:124500,impr:2400000,ctr:3.2,cpc:4.2},
-  {id:2,name:'Brand Awareness Q1',platform:'Google',status:'active',spend:98200,impr:5200000,ctr:1.8,cpc:6.1},
-  {id:3,name:'Retargeting V2',platform:'Instagram',status:'active',spend:62400,impr:980000,ctr:4.7,cpc:3.8},
-  {id:4,name:'New Year Campaign',platform:'TikTok',status:'paused',spend:45000,impr:3100000,ctr:2.3,cpc:5.6},
-  {id:5,name:'Product Launch Pro',platform:'Google',status:'active',spend:87300,impr:1800000,ctr:2.9,cpc:5.2},
-  {id:6,name:'Influencer Boost',platform:'Instagram',status:'active',spend:33000,impr:740000,ctr:5.1,cpc:2.9},
-];
-let nextId = 7;
+// ============================================================
+// DATA
+// ============================================================
+let DB = JSON.parse(localStorage.getItem('adm3') || '[]');
+let CHARTS = {};
 
-const PCOLORS = {Facebook:'#1877f2',Google:'#ea4335',Instagram:'#e1306c',TikTok:'#2d2d2d',YouTube:'#ff0000',LINE:'#06c755','Twitter/X':'#2d2d2d'};
-const PLATFORMS = ['Facebook','Google','Instagram','TikTok','YouTube','LINE','Twitter/X'];
+const TMAP = {media_buying:'Media Buying',fb_page_like:'FB Page Like',fb_engagement:'FB Engagement',fb_lead:'FB Lead Ads',fb_video:'FB Video'};
+const TBDG = {media_buying:'bdg-b',fb_page_like:'bdg-g',fb_engagement:'bdg-a',fb_lead:'bdg-v',fb_video:'bdg-r'};
+const COLORS = ['#3B82F6','#8B5CF6','#10B981','#F59E0B','#EF4444','#06B6D4','#EC4899','#F97316','#14B8A6','#6366F1'];
 
-function calcRoas(c) {
-  if (!c.spend || c.spend === 0) return null;
-  if (c.cpc > 0 && c.ctr > 0) return +(c.cpc * c.ctr * 0.8).toFixed(1);
-  if (c.impr > 0) return +((c.impr * c.ctr / 100 * 80) / c.spend).toFixed(1);
-  return null;
+// ============================================================
+// UTILS
+// ============================================================
+const G = id => { const e = document.getElementById(id); return e ? parseFloat(e.value)||0 : 0; };
+const GS = id => { const e = document.getElementById(id); return e ? e.value.trim() : ''; };
+const $ = id => document.getElementById(id);
+const SET = (id,v) => { const e=$(id); if(e) e.textContent=v; };
+
+function f(n,d=0){ if(!isFinite(n)||isNaN(n)) return '—'; return Number(n).toLocaleString('th-TH',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+function fc(n,d=0){ return isFinite(n)&&!isNaN(n)&&n>0 ? '฿'+f(n,d) : n===0?'฿0':'—'; }
+function fp(n,d=2){ return isFinite(n)&&!isNaN(n) ? f(n,d)+'%' : '—'; }
+function fr(n){ return isFinite(n)&&!isNaN(n)&&n>0 ? f(n,2)+'x' : '—'; }
+function fm(n){ if(!isFinite(n)||isNaN(n)) return '—'; if(n>=1e6) return f(n/1e6,2)+'M'; if(n>=1000) return f(n/1000,1)+'K'; return f(n,0); }
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function save(){
+  localStorage.setItem('adm3',JSON.stringify(DB));
+  refreshHeader(); refreshBadge();
 }
 
-function renderTable() {
-  const tbody = document.getElementById('campaign-tbody');
-  tbody.innerHTML = '';
-  if (!campaigns.length) {
-    tbody.innerHTML = '<tr class="empty-row"><td colspan="9">ยังไม่มีแคมเปญ — กด "+ เพิ่มแคมเปญ" เพื่อเริ่มต้น</td></tr>';
-    renderBars(); return;
+// ============================================================
+// NAVIGATION
+// ============================================================
+function goTab(tab){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  $('t-'+tab)?.classList.add('on');
+  const tabs=['calc','fb','camps','kpi','dash'];
+  document.querySelectorAll('.nb')[tabs.indexOf(tab)]?.classList.add('on');
+  if(tab==='camps') renderCamps();
+  if(tab==='kpi') renderKPI();
+  if(tab==='dash') renderDash();
+}
+
+function fbTab(tab){
+  document.querySelectorAll('.fb-p').forEach(p=>p.style.display='none');
+  document.querySelectorAll('.st').forEach(b=>b.classList.remove('on'));
+  $('fb-'+tab).style.display='block';
+  ['like','eng','lead','vid'].forEach((t,i)=>{ if(t===tab) document.querySelectorAll('.st')[i]?.classList.add('on'); });
+}
+
+// ============================================================
+// MEDIA BUYING CALC
+// ============================================================
+function calcM(){
+  const b=G('cb2'),cpm=G('ccpm'),cpc=G('ccpc'),cvr=G('ccvr')/100,prc=G('cprc');
+  if(!b){ ['ri','rc','rv','rpa','rrev','rroas','rpro','rctr','recpm','rrpc'].forEach(id=>SET(id,'—')); return; }
+  const imp = cpm>0 ? (b/cpm)*1000 : 0;
+  const clk = cpc>0 ? b/cpc : 0;
+  const con = clk*cvr;
+  const cpa = con>0 ? b/con : 0;
+  const rev = con*prc;
+  const roas = b>0&&rev>0 ? rev/b : 0;
+  const ctr = imp>0 ? (clk/imp)*100 : 0;
+  const ecpm = imp>0 ? (b/imp)*1000 : 0;
+  const profit = rev-b;
+  SET('ri',fm(imp)); SET('rc',fm(clk)); SET('rv',f(con,1));
+  SET('rpa',cpa>0?fc(cpa,2):'—'); SET('rrev',rev>0?fc(rev):'—');
+  SET('rroas',roas>0?fr(roas):'—');
+  SET('rctr',imp>0?fp(ctr,3):'—'); SET('recpm',ecpm>0?fc(ecpm,2):'—');
+  SET('rrpc',prc>0?fc(prc):'—');
+  const pe=$('rpro');
+  if(pe){ pe.textContent=rev>0?fc(Math.abs(profit))+(profit<0?' (ขาดทุน)':''):'—'; pe.style.color=profit>=0?'var(--ok)':'var(--bad)'; }
+  const pc=$('rpc2');
+  if(pc&&rev>0){ pc.className='mc '+(profit>=0?'mc-bg-g g':'mc-bg-r r'); }
+}
+
+function clearM(){
+  ['cn','cb2','ccpm','ccpc','ccvr','cprc'].forEach(id=>{ const e=$(id);if(e)e.value=''; });
+  calcM();
+}
+
+function saveM(){
+  const name=GS('cn')||'Campaign '+(DB.length+1);
+  const b=G('cb2'); if(!b){ toast('⚠️ กรุณากรอก Budget','warn'); return; }
+  const cpm=G('ccpm'),cpc=G('ccpc'),cvr=G('ccvr'),prc=G('cprc');
+  const cvrD=cvr/100;
+  const imp=cpm>0?(b/cpm)*1000:0;
+  const clk=cpc>0?b/cpc:0;
+  const con=clk*cvrD;
+  const cpa=con>0?b/con:0;
+  const rev=con*prc;
+  const roas=b>0&&rev>0?rev/b:0;
+  const ctr=imp>0?(clk/imp)*100:0;
+  DB.push({
+    id:uid(),name,type:'media_buying',
+    inputs:{budget:b,cpm,cpc,cvr,productPrice:prc},
+    results:{imp,clk,con,cpa,rev,roas,ctr},
+    kpi:{tBudget:b,tImp:0,tClk:0,tCon:0,tROAS:0,tCPA:0},
+    actual:{budget:0,imp:0,clk:0,con:0,rev:0},
+    at:new Date().toISOString()
+  });
+  save(); toast('✅ บันทึก "'+name+'" สำเร็จ','ok');
+}
+
+// ============================================================
+// FB CALCULATORS
+// ============================================================
+function calcLike(){
+  const b=G('flb'),cpm=G('flcpm'),cpl=G('flcpl'),rt=G('flr')/100;
+  const imp=cpm>0?(b/cpm)*1000:0;
+  const reach=imp*0.92;
+  const likes=cpl>0?b/cpl:imp*rt;
+  const acpl=likes>0?b/likes:0;
+  SET('flri',fm(imp));SET('flrr',fm(reach));SET('flrl',fm(likes));SET('flrc',acpl>0?fc(acpl,2):'—');
+}
+
+function calcEng(){
+  const b=G('feb'),cpm=G('fecpm'),cpe=G('fecpe'),rt=G('fer')/100;
+  const imp=cpm>0?(b/cpm)*1000:0;
+  const reach=imp*0.9;
+  const eng=cpe>0?b/cpe:imp*rt;
+  const acpe=eng>0?b/eng:0;
+  SET('feri',fm(imp));SET('ferr',fm(reach));SET('fere',fm(eng));SET('ferc',acpe>0?fc(acpe,2):'—');
+}
+
+function calcLead(){
+  const b=G('fldb'),cpm=G('fldcpm'),ctr=G('fldctr')/100,ffr=G('fldf')/100,prc=G('fldp'),cvr=G('fldcvr')/100;
+  const imp=cpm>0?(b/cpm)*1000:0;
+  const clk=imp*ctr;
+  const leads=clk*ffr;
+  const cpl=leads>0?b/leads:0;
+  const sales=leads*cvr;
+  const rev=sales*prc;
+  const roas=b>0&&rev>0?rev/b:0;
+  SET('fldri',fm(imp));SET('fldrc',fm(clk));SET('fldrl',f(leads,1));
+  SET('fldra',cpl>0?fc(cpl,2):'—');SET('fldrs',f(sales,1));SET('fldrr',roas>0?fr(roas):'—');
+}
+
+function calcVid(){
+  const b=G('fvb'),cpm=G('fvcpm'),r2=G('fv2')/100,rt=G('fvt')/100,cpv=G('fvcpv');
+  const imp=cpm>0?(b/cpm)*1000:0;
+  const v2=imp*r2;
+  const thru=cpv>0?b/cpv:imp*rt;
+  const acpv=thru>0?b/thru:0;
+  const vr=imp>0?(thru/imp)*100:0;
+  const ecpm=imp>0?(b/imp)*1000:0;
+  SET('fvri',fm(imp));SET('fvr2',fm(v2));SET('fvrt',fm(thru));
+  SET('fvrc',acpv>0?fc(acpv,2):'—');SET('fvrr',fp(vr,1));SET('fvre',ecpm>0?fc(ecpm,2):'—');
+}
+
+function clearFb(ids){ ids.forEach(id=>{ const e=$(id);if(e)e.value=''; }); }
+
+function saveFb(type,nid){
+  const name=GS(nid)||TMAP[type]+' '+(DB.length+1);
+  let b=0,inputs={},imp=0,clk=0,con=0,cpa=0,rev=0,roas=0,ctr=0;
+  if(type==='fb_page_like'){
+    b=G('flb');const cpm=G('flcpm'),cpl=G('flcpl'),rt=G('flr')/100;
+    imp=cpm>0?(b/cpm)*1000:0;clk=cpl>0?b/cpl:imp*rt;con=clk;cpa=clk>0?b/clk:0;ctr=imp>0?(clk/imp)*100:0;
+    inputs={budget:b,cpm,cpl,likeRate:rt*100};
+  } else if(type==='fb_engagement'){
+    b=G('feb');const cpm=G('fecpm'),cpe=G('fecpe'),rt=G('fer')/100;
+    imp=cpm>0?(b/cpm)*1000:0;clk=cpe>0?b/cpe:imp*rt;con=clk;cpa=clk>0?b/clk:0;ctr=imp>0?(clk/imp)*100:0;
+    inputs={budget:b,cpm,cpe,engRate:rt*100};
+  } else if(type==='fb_lead'){
+    b=G('fldb');const cpm=G('fldcpm'),ctrR=G('fldctr')/100,ffr=G('fldf')/100,prc=G('fldp'),cvr=G('fldcvr')/100;
+    imp=cpm>0?(b/cpm)*1000:0;clk=imp*ctrR;con=clk*ffr;cpa=con>0?b/con:0;
+    const sales=con*cvr;rev=sales*prc;roas=b>0&&rev>0?rev/b:0;ctr=imp>0?(clk/imp)*100:0;
+    inputs={budget:b,cpm,ctr:ctrR*100,formFillRate:ffr*100,productPrice:prc,cvr:cvr*100};
+  } else if(type==='fb_video'){
+    b=G('fvb');const cpm=G('fvcpm'),r2=G('fv2')/100,rt=G('fvt')/100,cpv=G('fvcpv');
+    imp=cpm>0?(b/cpm)*1000:0;clk=cpv>0?b/cpv:imp*rt;con=clk;cpa=clk>0?b/clk:0;ctr=imp>0?(clk/imp)*100:0;
+    inputs={budget:b,cpm,cpv,view2s:r2*100,thruRate:rt*100};
   }
-  campaigns.forEach(c => {
-    const roas = calcRoas(c);
-    const rc = roas === null ? 'roas-none' : roas >= 5 ? 'roas-great' : roas >= 3 ? 'roas-ok' : 'roas-poor';
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><input class="td-input td-name-input" value="${esc(c.name)}" onchange="upd(${c.id},'name',this.value)"/></td>
-      <td><select class="platform-select" onchange="upd(${c.id},'platform',this.value)">${PLATFORMS.map(p=>`<option${p===c.platform?' selected':''}>${p}</option>`).join('')}</select></td>
-      <td><select class="status-select status-${c.status}" onchange="updStatus(${c.id},this)">
-        <option value="active"${c.status==='active'?' selected':''}>Active</option>
-        <option value="paused"${c.status==='paused'?' selected':''}>Paused</option>
-        <option value="draft"${c.status==='draft'?' selected':''}>Draft</option>
-      </select></td>
-      <td><input class="td-input" type="number" value="${c.spend}" onchange="upd(${c.id},'spend',+this.value)"/></td>
-      <td><input class="td-input" type="number" value="${c.impr}" onchange="upd(${c.id},'impr',+this.value)"/></td>
-      <td><input class="td-input" type="number" value="${c.ctr}" onchange="upd(${c.id},'ctr',+this.value)" step="0.1"/></td>
-      <td><input class="td-input" type="number" value="${c.cpc}" onchange="upd(${c.id},'cpc',+this.value)" step="0.1"/></td>
-      <td><span class="roas-badge ${rc}">${roas !== null ? roas+'x' : '–'}</span></td>
-      <td><button class="delete-btn" onclick="delRow(${c.id})" title="ลบ">✕</button></td>
-    `;
-    tbody.appendChild(tr);
+  if(!b){ toast('⚠️ กรุณากรอก Budget','warn'); return; }
+  DB.push({
+    id:uid(),name,type,inputs,
+    results:{imp,clk,con,cpa,rev,roas,ctr},
+    kpi:{tBudget:b,tImp:0,tClk:0,tCon:0,tROAS:0,tCPA:0},
+    actual:{budget:0,imp:0,clk:0,con:0,rev:0},
+    at:new Date().toISOString()
   });
-  renderBars();
-  renderFunnel();
+  save(); toast('✅ บันทึก "'+name+'"','ok');
 }
 
-function esc(s) { return (s||'').replace(/"/g,'&quot;'); }
+// ============================================================
+// CAMPAIGNS
+// ============================================================
+function agg(){ return DB.reduce((a,c)=>({budget:a.budget+(c.inputs.budget||0),rev:a.rev+(c.results.rev||0),imp:a.imp+(c.results.imp||0),clk:a.clk+(c.results.clk||0),con:a.con+(c.results.con||0)}),{budget:0,rev:0,imp:0,clk:0,con:0}); }
 
-function upd(id,f,v) {
-  const c = campaigns.find(x=>x.id===id);
-  if (c) { c[f]=v; renderTable(); }
+function renderCamps(){
+  const empty=$('ce'),cont=$('cc');
+  if(DB.length===0){ empty.style.display='block';cont.style.display='none'; return; }
+  empty.style.display='none';cont.style.display='block';
+  const tot=agg();
+  const cs=$('cs2');
+  if(cs) cs.innerHTML=`
+    <div class="mc mc-bg-b"><div class="mc-lbl">💼 Total Budget</div><div class="mc-v b">${fc(tot.budget)}</div><div class="mc-sub">${DB.length} campaigns</div></div>
+    <div class="mc mc-bg-g"><div class="mc-lbl">📦 Total Revenue</div><div class="mc-v g">${tot.rev>0?fc(tot.rev):'—'}</div><div class="mc-sub">Expected</div></div>
+    <div class="mc mc-bg-a"><div class="mc-lbl">📈 Blended ROAS</div><div class="mc-v a">${tot.rev>0?fr(tot.rev/tot.budget):'—'}</div><div class="mc-sub">All campaigns</div></div>
+    <div class="mc mc-bg-v"><div class="mc-lbl">🎯 Conversions</div><div class="mc-v v">${f(tot.con,1)}</div><div class="mc-sub">Estimated total</div></div>
+  `;
+  $('ccount').textContent=DB.length+' campaign'+(DB.length>1?'s':'');
+  const tb=$('ctbl');
+  if(tb) tb.innerHTML=DB.map(c=>`
+    <tr>
+      <td><div class="tn">${esc(c.name)}</div><div class="tnm">${new Date(c.at).toLocaleDateString('th-TH')}</div></td>
+      <td><span class="bdg ${TBDG[c.type]}">${TMAP[c.type]}</span></td>
+      <td class="tv">${fc(c.inputs.budget)}</td>
+      <td class="tv">${fm(c.results.imp)}</td>
+      <td class="tv">${fm(c.results.clk)}</td>
+      <td class="tv">${c.results.ctr>0?fp(c.results.ctr,2):'—'}</td>
+      <td class="tv">${f(c.results.con,1)}</td>
+      <td class="tv">${c.inputs.cvr>0?fp(c.inputs.cvr,1):c.inputs.formFillRate>0?fp(c.inputs.formFillRate,1):'—'}</td>
+      <td class="tv">${c.results.cpa>0?fc(c.results.cpa,2):'—'}</td>
+      <td class="tv">${c.results.rev>0?fc(c.results.rev):'—'}</td>
+      <td class="tv">${c.results.roas>0?fr(c.results.roas):'—'}</td>
+      <td><div class="brow" style="gap:6px">
+        <button class="btn btn-ol btn-sm" onclick="loadCamp('${c.id}')">📝</button>
+        <button class="btn btn-bad btn-sm" onclick="delCamp('${c.id}')">🗑️</button>
+      </div></td>
+    </tr>
+  `).join('');
 }
 
-function updStatus(id,sel) {
-  const c = campaigns.find(x=>x.id===id);
-  if (c) { c.status=sel.value; sel.className='status-select status-'+c.status; renderBars(); }
+function loadCamp(id){
+  const c=DB.find(x=>x.id===id);
+  if(!c||c.type!=='media_buying'){ toast('ℹ️ Load ได้เฉพาะ Media Buying','warn'); return; }
+  $('cn').value=c.name;$('cb2').value=c.inputs.budget||'';$('ccpm').value=c.inputs.cpm||'';
+  $('ccpc').value=c.inputs.cpc||'';$('ccvr').value=c.inputs.cvr||'';$('cprc').value=c.inputs.productPrice||'';
+  calcM(); goTab('calc'); toast('📝 โหลด "'+c.name+'"','ok');
 }
 
-function delRow(id) {
-  campaigns = campaigns.filter(x=>x.id!==id);
-  renderTable();
-  toast('ลบแคมเปญแล้ว');
+function delCamp(id){
+  if(!confirm('ลบแคมเปญนี้?')) return;
+  DB=DB.filter(c=>c.id!==id); save(); renderCamps(); toast('🗑️ ลบแล้ว','warn');
 }
 
-function addRow() {
-  campaigns.push({id:nextId++,name:'แคมเปญใหม่',platform:'Facebook',status:'draft',spend:0,impr:0,ctr:0,cpc:0});
-  renderTable();
-  setTimeout(()=>{const ins=document.querySelectorAll('.td-name-input');if(ins.length)ins[ins.length-1].focus();},60);
+function clearAll(){
+  if(DB.length===0){ toast('ไม่มีข้อมูล','warn'); return; }
+  if(!confirm('ลบแคมเปญทั้งหมด '+DB.length+' รายการ?')) return;
+  DB=[]; save(); renderCamps(); toast('🗑️ ลบทั้งหมดแล้ว','warn');
 }
 
-function renderBars() {
-  const c = document.getElementById('platform-bars');
-  const tot = {};
-  campaigns.forEach(x=>{tot[x.platform]=(tot[x.platform]||0)+(x.spend||0);});
-  const sorted = Object.entries(tot).sort((a,b)=>b[1]-a[1]);
-  const max = sorted.length ? sorted[0][1] : 1;
-  c.innerHTML = '';
-  if (!sorted.length) { c.innerHTML='<p style="color:var(--ink-faint);font-size:13px">ยังไม่มีข้อมูล Spend</p>'; return; }
-  sorted.forEach(([p,s])=>{
-    const pct = max>0?(s/max)*100:0;
-    const col = PCOLORS[p]||'#94a3b8';
-    const d = document.createElement('div');
-    d.className='platform-bar-row';
-    d.innerHTML=`<div class="pbar-label"><div class="pbar-dot" style="background:${col}"></div>${p}</div><div class="pbar-track"><div class="pbar-fill" style="width:0%;background:${col}" data-w="${pct}"></div></div><div class="pbar-val">฿${(s/1000).toFixed(0)}K</div>`;
-    c.appendChild(d);
+// ============================================================
+// CSV EXPORT
+// ============================================================
+function exportCSV(){
+  if(!DB.length){ toast('⚠️ ไม่มีข้อมูล','warn'); return; }
+  const H=['Campaign Name','Type','Date','Budget (THB)','CPM','CPC','CVR (%)','Product Price (THB)',
+    'Impressions','Clicks','CTR (%)','Conversions','CPA (THB)','Revenue (THB)','ROAS',
+    'KPI Target Budget','KPI Target Impressions','KPI Target Clicks','KPI Target Conversions','KPI Target ROAS','KPI Target CPA',
+    'Actual Budget Spent','Actual Impressions','Actual Clicks','Actual Conversions','Actual Revenue',
+    'Actual ROAS (calc)','Actual CPA (calc)'];
+  const rows=DB.map(c=>{
+    const aROAS=c.actual.budget>0&&c.actual.rev>0?c.actual.rev/c.actual.budget:0;
+    const aCPA=c.actual.budget>0&&c.actual.con>0?c.actual.budget/c.actual.con:0;
+    return ['"'+c.name.replace(/"/g,'""')+'"',TMAP[c.type],new Date(c.at).toLocaleDateString('th-TH'),
+      c.inputs.budget||0,c.inputs.cpm||0,c.inputs.cpc||0,c.inputs.cvr||0,c.inputs.productPrice||0,
+      Math.round(c.results.imp||0),Math.round(c.results.clk||0),(c.results.ctr||0).toFixed(3),
+      (c.results.con||0).toFixed(2),(c.results.cpa||0).toFixed(2),(c.results.rev||0).toFixed(2),(c.results.roas||0).toFixed(2),
+      c.kpi.tBudget||0,c.kpi.tImp||0,c.kpi.tClk||0,c.kpi.tCon||0,c.kpi.tROAS||0,c.kpi.tCPA||0,
+      c.actual.budget||0,c.actual.imp||0,c.actual.clk||0,c.actual.con||0,c.actual.rev||0,
+      aROAS.toFixed(2),aCPA.toFixed(2)];
   });
-  setTimeout(()=>document.querySelectorAll('.pbar-fill').forEach(el=>el.style.width=el.dataset.w+'%'),50);
+  const csv=[H,...rows].map(r=>r.join(',')).join('\n');
+  const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='admetrics_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+  URL.revokeObjectURL(url); toast('📥 Export CSV สำเร็จ!','ok');
 }
 
-function renderFunnel() {
-  const c = document.getElementById('funnel-chart');
-  const impr = campaigns.reduce((a,x)=>a+(x.impr||0),0);
-  const avgCtr = campaigns.length ? campaigns.reduce((a,x)=>a+(x.ctr||0),0)/campaigns.length : 0;
-  const clicks = Math.round(impr*avgCtr/100);
-  const leads = Math.round(clicks*0.08);
-  const purchases = Math.round(leads*0.15);
-  const steps = [
-    {label:'Impressions',val:fmt(impr),pct:100,color:'#2563eb'},
-    {label:'Clicks',val:fmt(clicks),pct:impr>0?Math.max((clicks/impr)*100,1):0,color:'#7c3aed'},
-    {label:'Leads',val:fmt(leads),pct:impr>0?Math.max((leads/impr)*100,0.5):0,color:'#059669'},
-    {label:'Purchases',val:fmt(purchases),pct:impr>0?Math.max((purchases/impr)*100,0.2):0,color:'#d97706'},
-  ];
-  c.innerHTML='';
-  steps.forEach(s=>{
-    const d=document.createElement('div');d.className='funnel-row';
-    d.innerHTML=`<div class="funnel-label">${s.label}</div><div class="funnel-bar-outer"><div class="funnel-bar-inner" style="width:0%;background:${s.color}" data-w="${s.pct}">${s.val}</div></div>`;
-    c.appendChild(d);
+// ============================================================
+// KPI TRACKING
+// ============================================================
+function renderKPI(){
+  const em=$('ke'),ct=$('kc');
+  if(!DB.length){ em.style.display='block';ct.innerHTML=''; return; }
+  em.style.display='none';
+  ct.innerHTML=DB.map(c=>buildKPICard(c)).join('');
+  DB.forEach(c=>refreshKPI(c.id));
+}
+
+function buildKPICard(c){
+  const mi=(metric,label,icon,proj)=>`
+    <div class="kmi">
+      <div class="kmit">${icon} ${label}</div>
+      <div class="kmi-g">
+        <div class="fg"><label class="fl">Target</label>
+          <input class="fi" id="kt-${c.id}-${metric}" type="number" min="0"
+            value="${c.kpi['t'+cap(metric)]||''}" placeholder="${f(proj,metric==='roas'?2:0)}"
+            oninput="refreshKPI('${c.id}')">
+        </div>
+        <div class="fg"><label class="fl">Actual</label>
+          <input class="fi" id="ka-${c.id}-${metric}" type="number" min="0"
+            value="${c.actual[metric]||''}" placeholder="0"
+            oninput="refreshKPI('${c.id}')">
+        </div>
+      </div>
+      <div id="kp-${c.id}-${metric}"></div>
+    </div>
+  `;
+  return `
+    <div class="kpic" id="kpic-${c.id}">
+      <div class="kpih">
+        <div>
+          <div class="kpin">${esc(c.name)}</div>
+          <div class="kpim">
+            <span class="bdg bdg-gr" style="background:rgba(255,255,255,.15);color:#fff">${TMAP[c.type]}</span>
+            &nbsp; Budget: ${fc(c.inputs.budget)} &nbsp;|&nbsp; ${new Date(c.at).toLocaleDateString('th-TH')}
+          </div>
+        </div>
+        <button class="btn btn-sm" style="background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.25)" onclick="saveKPI('${c.id}')">💾 Save KPI</button>
+      </div>
+      <div class="kpib">
+        <!-- Budget -->
+        <div style="background:var(--bg);border:1px solid var(--b1);border-radius:var(--r);padding:15px;margin-bottom:15px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:11px">💰 Budget Tracking</div>
+          <div class="g2" style="gap:10px;margin-bottom:10px">
+            <div class="fg" style="margin:0"><label class="fl">Target Budget</label>
+              <div class="iw p"><span class="ipre">฿</span>
+              <input class="fi" id="kt-${c.id}-budget" type="number" min="0"
+                value="${c.kpi.tBudget||''}" placeholder="${c.inputs.budget}" oninput="refreshKPI('${c.id}')">
+              </div>
+            </div>
+            <div class="fg" style="margin:0"><label class="fl">Actual Spent</label>
+              <div class="iw p"><span class="ipre">฿</span>
+              <input class="fi" id="ka-${c.id}-budget" type="number" min="0"
+                value="${c.actual.budget||''}" placeholder="0" oninput="refreshKPI('${c.id}')">
+              </div>
+            </div>
+          </div>
+          <div id="kp-${c.id}-budget"></div>
+        </div>
+        <!-- Metrics -->
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:11px">🎯 Performance KPIs</div>
+        <div class="g3" style="gap:11px">
+          ${mi('imp','Impressions','👁️',c.results.imp)}
+          ${mi('clk','Clicks','🖱️',c.results.clk)}
+          ${mi('con','Conversions','🎯',c.results.con)}
+          ${mi('roas','ROAS','📈',c.results.roas)}
+          ${mi('cpa','CPA (↓ better)','💰',c.results.cpa)}
+          <div class="kmi">
+            <div class="kmit">📦 Actual Revenue</div>
+            <div class="fg" style="margin:0"><label class="fl">Revenue (฿)</label>
+              <div class="iw p"><span class="ipre">฿</span>
+              <input class="fi" id="ka-${c.id}-rev" type="number" min="0"
+                value="${c.actual.rev||''}" placeholder="0" oninput="refreshKPI('${c.id}')">
+              </div>
+            </div>
+            <div style="font-size:11px;color:var(--t3);margin-top:7px">Expected: <strong style="color:var(--ok)">${c.results.rev>0?fc(c.results.rev):'—'}</strong></div>
+          </div>
+        </div>
+        <!-- Auto-Calc -->
+        <div style="background:var(--bg);border:1px solid var(--b1);border-radius:var(--r);padding:13px;margin-top:14px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:9px">📐 Auto Calculated from Actuals</div>
+          <div class="g3" style="gap:8px">
+            <div style="text-align:center"><div style="font-size:9px;color:var(--t3);font-weight:700;text-transform:uppercase;margin-bottom:3px">Actual ROAS</div><div id="kac-${c.id}-roas" style="font-size:17px;font-weight:800;color:var(--p)">—</div></div>
+            <div style="text-align:center"><div style="font-size:9px;color:var(--t3);font-weight:700;text-transform:uppercase;margin-bottom:3px">Actual CPA</div><div id="kac-${c.id}-cpa" style="font-size:17px;font-weight:800;color:var(--warn)">—</div></div>
+            <div style="text-align:center"><div style="font-size:9px;color:var(--t3);font-weight:700;text-transform:uppercase;margin-bottom:3px">Profit / Loss</div><div id="kac-${c.id}-pro" style="font-size:17px;font-weight:800">—</div></div>
+          </div>
+        </div>
+        <div id="kovr-${c.id}"></div>
+      </div>
+    </div>
+  `;
+}
+
+function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+
+function refreshKPI(id){
+  // Budget progress
+  const tB=parseFloat($(`kt-${id}-budget`)?.value)||0;
+  const aB=parseFloat($(`ka-${id}-budget`)?.value)||0;
+  const bp=$(`kp-${id}-budget`);
+  if(bp){
+    if(!tB){ bp.innerHTML='<div style="font-size:10px;color:var(--t3)">กรอก Target Budget</div>'; }
+    else {
+      const pct=aB>0?(aB/tB)*100:0;
+      const cl=pct<=90?'g':pct<=100?'a':'r';
+      bp.innerHTML=`<div class="prw"><div class="pri"><div class="prl">${fc(aB)} / ${fc(tB)}</div><div class="prp">${f(pct,1)}%</div></div><div class="prt"><div class="prf ${cl}" style="width:${Math.min(pct,100)}%"></div></div><div class="prs">${pct>100?'🔴 Over Budget':pct>=90?'🟡 Near Limit':'🟢 On Budget'}</div></div>`;
+    }
+  }
+
+  // Metrics
+  const metrics=[{k:'imp',lower:false},{k:'clk',lower:false},{k:'con',lower:false},{k:'roas',lower:false},{k:'cpa',lower:true}];
+  let scores=[];
+  metrics.forEach(m=>{
+    const tEl=$(`kt-${id}-${m.k}`);
+    const aEl=$(`ka-${id}-${m.k}`);
+    const pEl=$(`kp-${id}-${m.k}`);
+    if(!tEl||!aEl||!pEl) return;
+    let target=parseFloat(tEl.value)||0;
+    let actual=parseFloat(aEl.value)||0;
+    // Auto-calc ROAS & CPA from revenue/budget/conv if input is empty
+    if(m.k==='roas'&&actual===0){
+      const ab=parseFloat($(`ka-${id}-budget`)?.value)||0;
+      const ar=parseFloat($(`ka-${id}-rev`)?.value)||0;
+      if(ab>0&&ar>0) actual=ar/ab;
+    }
+    if(m.k==='cpa'&&actual===0){
+      const ab=parseFloat($(`ka-${id}-budget`)?.value)||0;
+      const ac=parseFloat($(`ka-${id}-con`)?.value)||0;
+      if(ab>0&&ac>0) actual=ab/ac;
+    }
+    if(!target||!actual){ pEl.innerHTML='<div style="font-size:10px;color:var(--t3);padding:2px 0">กรอก Target & Actual</div>'; return; }
+    const pct=m.lower?(target/actual)*100:(actual/target)*100;
+    const w=Math.min(pct,100);
+    let cl,st,dot;
+    if(m.lower){
+      if(pct>=100){cl='g';st='✅ On Target';dot='var(--ok)'}
+      else if(pct>=80){cl='a';st='⚠️ Slightly Over';dot='var(--warn)'}
+      else{cl='r';st='❌ Over Limit';dot='var(--bad)'}
+    } else {
+      if(pct>=100){cl='g';st='✅ Target Met';dot='var(--ok)'}
+      else if(pct>=75){cl='a';st='⚡ On Track';dot='var(--warn)'}
+      else{cl='r';st='❌ Behind Target';dot='var(--bad)'}
+    }
+    scores.push({pct,ok:pct>=75});
+    pEl.innerHTML=`<div class="prw"><div class="pri"><div class="prp" style="color:${dot}">${f(pct,1)}% to KPI</div><div style="font-size:10px;color:var(--t3)">${st}</div></div><div class="prt"><div class="prf ${cl}" style="width:${w}%"></div></div></div>`;
   });
-  setTimeout(()=>document.querySelectorAll('.funnel-bar-inner').forEach(el=>el.style.width=el.dataset.w+'%'),50);
+
+  // Auto-calc display
+  const aREV=parseFloat($(`ka-${id}-rev`)?.value)||0;
+  const aROAS=aB>0&&aREV>0?aREV/aB:0;
+  const aCON=parseFloat($(`ka-${id}-con`)?.value)||0;
+  const aCPA=aB>0&&aCON>0?aB/aCON:0;
+  const aProfit=aREV-aB;
+  const re=$(`kac-${id}-roas`);const ce=$(`kac-${id}-cpa`);const pe=$(`kac-${id}-pro`);
+  if(re){ re.textContent=aROAS>0?fr(aROAS):'—'; re.style.color=aROAS>=3?'var(--ok)':aROAS>0?'var(--warn)':'var(--t3)'; }
+  if(ce) ce.textContent=aCPA>0?fc(aCPA,2):'—';
+  if(pe){ pe.textContent=aB>0&&aREV>0?fc(Math.abs(aProfit))+(aProfit<0?' 🔴':' 🟢'):'—'; pe.style.color=aProfit>0?'var(--ok)':aProfit<0?'var(--bad)':'var(--t3)'; }
+
+  // Overall summary
+  const oEl=$(`kovr-${id}`);
+  if(oEl&&scores.length){
+    const on=scores.filter(s=>s.ok).length;
+    const pct=Math.round((on/scores.length)*100);
+    const cls=pct>=75?'ok':pct>=50?'warn':'bad';
+    const icon=pct>=75?'✅':pct>=50?'⚠️':'❌';
+    oEl.innerHTML=`<div class="kpiovr ${cls}"><div class="kpotr">${icon} KPI Achievement: ${on}/${scores.length} metrics on track (${pct}%)</div><button class="btn btn-sm btn-p" onclick="saveKPI('${id}')">💾 Save Progress</button></div>`;
+  }
 }
 
-function fmt(n){if(!n)return'0';if(n>=1e6)return(n/1e6).toFixed(1)+'M';if(n>=1000)return(n/1000).toFixed(0)+'K';return n.toString();}
-
-function openModal(){document.getElementById('modal').classList.add('open');setTimeout(()=>document.getElementById('f-name').focus(),100);}
-function closeModal(){document.getElementById('modal').classList.remove('open');['f-name','f-spend','f-impr','f-ctr','f-cpc'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});}
-function submitModal(){
-  const name=document.getElementById('f-name').value.trim()||'แคมเปญใหม่';
-  campaigns.push({id:nextId++,name,platform:document.getElementById('f-platform').value,status:document.getElementById('f-status').value,spend:+document.getElementById('f-spend').value||0,impr:+document.getElementById('f-impr').value||0,ctr:+document.getElementById('f-ctr').value||0,cpc:+document.getElementById('f-cpc').value||0});
-  renderTable();closeModal();toast('เพิ่มแคมเปญ "'+name+'" แล้ว');
+function saveKPI(id){
+  const c=DB.find(x=>x.id===id); if(!c) return;
+  const metrics=['imp','clk','con','roas','cpa'];
+  c.kpi.tBudget=parseFloat($(`kt-${id}-budget`)?.value)||0;
+  c.actual.budget=parseFloat($(`ka-${id}-budget`)?.value)||0;
+  metrics.forEach(m=>{
+    c.kpi['t'+cap(m)]=parseFloat($(`kt-${id}-${m}`)?.value)||0;
+    c.actual[m]=parseFloat($(`ka-${id}-${m}`)?.value)||0;
+  });
+  c.actual.rev=parseFloat($(`ka-${id}-rev`)?.value)||0;
+  save(); toast('✅ บันทึก KPI "'+c.name+'"','ok');
 }
 
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+// ============================================================
+// DASHBOARD
+// ============================================================
+function renderDash(){
+  const em=$('de'),ct=$('dc');
+  if(!DB.length){ em.style.display='block';ct.style.display='none'; return; }
+  em.style.display='none';ct.style.display='block';
 
-const PERIODS={'7D':'ย้อนหลัง 7 วัน','30D':'ย้อนหลัง 30 วัน','90D':'ย้อนหลัง 90 วัน'};
-function setPeriod(btn,key){document.querySelectorAll('.period-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('period-label').textContent=PERIODS[key];}
+  const tot=agg();
+  const avgROAS=tot.budget>0&&tot.rev>0?tot.rev/tot.budget:0;
+  const avgCTR=tot.imp>0?(tot.clk/tot.imp)*100:0;
 
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+  const strip=$('dstrip');
+  if(strip) strip.innerHTML=`
+    <div class="ssi"><div class="ssv">${fc(tot.budget)}</div><div class="ssk">Total Budget</div></div>
+    <div class="ssdv"></div>
+    <div class="ssi"><div class="ssv">${tot.rev>0?fc(tot.rev):'—'}</div><div class="ssk">Total Revenue</div></div>
+    <div class="ssdv"></div>
+    <div class="ssi"><div class="ssv">${avgROAS>0?fr(avgROAS):'—'}</div><div class="ssk">Blended ROAS</div></div>
+    <div class="ssdv"></div>
+    <div class="ssi"><div class="ssv">${fm(tot.imp)}</div><div class="ssk">Total Impressions</div></div>
+    <div class="ssdv"></div>
+    <div class="ssi"><div class="ssv">${fm(tot.clk)}</div><div class="ssk">Total Clicks</div></div>
+    <div class="ssdv"></div>
+    <div class="ssi"><div class="ssv">${f(tot.con,1)}</div><div class="ssk">Total Conversions</div></div>
+    <div class="ssdv"></div>
+    <div class="ssi"><div class="ssv">${fp(avgCTR,2)}</div><div class="ssk">Avg CTR</div></div>
+  `;
 
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+  Object.values(CHARTS).forEach(ch=>{ try{ch.destroy();}catch(e){} });
+  CHARTS={};
 
-renderTable();
-renderFunnel();
+  const labels=DB.map(c=>c.name.length>14?c.name.slice(0,14)+'…':c.name);
+  const opts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}};
+
+  // Budget
+  const c1=$('ch1');
+  if(c1) CHARTS.c1=new Chart(c1,{type:'bar',data:{labels,datasets:[{label:'Budget',data:DB.map(c=>c.inputs.budget||0),backgroundColor:COLORS.slice(0,DB.length),borderRadius:7,borderWidth:0}]},options:{...opts,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'฿'+(v>=1000?(v/1000).toFixed(0)+'K':v)},grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
+
+  // ROAS
+  const c2=$('ch2');
+  if(c2) CHARTS.c2=new Chart(c2,{type:'bar',data:{labels,datasets:[{label:'ROAS',data:DB.map(c=>c.results.roas||0),backgroundColor:DB.map(c=>(c.results.roas||0)>=3?'rgba(5,150,105,.8)':(c.results.roas||0)>=1?'rgba(217,119,6,.8)':'rgba(220,38,38,.8)'),borderRadius:7,borderWidth:0},{label:'Target 3x',data:DB.map(()=>3),type:'line',borderColor:'#EF4444',borderDash:[5,4],borderWidth:2,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{ticks:{callback:v=>v+'x'},beginAtZero:true,grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
+
+  // Impr vs Clicks
+  const c3=$('ch3');
+  if(c3) CHARTS.c3=new Chart(c3,{type:'bar',data:{labels,datasets:[{label:'Impressions',data:DB.map(c=>c.results.imp||0),backgroundColor:'rgba(59,130,246,.75)',borderRadius:5,borderWidth:0},{label:'Clicks',data:DB.map(c=>c.results.clk||0),backgroundColor:'rgba(16,185,129,.75)',borderRadius:5,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{ticks:{callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v},grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
+
+  // CPA vs Price
+  const c4=$('ch4');
+  if(c4) CHARTS.c4=new Chart(c4,{type:'bar',data:{labels,datasets:[{label:'CPA (฿)',data:DB.map(c=>c.results.cpa||0),backgroundColor:'rgba(220,38,38,.7)',borderRadius:5,borderWidth:0},{label:'Product Price (฿)',data:DB.map(c=>c.inputs.productPrice||0),backgroundColor:'rgba(99,102,241,.7)',borderRadius:5,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{ticks:{callback:v=>'฿'+v},grid:{color:'#F1F5F9'}},x:{grid:{display:false}}}}});
+
+  // Campaign Type
+  const c5=$('ch5');
+  if(c5){
+    const tc={};DB.forEach(c=>{ tc[c.type]=(tc[c.type]||0)+1; });
+    CHARTS.c5=new Chart(c5,{type:'doughnut',data:{labels:Object.keys(tc).map(t=>TMAP[t]),datasets:[{data:Object.values(tc),backgroundColor:['#3B82F6','#10B981','#F59E0B','#8B5CF6','#EF4444'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:14}}},cutout:'62%'}});
+  }
+
+  // KPI Summary in dash
+  const kd=$('kdash'),kdb=$('kdashb');
+  const withKPI=DB.filter(c=>c.kpi.tCon>0||c.kpi.tImp>0||c.kpi.tROAS>0);
+  if(kd&&kdb){
+    if(withKPI.length){
+      kd.style.display='block';
+      kdb.innerHTML=`<div class="g3" style="gap:12px">
+        ${withKPI.map(c=>{
+          const metrics=[{k:'con',label:'Conversions',t:c.kpi.tCon,a:c.actual.con,lower:false},{k:'roas',label:'ROAS',t:c.kpi.tROAS,a:c.actual.roas,lower:false},{k:'cpa',label:'CPA',t:c.kpi.tCPA,a:c.actual.cpa,lower:true}].filter(m=>m.t>0&&m.a>0);
+          if(!metrics.length) return '';
+          const scores=metrics.map(m=>m.lower?(m.t/m.a)>=1:(m.a/m.t)>=0.75);
+          const onTrack=scores.filter(Boolean).length;
+          const pct=Math.round((onTrack/scores.length)*100);
+          const cl=pct>=75?'ok':pct>=50?'warn':'bad';
+          const bgCl=pct>=75?'var(--okl)':pct>=50?'var(--warnl)':'var(--badl)';
+          const bdr=pct>=75?'#A7F3D0':pct>=50?'#FDE68A':'#FECACA';
+          const tcl=pct>=75?'var(--ok)':pct>=50?'var(--warn)':'var(--bad)';
+          return `<div style="background:${bgCl};border:1px solid ${bdr};border-radius:var(--r);padding:14px">
+            <div style="font-weight:700;font-size:13px;margin-bottom:6px">${esc(c.name)}</div>
+            ${metrics.map(m=>{
+              const p=m.lower?(m.t/m.a)*100:(m.a/m.t)*100;
+              return `<div style="margin-bottom:5px"><div style="font-size:10px;color:var(--t3);margin-bottom:3px">${m.label}</div><div class="prt"><div class="prf g" style="width:${Math.min(p,100)}%"></div></div><div style="font-size:10px;color:var(--t3)">${f(p,1)}%</div></div>`;
+            }).join('')}
+            <div style="font-size:12px;font-weight:700;color:${tcl};margin-top:8px">${onTrack}/${scores.length} KPIs on track (${pct}%)</div>
+          </div>`;
+        }).join('')}
+      </div>`;
+    } else { kd.style.display='none'; }
+  }
+}
+
+// ============================================================
+// HEADER & BADGE
+// ============================================================
+function refreshHeader(){
+  const tot=agg();
+  const roas=tot.budget>0&&tot.rev>0?tot.rev/tot.budget:0;
+  const h1=$('hs1'),h2=$('hs2'),h3=$('hs3'),h4=$('hs4');
+  if(h1) h1.textContent=DB.length;
+  if(h2) h2.textContent=tot.budget>=1e6?'฿'+f(tot.budget/1e6,1)+'M':tot.budget>=1000?'฿'+f(tot.budget/1000,1)+'K':fc(tot.budget);
+  if(h3) h3.textContent=roas>0?fr(roas):'—';
+  if(h4) h4.textContent=f(tot.con,1);
+}
+function refreshBadge(){ const nb=$('nc'); if(nb) nb.textContent=DB.length; }
+
+// ============================================================
+// TOAST
+// ============================================================
+function toast(msg,type='ok'){
+  let box=$('toasts');
+  if(!box){ box=document.createElement('div');box.id='toasts';document.body.appendChild(box); }
+  const t=document.createElement('div');
+  t.className='tst '+type;t.textContent=msg;
+  box.appendChild(t);
+  setTimeout(()=>{ t.style.cssText+='opacity:0;transform:translateX(16px);transition:all .25s'; setTimeout(()=>t.remove(),260); },2800);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+refreshHeader(); refreshBadge();
 </script>
 </body>
 </html>
+```
+
+---
+
+## ฟีเจอร์ครบทั้งหมด ✅
+
+<details>
+<summary><strong>📋 สิ่งที่มีในเว็บนี้</strong></summary>
+
+| Tab | ฟีเจอร์ |
+|-----|---------|
+| 🧮 **Media Buying** | คำนวณ Budget, CPM, CPC, CVR, Product Price → Impressions, Clicks, Conversions, CPA, ROAS, Profit, CTR, eCPM |
+| 📘 **Facebook Ads** | Page Like / Engagement / Lead Ads / Video View — แยก Objective ครบ |
+| 📋 **Campaigns** | บันทึก + เปรียบเทียบทุกแคมเปญ, Export CSV ครบทุกคอลัมน์ |
+| 🎯 **KPI Tracking** | Target vs Actual ทุก metric, Progress bar, Auto-calc ROAS/CPA, Overall score |
+| 📈 **Dashboard** | Chart 5 ประเภท, Summary strip, KPI Achievement overview |
+
+</details>
+
+- **Light theme** อ่านง่าย เหมาะ B2B presentation
+- **Responsive** ทุกขนาดหน้าจอ
+- **Local Storage** — ข้อมูลไม่หายเมื่อ refresh
